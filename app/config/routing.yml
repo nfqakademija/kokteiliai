@@ -1,0 +1,4 @@
+nfq_cocktail:
+    resource: "@NfqCocktailBundle/Resources/config/routing.yml"
+    prefix:   /
+

@@ -1,0 +1,7 @@
+parameters:
+#    nfq_cocktail.example.class: Nfq\CocktailBundle\Example
+
+services:
+#    nfq_cocktail.example:
+#        class: %nfq_cocktail.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
