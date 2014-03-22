@@ -1,0 +1,7 @@
+parameters:
+#    cocktails_recipes.example.class: Cocktails\RecipesBundle\Example
+
+services:
+#    cocktails_recipes.example:
+#        class: %cocktails_recipes.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
