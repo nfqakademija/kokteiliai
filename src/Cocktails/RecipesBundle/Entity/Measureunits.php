@@ -5,12 +5,12 @@ namespace Cocktails\RecipesBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Measure_Units
+ * Measureunits
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="Cocktails\RecipesBundle\Entity\Measure_UnitsRepository")
+ * @ORM\Entity(repositoryClass="Cocktails\RecipesBundle\Entity\MeasureunitsRepository")
  */
-class Measure_Units
+class Measureunits
 {
     /**
      * @var integer
@@ -43,7 +43,7 @@ class Measure_Units
      * Set name
      *
      * @param string $name
-     * @return Measure_Units
+     * @return Measureunits
      */
     public function setName($name)
     {

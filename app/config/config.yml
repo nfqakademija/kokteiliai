@@ -1,6 +1,7 @@
 imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
+    - { resource: @CocktailsRecipesBundle/Resources/config/admin.yml }
 
 framework:
     #esi:             ~
@@ -72,3 +73,16 @@ fos_user:
     db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
     firewall_name: main
     user_class: Cocktails\RecipesBundle\Entity\User
+
+sonata_block:
+    default_contexts: [cms]
+    blocks:
+        # Enable the SonataAdminBundle block
+        sonata.admin.block.admin_list:
+            contexts:   [admin]
+        # Your other blocks
+
+sonata_admin:
+    security:
+        handler: sonata.admin.security.handler.role
+
