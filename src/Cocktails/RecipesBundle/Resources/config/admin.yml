@@ -10,17 +10,6 @@ services:
         calls:
             - [ setTranslationDomain, [CocktailsRecipesBundle]]
 
-    sonata.admin.measureunits:
-        class: Cocktails\RecipesBundle\Admin\MeasureunitsAdmin
-        tags:
-            - { name: sonata.admin, manager_type: orm, group: "Content", label: "Measure Units" }
-        arguments:
-            - ~
-            - Cocktails\RecipesBundle\Entity\Measureunits
-            - ~
-        calls:
-            - [ setTranslationDomain, [CocktailsRecipesBundle]]
-
     sonata.admin.ingredients:
         class: Cocktails\RecipesBundle\Admin\IngredientsAdmin
         tags:
@@ -28,6 +17,17 @@ services:
         arguments:
             - ~
             - Cocktails\RecipesBundle\Entity\Ingredients
+            - ~
+        calls:
+            - [ setTranslationDomain, [CocktailsRecipesBundle]]
+
+    sonata.admin.measureunits:
+        class: Cocktails\RecipesBundle\Admin\MeasureunitsAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Content", label: "Measure Units" }
+        arguments:
+            - ~
+            - Cocktails\RecipesBundle\Entity\Measureunits
             - ~
         calls:
             - [ setTranslationDomain, [CocktailsRecipesBundle]]
