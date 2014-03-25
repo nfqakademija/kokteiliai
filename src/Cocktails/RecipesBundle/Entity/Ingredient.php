@@ -8,9 +8,9 @@ use Doctrine\ORM\Mapping as ORM;
  * Ingredients
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="Cocktails\RecipesBundle\Entity\IngredientsRepository")
+ * @ORM\Entity(repositoryClass="Cocktails\RecipesBundle\Entity\IngredientRepository")
  */
-class Ingredients
+class Ingredient
 {
     /**
      * @var integer
@@ -57,7 +57,7 @@ class Ingredients
      * Set name
      *
      * @param string $name
-     * @return Ingredients
+     * @return Ingredient
      */
     public function setName($name)
     {
@@ -80,7 +80,7 @@ class Ingredients
      * Set foto
      *
      * @param string $foto
-     * @return Ingredients
+     * @return Ingredient
      */
     public function setFoto($foto)
     {
@@ -103,7 +103,7 @@ class Ingredients
      * Set measureUnitId
      *
      * @param integer $measureUnitId
-     * @return Ingredients
+     * @return Ingredient
      */
     public function setMeasureUnitId($measureUnitId)
     {
