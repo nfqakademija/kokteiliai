@@ -10,6 +10,17 @@ services:
         calls:
             - [ setTranslationDomain, [CocktailsRecipesBundle]]
 
+    sonata.admin.ingredient:
+        class: Cocktails\RecipesBundle\Admin\IngredientAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Content", label: "Ingredient" }
+        arguments:
+            - ~
+            - Cocktails\RecipesBundle\Entity\Ingredient
+            - ~
+        calls:
+            - [ setTranslationDomain, [CocktailsRecipesBundle]]
+
     sonata.admin.measureunit:
         class: Cocktails\RecipesBundle\Admin\MeasureUnitAdmin
         tags:
@@ -21,13 +32,3 @@ services:
         calls:
             - [ setTranslationDomain, [CocktailsRecipesBundle]]
 
-    sonata.admin.ingredient:
-        class: Cocktails\RecipesBundle\Admin\IngredientAdmin
-        tags:
-            - { name: sonata.admin, manager_type: orm, group: "Content", label: "Ingredient" }
-        arguments:
-            - ~
-            - Cocktails\RecipesBundle\Entity\Ingredient
-            - ~
-        calls:
-            - [ setTranslationDomain, [CocktailsRecipesBundle]]
