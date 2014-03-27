@@ -7,16 +7,13 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 
-class RecipesAdmin extends Admin
+class MeasureUnitAdmin extends Admin
 {
     // Fields to be shown on create/edit forms
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
             ->add('name', 'text', array('label' => 'Name'))
-            ->add('foto', 'text', array('label' => 'Foto'))
-            ->add('rank', 'text', array('label' => 'Rank'))
-            #->add('measure', 'entity', array('class' => 'Acme\DemoBundle\Entity\User'))
         ;
     }
 
@@ -25,7 +22,6 @@ class RecipesAdmin extends Admin
     {
         $datagridMapper
             ->add('name')
-            ->add('rank')
         ;
     }
 
@@ -34,8 +30,6 @@ class RecipesAdmin extends Admin
     {
         $listMapper
             ->addIdentifier('name')
-            ->add('foto')
-            ->add('rank')
         ;
     }
 }

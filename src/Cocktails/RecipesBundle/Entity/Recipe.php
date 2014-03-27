@@ -5,12 +5,12 @@ namespace Cocktails\RecipesBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Recipes
+ * Recipe
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="Cocktails\RecipesBundle\Entity\RecipesRepository")
+ * @ORM\Entity(repositoryClass="Cocktails\RecipesBundle\Entity\RecipeRepository")
  */
-class Recipes
+class Recipe
 {
     /**
      * @var integer
@@ -64,7 +64,7 @@ class Recipes
      * Set name
      *
      * @param string $name
-     * @return Recipes
+     * @return Recipe
      */
     public function setName($name)
     {
@@ -87,7 +87,7 @@ class Recipes
      * Set foto
      *
      * @param string $foto
-     * @return Recipes
+     * @return Recipe
      */
     public function setFoto($foto)
     {
@@ -110,7 +110,7 @@ class Recipes
      * Set rank
      *
      * @param integer $rank
-     * @return Recipes
+     * @return Recipe
      */
     public function setRank($rank)
     {
@@ -133,7 +133,7 @@ class Recipes
      * Set recipeTypeId
      *
      * @param integer $recipeTypeId
-     * @return Recipes
+     * @return Recipe
      */
     public function setRecipeTypeId($recipeTypeId)
     {
