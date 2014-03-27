@@ -4,8 +4,6 @@ namespace Cocktails\RecipesBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
-
-
 /**
  * Recipes
  *
