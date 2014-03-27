@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bc7f74ee-3271-414b-a38a-ad70ebfc23d3" name="Default" comment="">
+    <list default="true" id="bc7f74ee-3271-414b-a38a-ad70ebfc23d3" name="Default" comment="Merged">
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="2f5dfbe4-1799-427b-aa61-f72778bedfa7" name="New changelist" comment="" />
@@ -311,7 +311,11 @@
       <created>1395933528833</created>
       <updated>1395933528833</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Merged">
+      <created>1395933545886</created>
+      <updated>1395933545886</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
