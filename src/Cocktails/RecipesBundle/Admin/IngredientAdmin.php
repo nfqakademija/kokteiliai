@@ -16,6 +16,7 @@ class IngredientAdmin extends Admin
         $formMapper
             ->add('name', 'text', array('label' => 'Name'))
             ->add('foto', 'text', array('label' => 'Foto'))
+            ->add('measureUnit', 'sonata_type_model', array('property' => 'name'))
         ;
     }
 
