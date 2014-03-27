@@ -7,13 +7,16 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 
-class MeasureunitsAdmin extends Admin
+
+class IngredientAdmin extends Admin
 {
     // Fields to be shown on create/edit forms
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
             ->add('name', 'text', array('label' => 'Name'))
+            ->add('foto', 'text', array('label' => 'Foto'))
+            ->add('measureUnit', 'sonata_type_model', array('property' => 'name'))
         ;
     }
 
@@ -30,6 +33,7 @@ class MeasureunitsAdmin extends Admin
     {
         $listMapper
             ->addIdentifier('name')
+            ->add('foto')
         ;
     }
 }

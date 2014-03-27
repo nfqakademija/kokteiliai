@@ -5,21 +5,13 @@ namespace Cocktails\RecipesBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Ingredient
+ * Ingredients
  *
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="Cocktails\RecipesBundle\Entity\IngredientsRepository")
  */
-
-class Ingredient
+class Ingredients
 {
-    /**
-     * @ORM\ManyToOne(targetEntity="Measureunits", inversedBy="ingredients")
-     * @ORM\JoinColumn(name="MeasureUnit_id", referencedColumnName="id")
-     */
-    protected  $measureunits;
-
-
     /**
      * @var integer
      *
@@ -44,6 +36,14 @@ class Ingredient
     private $foto;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="measure_unit_id", type="integer")
+     */
+    private $measureUnitId;
+
+
+    /**
      * Get id
      *
      * @return integer 
@@ -57,7 +57,7 @@ class Ingredient
      * Set name
      *
      * @param string $name
-     * @return Ingredient
+     * @return Ingredients
      */
     public function setName($name)
     {
@@ -80,7 +80,7 @@ class Ingredient
      * Set foto
      *
      * @param string $foto
-     * @return Ingredient
+     * @return Ingredients
      */
     public function setFoto($foto)
     {
@@ -97,5 +97,28 @@ class Ingredient
     public function getFoto()
     {
         return $this->foto;
+    }
+
+    /**
+     * Set measureUnitId
+     *
+     * @param integer $measureUnitId
+     * @return Ingredients
+     */
+    public function setMeasureUnitId($measureUnitId)
+    {
+        $this->measureUnitId = $measureUnitId;
+
+        return $this;
+    }
+
+    /**
+     * Get measureUnitId
+     *
+     * @return integer 
+     */
+    public function getMeasureUnitId()
+    {
+        return $this->measureUnitId;
     }
 }

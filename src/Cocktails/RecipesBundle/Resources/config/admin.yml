@@ -1,33 +1,34 @@
 services:
-    sonata.admin.recipes:
-        class: Cocktails\RecipesBundle\Admin\RecipesAdmin
+    sonata.admin.recipe:
+        class: Cocktails\RecipesBundle\Admin\RecipeAdmin
         tags:
-            - { name: sonata.admin, manager_type: orm, group: "Content", label: "Recipes" }
+            - { name: sonata.admin, manager_type: orm, group: "Content", label: "Recipe" }
         arguments:
             - ~
-            - Cocktails\RecipesBundle\Entity\Recipes
+            - Cocktails\RecipesBundle\Entity\Recipe
             - ~
         calls:
             - [ setTranslationDomain, [CocktailsRecipesBundle]]
 
-    sonata.admin.ingredients:
-        class: Cocktails\RecipesBundle\Admin\IngredientsAdmin
+    sonata.admin.ingredient:
+        class: Cocktails\RecipesBundle\Admin\IngredientAdmin
         tags:
-            - { name: sonata.admin, manager_type: orm, group: "Content", label: "Ingredients" }
+            - { name: sonata.admin, manager_type: orm, group: "Content", label: "Ingredient" }
         arguments:
             - ~
-            - Cocktails\RecipesBundle\Entity\Ingredients
+            - Cocktails\RecipesBundle\Entity\Ingredient
             - ~
         calls:
             - [ setTranslationDomain, [CocktailsRecipesBundle]]
 
-    sonata.admin.measureunits:
-        class: Cocktails\RecipesBundle\Admin\MeasureunitsAdmin
+    sonata.admin.measureunit:
+        class: Cocktails\RecipesBundle\Admin\MeasureUnitAdmin
         tags:
-            - { name: sonata.admin, manager_type: orm, group: "Content", label: "Measure Units" }
+            - { name: sonata.admin, manager_type: orm, group: "Content", label: "Measure Unit" }
         arguments:
             - ~
-            - Cocktails\RecipesBundle\Entity\Measureunits
+            - Cocktails\RecipesBundle\Entity\MeasureUnit
             - ~
         calls:
             - [ setTranslationDomain, [CocktailsRecipesBundle]]
+
