@@ -31,4 +31,3 @@ services:
             - ~
         calls:
             - [ setTranslationDomain, [CocktailsRecipesBundle]]
-
