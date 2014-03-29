@@ -38,7 +38,7 @@ services:
             - { name: sonata.admin, manager_type: orm, group: "Content", label: "Image" }
         arguments:
             - ~
-            - Acme\DemoBundle\Entity\Image
+            - Cocktails\RecipesBundle\Entity\Image
             - ~
         calls:
             - [ setTranslationDomain, [CocktailsRecipesBundle]]

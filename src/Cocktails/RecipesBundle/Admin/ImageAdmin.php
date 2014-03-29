@@ -19,9 +19,7 @@ class ImageAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('title', 'text', array('label' => 'Post Title'))
-            ->add('author', 'entity', array('class' => 'Acme\DemoBundle\Entity\User'))
-            ->add('body') //if no type is specified, SonataAdminBundle tries to guess it
+            ->add('name', 'text', array('label' => 'Name'))
         ;
     }
 
@@ -29,8 +27,7 @@ class ImageAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('title')
-            ->add('author')
+            ->add('name')
         ;
     }
 
@@ -38,9 +35,8 @@ class ImageAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->addIdentifier('title')
+            ->addIdentifier('name')
             ->add('slug')
-            ->add('author')
         ;
     }
 }
