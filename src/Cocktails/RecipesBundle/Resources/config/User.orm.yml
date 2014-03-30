@@ -1,0 +1,9 @@
+Cocktails\RecipesBundle\Entity\User:
+    type: entity
+    table: cms_users
+    id:
+      id:
+        type: integer
+        generator:
+          strategy: AUTO
+    fields:

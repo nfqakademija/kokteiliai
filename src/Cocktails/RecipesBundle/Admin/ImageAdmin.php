@@ -15,12 +15,26 @@ use Sonata\AdminBundle\Form\FormMapper;
 
 class ImageAdmin extends Admin
 {
-    // Fields to be shown on create/edit forms
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('name', 'text', array('label' => 'Name'))
+            ->add('file', 'file', array('required' => false))
+            // ... other fields can go here ...
         ;
+    }
+
+    public function prePersist($image) {
+        $this->manageFileUpload($image);
+    }
+
+    public function preUpdate($image) {
+        $this->manageFileUpload($image);
+    }
+
+    private function manageFileUpload($image) {
+        if ($image->getFile()) {
+            $image->refreshUpdated();
+        }
     }
 
     // Fields to be shown on filter forms

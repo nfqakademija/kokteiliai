@@ -1,0 +1,20 @@
+
+Cocktails\RecipesBundle\Entity\Image:
+  type: entity
+  repositoryClass: Cocktails\RecipesBundle\Entity\Repositories\ImageRepository
+  table: images
+  id:
+    id:
+      type:         integer
+      generator:    { strategy: AUTO }
+  fields:
+    file:
+      type:         string
+      length:       100
+    updated:        # changed when files are uploaded, to force preUpdate and postUpdate to fire
+      type:         datetime
+      nullable:     true
+    # ... other fields ...
+  lifecycleCallbacks:
+      prePersist:   [ lifecycleFileUpload ]
+      preUpdate:    [ lifecycleFileUpload ]
