@@ -83,6 +83,12 @@ class Image
         $this->setUpdated(date('Y-m-d H:i:s'));
     }
 
+    public function setUpdated($date)
+    {
+        $this->updated = $date;
+        #TODO: patikrinti ar teisinga
+    }
+
     /**
      * @ORM\PrePersist()
      * @ORM\PreUpdate()

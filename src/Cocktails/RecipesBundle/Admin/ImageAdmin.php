@@ -13,12 +13,14 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 
+
 class ImageAdmin extends Admin
 {
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
             ->add('file', 'file', array('required' => false))
+            ->add('name', 'text', array('label' => 'Name'))
             // ... other fields can go here ...
         ;
     }
@@ -50,7 +52,6 @@ class ImageAdmin extends Admin
     {
         $listMapper
             ->addIdentifier('name')
-            ->add('slug')
         ;
     }
 }
