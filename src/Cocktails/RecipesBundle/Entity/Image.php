@@ -14,6 +14,7 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 class Image
 {
     private $temp;
+    private $updated;
 
     /**
      * Sets file.
@@ -152,6 +153,13 @@ class Image
     public function getFile()
     {
         return $this->file;
+    }
+
+    /**
+     * Lifecycle callback to upload the file to the server
+     */
+    public function lifecycleFileUpload() {
+        $this->upload();
     }
 
 }
