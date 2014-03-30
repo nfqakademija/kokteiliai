@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0ef5fb2f-f404-4939-9135-4fd8e44152be" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Cocktails/RecipesBundle/Entity/Image.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Cocktails/RecipesBundle/Admin/ImageAdmin.php" afterPath="$PROJECT_DIR$/src/Cocktails/RecipesBundle/Admin/ImageAdmin.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Cocktails/RecipesBundle/Resources/config/admin.yml" afterPath="$PROJECT_DIR$/src/Cocktails/RecipesBundle/Resources/config/admin.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/config.yml" afterPath="$PROJECT_DIR$/app/config/config.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="0ef5fb2f-f404-4939-9135-4fd8e44152be" name="Default" comment="" />
     <ignored path="kokteiliai.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -32,7 +26,7 @@
       <file leaf-file-name="Ingredient.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Cocktails/RecipesBundle/Entity/Ingredient.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="2" selection-start="104" selection-end="104" vertical-scroll-proportion="-5.230769" vertical-offset="0" max-vertical-offset="2261">
+            <state line="8" column="2" selection-start="104" selection-end="104" vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="2261">
               <folding />
             </state>
           </provider>
@@ -41,7 +35,7 @@
       <file leaf-file-name="ImageAdmin.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Cocktails/RecipesBundle/Admin/ImageAdmin.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="38" column="25" selection-start="933" selection-end="933" vertical-scroll-proportion="-15.692307" vertical-offset="102" max-vertical-offset="663">
+            <state line="38" column="25" selection-start="933" selection-end="933" vertical-scroll-proportion="0.0" vertical-offset="646" max-vertical-offset="799">
               <folding />
             </state>
           </provider>
@@ -50,7 +44,7 @@
       <file leaf-file-name="config.yml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/config/config.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="86" column="56" selection-start="2501" selection-end="2501" vertical-scroll-proportion="1.3214285" vertical-offset="1092" max-vertical-offset="1564">
+            <state line="86" column="56" selection-start="2501" selection-end="2501" vertical-scroll-proportion="1.1651376" vertical-offset="954" max-vertical-offset="1564">
               <folding />
             </state>
           </provider>
@@ -59,7 +53,7 @@
       <file leaf-file-name="IngredientAdmin.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Cocktails/RecipesBundle/Admin/IngredientAdmin.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="0" selection-start="217" selection-end="217" vertical-scroll-proportion="-1.4615384" vertical-offset="47" max-vertical-offset="697">
+            <state line="8" column="0" selection-start="217" selection-end="217" vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="748">
               <folding />
             </state>
           </provider>
@@ -77,7 +71,7 @@
       <file leaf-file-name="Image.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Cocktails/RecipesBundle/Entity/Image.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="7" selection-start="238" selection-end="238" vertical-scroll-proportion="-8.5" vertical-offset="0" max-vertical-offset="1122">
+            <state line="18" column="7" selection-start="238" selection-end="238" vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="1207">
               <folding />
             </state>
           </provider>
@@ -150,7 +144,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -347,6 +340,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -462,13 +456,13 @@
     <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33333334" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.502439" sideWeight="0.6140725" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24878049" sideWeight="0.6140725" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Framework" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21072507" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21374622" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5448649" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
@@ -512,6 +506,48 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/Cocktails/RecipesBundle/Entity/Ingredient.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="2" selection-start="104" selection-end="104" vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="2261">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Cocktails/RecipesBundle/Admin/ImageAdmin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="38" column="25" selection-start="933" selection-end="933" vertical-scroll-proportion="0.0" vertical-offset="646" max-vertical-offset="799">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/config.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="86" column="56" selection-start="2501" selection-end="2501" vertical-scroll-proportion="0.0" vertical-offset="1092" max-vertical-offset="1564">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Cocktails/RecipesBundle/Admin/IngredientAdmin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="0" selection-start="217" selection-end="217" vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="748">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Cocktails/RecipesBundle/Resources/config/admin.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="40" column="50" selection-start="1426" selection-end="1426" vertical-scroll-proportion="0.0" vertical-offset="310" max-vertical-offset="833">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Cocktails/RecipesBundle/Entity/Image.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="7" selection-start="238" selection-end="238" vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="1207">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Cocktails/RecipesBundle/Admin/ImageAdmin.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="32" column="9" selection-start="920" selection-end="920" vertical-scroll-proportion="0.0" vertical-offset="408" max-vertical-offset="731">
@@ -530,11 +566,11 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/LICENSE">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="709" />
-      </provider>
       <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
         <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="709" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/template/info.txt">
@@ -553,11 +589,11 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/composer.lock">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="39797" />
-      </provider>
       <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
         <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="39797" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/vendor/sonata-project/admin-bundle/Command/GenerateAdminCommand.php">
@@ -619,35 +655,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Cocktails/RecipesBundle/Entity/Image.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="7" selection-start="238" selection-end="238" vertical-scroll-proportion="-8.5" vertical-offset="0" max-vertical-offset="1122">
+        <state line="18" column="7" selection-start="238" selection-end="238" vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="1207">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Cocktails/RecipesBundle/Admin/IngredientAdmin.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="0" selection-start="217" selection-end="217" vertical-scroll-proportion="-1.4615384" vertical-offset="47" max-vertical-offset="697">
+        <state line="8" column="0" selection-start="217" selection-end="217" vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="748">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Cocktails/RecipesBundle/Entity/Ingredient.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="2" selection-start="104" selection-end="104" vertical-scroll-proportion="-5.230769" vertical-offset="0" max-vertical-offset="2261">
+        <state line="8" column="2" selection-start="104" selection-end="104" vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="2261">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Cocktails/RecipesBundle/Admin/ImageAdmin.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="25" selection-start="933" selection-end="933" vertical-scroll-proportion="-15.692307" vertical-offset="102" max-vertical-offset="663">
+        <state line="38" column="25" selection-start="933" selection-end="933" vertical-scroll-proportion="0.0" vertical-offset="646" max-vertical-offset="799">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/config/config.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="86" column="56" selection-start="2501" selection-end="2501" vertical-scroll-proportion="1.3214285" vertical-offset="1092" max-vertical-offset="1564">
+        <state line="86" column="56" selection-start="2501" selection-end="2501" vertical-scroll-proportion="1.1651376" vertical-offset="954" max-vertical-offset="1564">
           <folding />
         </state>
       </provider>
