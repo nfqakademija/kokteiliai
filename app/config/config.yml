@@ -83,5 +83,5 @@ sonata_block:
         # Your other blocks
 
 sonata_admin:
-    title:      Acme Demo Bundle
-    title_logo: bundles/acmedemo/img/fancy_acme_logo.png
+    title:      Cocktails
+    #title_logo: bundles/acmedemo/img/fancy_acme_logo.png
