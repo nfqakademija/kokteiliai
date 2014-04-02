@@ -120,7 +120,7 @@ class Image
     {
         if (null !== $this->getFile()) {
             // do whatever you want to generate a unique name
-            $this->name = $this->getFile()->getClientOriginalName().date(' Y-m-d H:i');
+            $this->name = date('Y-m-d_H-i_').$this->getFile()->getClientOriginalName();
             $this->path = $this->getUploadDir().'/'.$this->name.'.'.$this->getFile()->guessExtension();
         }
     }
