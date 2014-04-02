@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0ef5fb2f-f404-4939-9135-4fd8e44152be" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Cocktails/RecipesBundle/Controller/DefaultController.php" afterPath="$PROJECT_DIR$/src/Cocktails/RecipesBundle/Controller/DefaultController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Cocktails/RecipesBundle/Entity/Image.php" afterPath="$PROJECT_DIR$/src/Cocktails/RecipesBundle/Entity/Image.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Cocktails/RecipesBundle/Admin/ImageAdmin.php" afterPath="$PROJECT_DIR$/src/Cocktails/RecipesBundle/Admin/ImageAdmin.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="kokteiliai.iws" />
@@ -31,7 +29,7 @@
       <file leaf-file-name="UploadedFile.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/HttpFoundation/File/UploadedFile.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="244" column="24" selection-start="6956" selection-end="6957" vertical-scroll-proportion="-3.27451" vertical-offset="3947" max-vertical-offset="5389">
+            <state line="244" column="24" selection-start="6956" selection-end="6957" vertical-scroll-proportion="-47.862743" vertical-offset="1673" max-vertical-offset="5389">
               <folding>
                 <element signature="e#7#236#0" expanded="true" />
               </folding>
@@ -80,7 +78,7 @@
       <file leaf-file-name="Image.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Cocktails/RecipesBundle/Entity/Image.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="142" column="26" selection-start="3237" selection-end="3237" vertical-scroll-proportion="0.44271845" vertical-offset="2152" max-vertical-offset="3995">
+            <state line="124" column="22" selection-start="2838" selection-end="2838" vertical-scroll-proportion="0.26796117" vertical-offset="1936" max-vertical-offset="3995">
               <folding />
             </state>
           </provider>
@@ -1069,7 +1067,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/HttpFoundation/File/UploadedFile.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="244" column="24" selection-start="6956" selection-end="6957" vertical-scroll-proportion="-3.27451" vertical-offset="3947" max-vertical-offset="5389">
+        <state line="244" column="24" selection-start="6956" selection-end="6957" vertical-scroll-proportion="-47.862743" vertical-offset="1673" max-vertical-offset="5389">
           <folding>
             <element signature="e#7#236#0" expanded="true" />
           </folding>
@@ -1078,7 +1076,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Cocktails/RecipesBundle/Entity/Image.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="142" column="26" selection-start="3237" selection-end="3237" vertical-scroll-proportion="0.44271845" vertical-offset="2152" max-vertical-offset="3995">
+        <state line="124" column="22" selection-start="2838" selection-end="2838" vertical-scroll-proportion="0.26796117" vertical-offset="1936" max-vertical-offset="3995">
           <folding />
         </state>
       </provider>
