@@ -42,3 +42,14 @@ services:
             - ~
         calls:
             - [ setTranslationDomain, [CocktailsRecipesBundle]]
+
+    sonata.admin.recipesingredients:
+            class: Cocktails\RecipesBundle\Admin\RecipesIngredientsAdmin
+            tags:
+                - { name: sonata.admin, manager_type: orm, group: "Content", label: "Recipes/Ingredients" }
+            arguments:
+                - ~
+                - Cocktails\RecipesBundle\Entity\RecipesIngredients
+                - ~
+            calls:
+                - [ setTranslationDomain, [CocktailsRecipesBundle]]

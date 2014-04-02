@@ -7,25 +7,14 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 
-class RecipeAdmin extends Admin
+class RecipesIngredientsAdmin extends Admin
 {
     // Fields to be shown on create/edit forms
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('name', 'text', array('label' => 'Name'))
-            ->add('foto', 'text', array('label' => 'Foto'))
-            ->add('rank', 'text', array('label' => 'Rank'))
-            ->add('ingredients', 'sonata_type_collection',
-                array(
-                    'required' => true,
-                    'by_reference' => false
-                ),
-                array(
-                    'edit' => 'inline',
-                    'inline' => 'table',
-                    'allow_delete' => true
-                ))
+            ->add('recipe', 'sonata_type_model', array('property' => 'name'))
+            ->add('ingredient', 'sonata_type_model', array('property' => 'name'))
         ;
     }
 
@@ -34,6 +23,7 @@ class RecipeAdmin extends Admin
     {
         $datagridMapper
             #->add('name')
+            #->add('rank')
         ;
     }
 
@@ -41,9 +31,9 @@ class RecipeAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->addIdentifier('name')
-            ->add('foto')
-            ->add('rank')
+            #->addIdentifier('name')
+            #->add('foto')
+            #->add('rank')
         ;
     }
 }
