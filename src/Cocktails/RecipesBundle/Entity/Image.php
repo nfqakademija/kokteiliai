@@ -31,8 +31,7 @@ class Image
     public $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     public $name;
 
@@ -121,8 +120,8 @@ class Image
     {
         if (null !== $this->getFile()) {
             // do whatever you want to generate a unique name
-            $filename = sha1(uniqid(mt_rand(), true));
-            $this->path = $this->getUploadDir().'/'.$filename.'.'.$this->getFile()->guessExtension();
+            $this->name = $this->getFile()->getClientOriginalName().date(' Y-m-d H:i');
+            $this->path = $this->getUploadDir().'/'.$this->name.'.'.$this->getFile()->guessExtension();
         }
     }
 

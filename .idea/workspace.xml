@@ -78,7 +78,16 @@
       <file leaf-file-name="Image.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Cocktails/RecipesBundle/Entity/Image.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="124" column="22" selection-start="2838" selection-end="2838" vertical-scroll-proportion="0.26796117" vertical-offset="1936" max-vertical-offset="3995">
+            <state line="122" column="78" selection-start="2830" selection-end="2830" vertical-scroll-proportion="0.32815534" vertical-offset="1871" max-vertical-offset="3978">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="date.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/date.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="912" column="34" selection-start="26329" selection-end="26329" vertical-scroll-proportion="-9.346154" vertical-offset="15261" max-vertical-offset="22712">
               <folding />
             </state>
           </provider>
@@ -98,8 +107,10 @@
       <file leaf-file-name="Image.orm.yml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Cocktails/RecipesBundle/Resources/config/Image.orm.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="24" selection-start="451" selection-end="451" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="425">
-              <folding />
+            <state line="9" column="9" selection-start="239" selection-end="239" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="425">
+              <folding>
+                <marker date="1396368884368" expanded="true" signature="232:456" placeholder="fields:" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -107,7 +118,7 @@
       <file leaf-file-name="ImageAdmin.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Cocktails/RecipesBundle/Admin/ImageAdmin.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="53" column="35" selection-start="1284" selection-end="1284" vertical-scroll-proportion="-18.615385" vertical-offset="332" max-vertical-offset="986">
+            <state line="29" column="5" selection-start="700" selection-end="700" vertical-scroll-proportion="-15.692307" vertical-offset="0" max-vertical-offset="986">
               <folding>
                 <element signature="e#130#165#0" expanded="true" />
               </folding>
@@ -146,11 +157,11 @@
         <option value="$PROJECT_DIR$/src/Cocktails/RecipesBundle/Resources/config/Doctrine/Image.orm.yml" />
         <option value="$PROJECT_DIR$/src/Cocktails/RecipesBundle/Resources/config/User.orm.yml" />
         <option value="$PROJECT_DIR$/app/config/config.yml" />
-        <option value="$PROJECT_DIR$/src/Cocktails/RecipesBundle/Resources/config/Image.orm.yml" />
         <option value="$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/HttpFoundation/File/File.php" />
         <option value="$PROJECT_DIR$/src/Cocktails/RecipesBundle/Resources/config/validation.yml" />
-        <option value="$PROJECT_DIR$/src/Cocktails/RecipesBundle/Admin/ImageAdmin.php" />
         <option value="$PROJECT_DIR$/src/Cocktails/RecipesBundle/Controller/DefaultController.php" />
+        <option value="$PROJECT_DIR$/src/Cocktails/RecipesBundle/Admin/ImageAdmin.php" />
+        <option value="$PROJECT_DIR$/src/Cocktails/RecipesBundle/Resources/config/Image.orm.yml" />
         <option value="$PROJECT_DIR$/src/Cocktails/RecipesBundle/Entity/Image.php" />
       </list>
     </option>
@@ -744,11 +755,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Cocktails/RecipesBundle/Entity/Ingredient.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="0" selection-start="7" selection-end="48" vertical-scroll-proportion="0.0" vertical-offset="34" max-vertical-offset="2261" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Cocktails/RecipesBundle/Admin/ImageAdmin.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="21" column="59" selection-start="531" selection-end="531" vertical-scroll-proportion="0.0" vertical-offset="357" max-vertical-offset="663">
@@ -1040,22 +1046,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Cocktails/RecipesBundle/Resources/config/Image.orm.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="24" selection-start="451" selection-end="451" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="425">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Cocktails/RecipesBundle/Admin/ImageAdmin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="35" selection-start="1284" selection-end="1284" vertical-scroll-proportion="-18.615385" vertical-offset="332" max-vertical-offset="986">
-          <folding>
-            <element signature="e#130#165#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Cocktails/RecipesBundle/Controller/DefaultController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="37" column="67" selection-start="998" selection-end="998" vertical-scroll-proportion="-13.961538" vertical-offset="266" max-vertical-offset="833">
@@ -1074,9 +1064,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Cocktails/RecipesBundle/Admin/ImageAdmin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="5" selection-start="700" selection-end="700" vertical-scroll-proportion="-15.692307" vertical-offset="0" max-vertical-offset="986">
+          <folding>
+            <element signature="e#130#165#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Cocktails/RecipesBundle/Resources/config/Image.orm.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="9" selection-start="239" selection-end="239" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="425">
+          <folding>
+            <marker date="1396368884368" expanded="true" signature="232:456" placeholder="fields:" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/date.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="912" column="34" selection-start="26329" selection-end="26329" vertical-scroll-proportion="-9.346154" vertical-offset="15261" max-vertical-offset="22712">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Cocktails/RecipesBundle/Entity/Image.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="124" column="22" selection-start="2838" selection-end="2838" vertical-scroll-proportion="0.26796117" vertical-offset="1936" max-vertical-offset="3995">
+        <state line="122" column="78" selection-start="2830" selection-end="2830" vertical-scroll-proportion="0.32815534" vertical-offset="1871" max-vertical-offset="3978">
           <folding />
         </state>
       </provider>
