@@ -122,7 +122,7 @@ class Image
         if (null !== $this->getFile()) {
             // do whatever you want to generate a unique name
             $filename = sha1(uniqid(mt_rand(), true));
-            $this->path = $this->getWebPath().'/'.$filename.'.'.$this->getFile()->guessExtension();
+            $this->path = $this->getUploadDir().'/'.$filename.'.'.$this->getFile()->guessExtension();
         }
     }
 
@@ -162,14 +162,14 @@ class Image
     {
         // the absolute directory path where uploaded
         // documents should be saved
-        return __DIR__.$this->getUploadDir();
+        return __DIR__.'/../../../../web/'.$this->getUploadDir();
     }
 
     protected function getUploadDir()
     {
         // get rid of the __DIR__ so it doesn't screw up
         // when displaying uploaded doc/image in the view.
-        return 'web/files/images';
+        return 'files/images';
     }
 
 

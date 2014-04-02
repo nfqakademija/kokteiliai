@@ -35,7 +35,7 @@ class DefaultController extends Controller
             $em->persist($image);
             $em->flush();
 
-            return $this->redirect('/kokteiliai/1');
+            return $this->redirect('C:/xampp/htdocs/kokteiliai/1');
         }
 
         return array('form' => $form->createView());

@@ -52,8 +52,6 @@ class ImageAdmin extends Admin
     {
         $listMapper
             ->addIdentifier('name')
-            ->addIdentifier('file')
-            ->addIdentifier('id')
             ->addIdentifier('path')
         ;
     }
