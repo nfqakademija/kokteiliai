@@ -2,6 +2,7 @@
 
 namespace Cocktails\RecipesBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -42,8 +43,10 @@ class Ingredient
      */
     private $measureUnit;
 
-
-
+    /**
+     * @ORM\OneToMany(targetEntity="RecipesIngredients", mappedBy="recipe", cascade={"all"})
+     */
+    private $recipes;
 
 
     /**
@@ -95,7 +98,7 @@ class Ingredient
     /**
      * Get foto
      *
-     * @return string 
+     * @return string
      */
     public function getFoto()
     {
@@ -123,5 +126,46 @@ class Ingredient
     public function getMeasureUnit()
     {
         return $this->measureUnit;
+    }
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->recipes = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add recipes
+     *
+     * @param \Cocktails\RecipesBundle\Entity\RecipesIngredients $recipes
+     * @return Ingredient
+     */
+    public function addRecipe(\Cocktails\RecipesBundle\Entity\RecipesIngredients $recipes)
+    {
+        $this->recipes[] = $recipes;
+
+        return $this;
+    }
+
+    /**
+     * Remove recipes
+     *
+     * @param \Cocktails\RecipesBundle\Entity\RecipesIngredients $recipes
+     */
+    public function removeRecipe(\Cocktails\RecipesBundle\Entity\RecipesIngredients $recipes)
+    {
+        $this->recipes->removeElement($recipes);
+    }
+
+    /**
+     * Get recipes
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getRecipes()
+    {
+        return $this->recipes;
     }
 }

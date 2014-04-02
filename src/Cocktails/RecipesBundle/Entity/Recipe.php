@@ -2,6 +2,7 @@
 
 namespace Cocktails\RecipesBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -43,12 +44,9 @@ class Recipe
     private $rank;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="recipe_type_id", type="integer")
+     * @ORM\OneToMany(targetEntity="RecipesIngredients", mappedBy="recipe", cascade={"all"})
      */
-    private $recipeTypeId;
-
+    private $ingredients;
 
     /**
      * Get id
@@ -129,26 +127,45 @@ class Recipe
         return $this->rank;
     }
 
+
     /**
-     * Set recipeTypeId
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->ingredients = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add ingredients
      *
-     * @param integer $recipeTypeId
+     * @param \Cocktails\RecipesBundle\Entity\RecipesIngredients $ingredients
      * @return Recipe
      */
-    public function setRecipeTypeId($recipeTypeId)
+    public function addIngredient(\Cocktails\RecipesBundle\Entity\RecipesIngredients $ingredients)
     {
-        $this->recipeTypeId = $recipeTypeId;
+        $this->ingredients[] = $ingredients;
 
         return $this;
     }
 
     /**
-     * Get recipeTypeId
+     * Remove ingredients
      *
-     * @return integer 
+     * @param \Cocktails\RecipesBundle\Entity\RecipesIngredients $ingredients
      */
-    public function getRecipeTypeId()
+    public function removeIngredient(\Cocktails\RecipesBundle\Entity\RecipesIngredients $ingredients)
     {
-        return $this->recipeTypeId;
+        $this->ingredients->removeElement($ingredients);
+    }
+
+    /**
+     * Get ingredients
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getIngredients()
+    {
+        return $this->ingredients;
     }
 }

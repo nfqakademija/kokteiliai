@@ -30,8 +30,6 @@ class MeasureUnit
     private $name;
 
     /**
-     * @var ArrayCollection
-     *
      * @ORM\OneToMany(targetEntity="Ingredient", mappedBy="measureUnit")
      */
     private $ingredients;
@@ -68,6 +66,7 @@ class MeasureUnit
     {
         return $this->name;
     }
+
     /**
      * Constructor
      */
