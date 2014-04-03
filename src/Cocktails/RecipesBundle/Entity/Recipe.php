@@ -49,6 +49,13 @@ class Recipe
     private $ingredients;
 
     /**
+     * @var RecipeType
+     *
+     * @ORM\ManyToOne(targetEntity="RecipeType", inversedBy="recipes")
+     */
+    private $recipeType;
+
+    /**
      * Get id
      *
      * @return integer 
@@ -167,5 +174,28 @@ class Recipe
     public function getIngredients()
     {
         return $this->ingredients;
+    }
+
+    /**
+     * Set recipeType
+     *
+     * @param \Cocktails\RecipesBundle\Entity\RecipeType $recipeType
+     * @return Ingredient
+     */
+    public function setRecipeType(\Cocktails\RecipesBundle\Entity\RecipeType $recipeType = null)
+    {
+        $this->recipeType = $recipeType;
+
+        return $this;
+    }
+
+    /**
+     * Get recipeType
+     *
+     * @return \Cocktails\RecipesBundle\Entity\RecipeType
+     */
+    public function getRecipeType()
+    {
+        return $this->recipeType;
     }
 }

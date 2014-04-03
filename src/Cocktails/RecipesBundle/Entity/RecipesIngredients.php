@@ -47,8 +47,6 @@ class RecipesIngredients
     }
 
 
-
-
     /**
      * Set ingredient
      *

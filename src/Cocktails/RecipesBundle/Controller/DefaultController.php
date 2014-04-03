@@ -14,6 +14,14 @@ class DefaultController extends Controller
         return $this->render('CocktailsRecipesBundle:Default:index.html.twig', array('name' => 'Index'));
     }
 
+    public function listAction()
+    {
+        $list = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:Measureunit')->findAll();
+
+        return $this->render('CocktailsRecipesBundle:Default:list.html.twig', array('list' => $list));
+    }
+
+
     /**
      * @Template()
      */
