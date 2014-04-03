@@ -56,6 +56,28 @@ class Recipe
     private $recipeType;
 
     /**
+     * @param \Cocktails\RecipesBundle\Entity\RecipeType $taste
+     */
+    public function setTaste($taste)
+    {
+        $this->taste = $taste;
+    }
+
+    /**
+     * @return \Cocktails\RecipesBundle\Entity\RecipeType
+     */
+    public function getTaste()
+    {
+        return $this->taste;
+    }
+
+    /**
+     * @var RecipeType
+     *
+     * @ORM\ManyToOne(targetEntity="Taste", inversedBy="recipes")
+     */
+    private $taste;
+    /**
      * Get id
      *
      * @return integer 
