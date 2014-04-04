@@ -14,13 +14,21 @@ class DefaultController extends Controller
         return $this->render('CocktailsRecipesBundle:Default:index.html.twig', array('name' => 'Index'));
     }
 
+    public function listAction()
+    {
+        $list = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:Measureunit')->findAll();
+
+        return $this->render('CocktailsRecipesBundle:Default:list.html.twig', array('list' => $list));
+    }
+
+
     /**
      * @Template()
      */
     public function uploadAction(Request $request)
     {
-        $document = new Document();
-        $form = $this->createFormBuilder($document)
+        $image = new Image();
+        $form = $this->createFormBuilder($image)
             ->add('name')
             ->add('file')
             ->getForm();
@@ -28,12 +36,14 @@ class DefaultController extends Controller
         $form->handleRequest($request);
 
         if ($form->isValid()) {
-        $em = $this->getDoctrine()->getManager();
+            $em = $this->getDoctrine()->getManager();
 
-        $em->persist($document);
-        $em->flush();
+            $image->upload();
 
-        return $this->redirect("pakeisti");
+            $em->persist($image);
+            $em->flush();
+
+            return $this->redirect('C:/xampp/htdocs/kokteiliai/1');
         }
 
         return array('form' => $form->createView());

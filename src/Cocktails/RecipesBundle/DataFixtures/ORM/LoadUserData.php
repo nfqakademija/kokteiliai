@@ -17,10 +17,20 @@ class UserData implements FixtureInterface
         $userAdmin = new User();
         $userAdmin->setUsername('administrator');
         $userAdmin->setEmail('admin@kokteiliai.lt');
-        $userAdmin->setPassword('pass123');
+        $userAdmin->setPlainPassword('pass123');
         $userAdmin->setSuperAdmin(true);
+        $userAdmin->setEnabled(true);
         $manager->persist($userAdmin);
         $manager->flush();
 
+        $userAdmin = null;
+        $userAdmin = new User();
+        $userAdmin->setUsername('admin');
+        $userAdmin->setEmail('adminas@kokteiliai.lt');
+        $userAdmin->setPlainPassword('admin');
+        $userAdmin->setSuperAdmin(true);
+        $userAdmin->setEnabled(true);
+        $manager->persist($userAdmin);
+        $manager->flush();
     }
 }

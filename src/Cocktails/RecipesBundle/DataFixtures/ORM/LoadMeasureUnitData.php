@@ -2,11 +2,12 @@
 
 namespace Cocktails\RecipesBundle\DataFixtures\ORM;
 
-use Doctrine\Common\DataFixtures\FixtureInterface;
+use Doctrine\Common\DataFixtures\AbstractFixture;
+use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Cocktails\RecipesBundle\Entity\MeasureUnit;
 
-class MeasureUnitData implements FixtureInterface
+class MeasureUnitData  extends AbstractFixture implements OrderedFixtureInterface
 {
     /**
      * {@inheritDoc}
@@ -14,24 +15,29 @@ class MeasureUnitData implements FixtureInterface
     public function load(ObjectManager $manager)
     {
 
-        $measureUnit = new MeasureUnit();
-        $measureUnit->setName('g');
-        $manager->persist($measureUnit);
+        $measureUnits = array(
+            array('g', 'measureUnit-1'),
+            array('ml', 'measureUnit-2'),
+            array('vnt', 'measureUnit-3'),
+        );
+
+        foreach($measureUnits as $measureUnit){
+            $measureUnitData = new MeasureUnit();
+            $measureUnitData->setName($measureUnit[0]);
+            $manager->persist($measureUnitData);
+            $this->addReference($measureUnit[1], $measureUnitData);
+        }
         $manager->flush();
 
-        $measureUnit = null;
+    }
 
-        $measureUnit = new MeasureUnit();
-        $measureUnit->setName('ml');
-        $manager->persist($measureUnit);
-        $manager->flush();
-
-        $measureUnit = null;
-
-        $measureUnit = new MeasureUnit();
-        $measureUnit->setName('vnt');
-        $manager->persist($measureUnit);
-        $manager->flush();
-
+    /**
+     * Get the order of this fixture
+     *
+     * @return integer
+     */
+    function getOrder()
+    {
+        return 0;
     }
 }

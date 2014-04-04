@@ -16,12 +16,29 @@ class Image
     private $temp;
     private $updated;
 
-    const SERVER_PATH_TO_IMAGE_FOLDER = '/server/path/to/images';
+    const SERVER_PATH_TO_IMAGE_FOLDER = '/kokteiliai/web/files/images';
 
     /**
      * Unmapped property to handle file uploads
      */
     private $file;
+
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    public $id;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    public $name;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    public $path;
 
     /**
      * Sets file.
@@ -31,6 +48,14 @@ class Image
     public function setFile(UploadedFile $file = null)
     {
         $this->file = $file;
+        // check if we have an old image path
+        if (isset($this->path)) {
+            // store the old name to delete after the update
+            $this->temp = $this->path;
+            $this->path = null;
+        } else {
+            $this->path = 'initial';
+        }
     }
 
     /**
@@ -44,29 +69,28 @@ class Image
     }
 
     /**
-     * Manages the copying of the file to the relevant place on the server
+     * @ORM\PostPersist()
+     * @ORM\PostUpdate()
      */
     public function upload()
     {
-        // the file property can be empty if the field is not required
         if (null === $this->getFile()) {
             return;
         }
 
-        // we use the original file name here but you should
-        // sanitize it at least to avoid any security issues
+        // if there is an error when moving the file, an exception will
+        // be automatically thrown by move(). This will properly prevent
+        // the entity from being persisted to the database on error
+        $this->getFile()->move($this->getUploadRootDir(), $this->path);
 
-        // move takes the target directory and target filename as params
-        $this->getFile()->move(
-            Image::SERVER_PATH_TO_IMAGE_FOLDER,
-            $this->getFile()->getClientOriginalName()
-        );
-
-        // set the path property to the filename where you've saved the file
-        $this->filename = $this->getFile()->getClientOriginalName();
-
-        // clean up the file property as you won't need it anymore
-        $this->setFile(null);
+        // check if we have an old image
+        if (isset($this->temp)) {
+            // delete the old image
+            unlink($this->getUploadRootDir().'/'.$this->temp);
+            // clear the temp image path
+            $this->temp = null;
+        }
+        $this->file = null;
     }
 
     /**
@@ -86,7 +110,6 @@ class Image
     public function setUpdated($date)
     {
         $this->updated = $date;
-        #TODO: patikrinti ar teisinga
     }
 
     /**
@@ -96,10 +119,11 @@ class Image
     public function preUpload()
     {
         if (null !== $this->getFile()) {
-            $this->path = $this->getFile()->guessExtension();
+            // do whatever you want to generate a unique name
+            $this->name = date('Y-m-d_H-i_').$this->getFile()->getClientOriginalName();
+            $this->path = $this->getUploadDir().'/'.$this->name.'.'.$this->getFile()->guessExtension();
         }
     }
-
 
     /**
      * @ORM\PreRemove()
@@ -114,8 +138,8 @@ class Image
      */
     public function removeUpload()
     {
-        if (isset($this->temp)) {
-            unlink($this->temp);
+        if ($file = $this->path) {
+            unlink($file);
         }
     }
 
@@ -125,26 +149,6 @@ class Image
             ? null
             : $this->getUploadRootDir().'/'.$this->id.'.'.$this->path;
     }
-
-
-    /**
-     * @ORM\Id
-     * @ORM\Column(type="integer")
-     * @ORM\GeneratedValue(strategy="AUTO")
-     */
-    public $id;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank
-     */
-    public $name;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    public $path;
-
 
     public function getWebPath()
     {
@@ -164,7 +168,7 @@ class Image
     {
         // get rid of the __DIR__ so it doesn't screw up
         // when displaying uploaded doc/image in the view.
-        return 'uploads/documents';
+        return 'files/images';
     }
 
 
