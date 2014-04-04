@@ -32,6 +32,28 @@ services:
         calls:
             - [ setTranslationDomain, [CocktailsRecipesBundle]]
 
+    sonata.admin.recipetaste:
+        class: Cocktails\RecipesBundle\Admin\RecipeTasteAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Content", label: "Recipe Taste" }
+        arguments:
+            - ~
+            - Cocktails\RecipesBundle\Entity\RecipeTaste
+            - ~
+        calls:
+            - [ setTranslationDomain, [CocktailsRecipesBundle]]
+
+    sonata.admin.recipetype:
+        class: Cocktails\RecipesBundle\Admin\RecipeTypeAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Content", label: "Recipe Type" }
+        arguments:
+            - ~
+            - Cocktails\RecipesBundle\Entity\RecipeType
+            - ~
+        calls:
+            - [ setTranslationDomain, [CocktailsRecipesBundle]]
+
     sonata.admin.image:
         class: Cocktails\RecipesBundle\Admin\ImageAdmin
         tags:
@@ -43,13 +65,13 @@ services:
         calls:
             - [ setTranslationDomain, [CocktailsRecipesBundle]]
 
-    sonata.admin.recipesingredients:
-            class: Cocktails\RecipesBundle\Admin\RecipesIngredientsAdmin
-            tags:
-                - { name: sonata.admin, manager_type: orm, group: "Content", label: "Recipes/Ingredients" }
-            arguments:
-                - ~
-                - Cocktails\RecipesBundle\Entity\RecipesIngredients
-                - ~
-            calls:
-                - [ setTranslationDomain, [CocktailsRecipesBundle]]
+#    sonata.admin.recipesingredients:
+#            class: Cocktails\RecipesBundle\Admin\RecipesIngredientsAdmin
+#            tags:
+#                - { name: sonata.admin, manager_type: orm, group: "Content", label: "Recipes/Ingredients" }
+#            arguments:
+#                - ~
+#                - Cocktails\RecipesBundle\Entity\RecipesIngredients
+#                - ~
+#            calls:
+#                - [ setTranslationDomain, [CocktailsRecipesBundle]]

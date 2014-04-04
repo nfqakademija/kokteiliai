@@ -5,3 +5,9 @@ services:
 #    cocktails_recipes.example:
 #        class: %cocktails_recipes.example.class%
 #        arguments: [@service_id, "plain_value", %parameter%]
+
+services:
+        form.type.daterange:
+            class: Cocktails\RecipesBundle\Form\Type\IngredientType
+            tags:
+                -  { name: form.type, alias: ingredient }

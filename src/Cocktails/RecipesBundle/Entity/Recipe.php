@@ -49,6 +49,16 @@ class Recipe
     private $ingredients;
 
     /**
+     * @ORM\ManyToOne(targetEntity="RecipeType", inversedBy="recipe")
+     */
+    private $recipeType;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="RecipeTaste", inversedBy="recipe")
+     */
+    private $recipeTaste;
+
+    /**
      * Get id
      *
      * @return integer 
@@ -167,5 +177,51 @@ class Recipe
     public function getIngredients()
     {
         return $this->ingredients;
+    }
+
+    /**
+     * Set recipeType
+     *
+     * @param \Cocktails\RecipesBundle\Entity\RecipeType $recipeType
+     * @return Recipe
+     */
+    public function setRecipeType(\Cocktails\RecipesBundle\Entity\RecipeType $recipeType = null)
+    {
+        $this->recipeType = $recipeType;
+
+        return $this;
+    }
+
+    /**
+     * Get recipeType
+     *
+     * @return \Cocktails\RecipesBundle\Entity\RecipeType 
+     */
+    public function getRecipeType()
+    {
+        return $this->recipeType;
+    }
+
+    /**
+     * Set recipeTaste
+     *
+     * @param \Cocktails\RecipesBundle\Entity\RecipeTaste $recipeTaste
+     * @return Recipe
+     */
+    public function setRecipeTaste(\Cocktails\RecipesBundle\Entity\RecipeTaste $recipeTaste = null)
+    {
+        $this->recipeTaste = $recipeTaste;
+
+        return $this;
+    }
+
+    /**
+     * Get recipeTaste
+     *
+     * @return \Cocktails\RecipesBundle\Entity\RecipeTaste 
+     */
+    public function getRecipeTaste()
+    {
+        return $this->recipeTaste;
     }
 }
