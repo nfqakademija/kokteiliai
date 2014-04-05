@@ -46,10 +46,10 @@ class Image
      */
     protected $recipes;
 
-    public function __construct()
-    {
-        $this->recipes = new ArrayCollection();
-    }
+//    public function __construct()
+//    {
+//        $this->recipes = new ArrayCollection();
+//    }
 
     /**
      * Sets file.
@@ -273,5 +273,17 @@ class Image
         return $this->recipes;
     }
 
+//    /**
+//     * Add recipe
+//     *
+//     * @param \Cocktails\RecipesBundle\Entity\Image $image
+//     * @return Image
+//     */
+//    public function addImage(\Cocktails\RecipesBundle\Entity\Image $image)
+//    {
+//        $this->image = $image;
+//
+//        return $this;
+//    }
 
 }
