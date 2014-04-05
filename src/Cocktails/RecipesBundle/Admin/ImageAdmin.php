@@ -20,7 +20,7 @@ class ImageAdmin extends Admin
     {
         $formMapper
             ->add('file', 'file', array('required' => false))
-            ->add('name', 'text', array('label' => 'Name'))
+            ->add('name', 'text', array('label' => 'New name', 'required' => false))
         ;
     }
 
@@ -52,7 +52,6 @@ class ImageAdmin extends Admin
     {
         $listMapper
             ->addIdentifier('name')
-            #->add('path')
             ->add('path', null, array('template' => 'CocktailsRecipesBundle:List:path.html.twig', 'label' => 'Preview'))
         ;
     }

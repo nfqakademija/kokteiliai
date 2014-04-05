@@ -97,7 +97,7 @@ class Image
         // check if we have an old image
         if (isset($this->temp)) {
             // delete the old image
-            unlink($this->getUploadRootDir().'/'.$this->temp);
+            unlink($this->path);
             // clear the temp image path
             $this->temp = null;
         }
@@ -131,7 +131,11 @@ class Image
     {
         if (null !== $this->getFile()) {
             // do whatever you want to generate a unique name
-            $this->name = date('Y-m-d_H-i_').$this->getFile()->getClientOriginalName();
+            if ($this->name !== null){
+                $this->name = date('Y-m-d_H-i_').$this->getName().'.'.$this->getFile()->guessExtension();
+            } else {
+                $this->name = date('Y-m-d_H-i_').$this->getFile()->getClientOriginalName();
+            }
             $this->path = $this->getUploadDir().'/'.$this->name.'.'.$this->getFile()->guessExtension();
         }
     }
