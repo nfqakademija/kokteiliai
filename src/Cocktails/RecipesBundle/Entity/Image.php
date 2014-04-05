@@ -8,7 +8,7 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Cocktails\RecipesBundle\Entity\ImageRepository")
  * @ORM\HasLifecycleCallbacks
  */
 class Image
@@ -39,6 +39,17 @@ class Image
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     public $path;
+
+
+    /**
+     * @ORM\OneToMany(targetEntity="Recipe", mappedBy="image")
+     */
+    protected $recipes;
+
+    public function __construct()
+    {
+        $this->recipes = new ArrayCollection();
+    }
 
     /**
      * Sets file.
@@ -138,7 +149,8 @@ class Image
      */
     public function removeUpload()
     {
-        if ($file = $this->path && file_exists ($this->path )) {
+        $file = $this->getPath();
+        if ($file == true && file_exists ($this->path)){
             unlink($file);
         }
     }
@@ -227,4 +239,39 @@ class Image
     {
         return $this->path;
     }
+
+    /**
+     * Add recipes
+     *
+     * @param \Cocktails\RecipesBundle\Entity\Recipe $recipes
+     * @return Image
+     */
+    public function addRecipe(\Cocktails\RecipesBundle\Entity\Recipe $recipes)
+    {
+        $this->recipes[] = $recipes;
+
+        return $this;
+    }
+
+    /**
+     * Remove recipes
+     *
+     * @param \Cocktails\RecipesBundle\Entity\Recipe $recipes
+     */
+    public function removeRecipe(\Cocktails\RecipesBundle\Entity\Recipe $recipes)
+    {
+        $this->recipes->removeElement($recipes);
+    }
+
+    /**
+     * Get recipes
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getRecipes()
+    {
+        return $this->recipes;
+    }
+
+
 }

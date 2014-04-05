@@ -37,6 +37,12 @@ class Recipe
     private $foto;
 
     /**
+     * @ORM\ManyToOne(targetEntity="Image", inversedBy="recipes")
+     * @ORM\JoinColumn(name="image_id", referencedColumnName="id")
+     */
+    protected $image;
+
+    /**
      * @var integer
      *
      * @ORM\Column(name="rank", type="integer")
@@ -223,5 +229,29 @@ class Recipe
     public function getRecipeTaste()
     {
         return $this->recipeTaste;
+    }
+
+    /**
+     * Set image
+     *
+     * @param \Cocktails\RecipesBundle\Entity\Image $image
+     * @return Recipe
+     */
+    public function setImage(\Cocktails\RecipesBundle\Entity\Image $image = null)
+    {
+        $this->image = $image;
+        $this->foto = $image->getPath();
+
+        return $this;
+    }
+
+    /**
+     * Get image
+     *
+     * @return \Cocktails\RecipesBundle\Entity\Image 
+     */
+    public function getImage()
+    {
+        return $this->image;
     }
 }

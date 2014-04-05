@@ -8,6 +8,7 @@ use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
+use Cocktails\RecipesBundle\Entity\Image;
 
 class RecipeAdmin extends Admin
 {
@@ -16,7 +17,7 @@ class RecipeAdmin extends Admin
     {
         $formMapper
             ->add('name', 'text', array('label' => 'Name'))
-            ->add('foto', 'text', array('label' => 'Foto'))
+            ->add('image', 'sonata_type_model', array('property' => 'name'))
             ->add('rank', 'text', array('label' => 'Rank'))
             ->add('recipeType', 'sonata_type_model', array('property' => 'name'))
             ->add('recipeTaste', 'sonata_type_model', array('property' => 'name'))
@@ -41,7 +42,7 @@ class RecipeAdmin extends Admin
     {
         $listMapper
             ->addIdentifier('name')
-            ->add('foto')
+            ->add('foto', null, array('template' => 'CocktailsRecipesBundle:List:path.html.twig'))
             ->add('rank')
         ;
     }

@@ -28,8 +28,8 @@ class LoadIngredientData extends AbstractFixture implements OrderedFixtureInterf
             $data = new Ingredient();
             $data->setName($ingredient[0]);
             $data->setFoto($ingredient[1]);
-            $data->setMeasureUnit($this->getReference($ingredient[2]));
             $manager->persist($data);
+            $data->setMeasureUnit($this->getReference($ingredient[2]));
             $this->addReference($ingredient[3],$data);
         }
         $manager->flush();
