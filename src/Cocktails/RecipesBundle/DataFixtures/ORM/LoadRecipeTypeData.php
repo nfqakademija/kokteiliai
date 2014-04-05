@@ -2,12 +2,12 @@
 
 namespace Cocktails\RecipesBundle\DataFixtures\ORM;
 
-use Doctrine\Common\DataFixtures\AbstractFixture;
-use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
-use Doctrine\Common\Persistence\ObjectManager;
 use Cocktails\RecipesBundle\Entity\RecipeType;
+use Doctrine\Common\DataFixtures\FixtureInterface;
+use Doctrine\Common\Persistence\ObjectManager;
+use Cocktails\RecipesBundle\Entity\MeasureUnit;
 
-class LoadRecipeTypeData extends AbstractFixture implements OrderedFixtureInterface
+class RecipeTypeData implements FixtureInterface
 {
     /**
      * {@inheritDoc}
@@ -15,29 +15,24 @@ class LoadRecipeTypeData extends AbstractFixture implements OrderedFixtureInterf
     public function load(ObjectManager $manager)
     {
 
-        $types = array(
-            array("Vaisinis", 'recipeType-1'),
-            array("Sokoladinis", 'recipeType-2'),
-            array("Bananinis", 'recipeType-3'),
-        );
-
-        foreach($types as $typeTemp){
-            $type = new RecipeType();
-            $type->setName($typeTemp[0]);
-            $manager->persist($type);
-            $this->addReference($typeTemp[1],$type);
-        }
+        $recipeType = new RecipeType();
+        $recipeType->setName('Saldus');
+        $manager->persist($recipeType);
         $manager->flush();
 
-    }
+        $recipeTaste = null;
 
-    /**
-     * Get the order of this fixture
-     *
-     * @return integer
-     */
-    function getOrder()
-    {
-        return 1;
+        $recipeType = new RecipeType();
+        $recipeType->setName('Rūgštus');
+        $manager->persist($recipeType);
+        $manager->flush();
+
+        $recipeTaste = null;
+
+        $recipeType = new RecipeType();
+        $recipeType->setName('Kartus');
+        $manager->persist($recipeType);
+        $manager->flush();
+
     }
 }
