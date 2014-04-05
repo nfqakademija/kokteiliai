@@ -138,7 +138,7 @@ class Image
      */
     public function removeUpload()
     {
-        if ($file = $this->path) {
+        if ($file = $this->path && file_exists ($this->path )) {
             unlink($file);
         }
     }
