@@ -16,10 +16,10 @@ class LoadRecipeData extends AbstractFixture implements OrderedFixtureInterface
     {
 
         $recipes = array(
-            array('Geltonoji uoga', 20, 'recipeType-1', 'foto','recipe-1'),
-            array('Vaisinis kokteilis', 15, 'recipeType-2', 'foto', 'recipe-2'),
-            array('Apelsinu - bananu', 7, 'recipeType-2', 'foto', 'recipe-3'),
-            array('Vaikyste', 35, 'recipeType-3', 'foto', 'recipe-4'),
+            array('Geltonoji uoga', 20, 'recipeType-1', 'foto','recipe-1', 'taste-1'),
+            array('Vaisinis kokteilis', 15, 'recipeType-2', 'foto', 'recipe-2', 'taste-2'),
+            array('Apelsinu - bananu', 7, 'recipeType-2', 'foto', 'recipe-3', 'taste-3'),
+            array('Vaikyste', 35, 'recipeType-3', 'foto', 'recipe-4', 'taste-1'),
         );
 
         foreach($recipes as $recipeTemp){
@@ -28,6 +28,7 @@ class LoadRecipeData extends AbstractFixture implements OrderedFixtureInterface
             $recipe->setName($recipeTemp[0]);
             $recipe->setRank($recipeTemp[1]);
             $recipe->setRecipeType($this->getReference($recipeTemp[2]));
+            $recipe->setRecipeTaste($this->getReference($recipeTemp[5]));
             $recipe->setFoto($recipeTemp[3]);
             $manager->persist($recipe);
             $this->addReference($recipeTemp[4],$recipe);
