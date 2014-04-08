@@ -290,4 +290,12 @@ class Image
 //        return $this;
 //    }
 
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->recipes = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
 }

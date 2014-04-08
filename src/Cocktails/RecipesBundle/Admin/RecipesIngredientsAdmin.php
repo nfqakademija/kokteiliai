@@ -15,6 +15,7 @@ class RecipesIngredientsAdmin extends Admin
         $formMapper
             ->add('recipe', 'sonata_type_model', array('property' => 'name'))
             ->add('ingredient', 'sonata_type_model', array('property' => 'name'))
+            ->add('quantity', 'text', array('data' => 1))
         ;
     }
 

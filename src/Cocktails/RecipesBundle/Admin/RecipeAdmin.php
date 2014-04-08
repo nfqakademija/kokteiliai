@@ -15,7 +15,13 @@ class RecipeAdmin extends Admin
     // Fields to be shown on create/edit forms
     protected function configureFormFields(FormMapper $formMapper)
     {
+
         $formMapper
+            ->add('createDate', 'datetime', array(
+                'widget' => 'single_text',
+                'format' => 'yyyy-MM-dd H:m:s',
+                'data'   => new \DateTime()
+            ))
             ->add('name', 'text', array('label' => 'Name'))
             ->add('image', 'sonata_type_model', array('property' => 'name'))
             ->add('rank', 'text', array('label' => 'Rank'))
