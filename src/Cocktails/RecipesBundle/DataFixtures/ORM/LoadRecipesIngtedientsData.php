@@ -27,6 +27,7 @@ class LoadRecipesIngtedientsData extends AbstractFixture implements OrderedFixtu
             $data = new RecipesIngredients();
             $data->setRecipe($this->getReference($r_s[0],$data));
             $data->setIngredient($this->getReference($r_s[1],$data));
+            $data->setQuantity(1);
             $manager->persist($data);
         }
         $manager->flush();
