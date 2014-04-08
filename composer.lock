@@ -747,12 +747,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfSymfony/FOSUserBundle.git",
-                "reference": "98953461473facd3bcb486b88cdd87bc5120b218"
+                "reference": "fa6022638e10342f5244181675e4bcd4955fc2ff"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/98953461473facd3bcb486b88cdd87bc5120b218",
-                "reference": "98953461473facd3bcb486b88cdd87bc5120b218",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/fa6022638e10342f5244181675e4bcd4955fc2ff",
+                "reference": "fa6022638e10342f5244181675e4bcd4955fc2ff",
                 "shasum": ""
             },
             "require": {
@@ -807,7 +807,7 @@
             "keywords": [
                 "User management"
             ],
-            "time": "2014-04-01 09:27:17"
+            "time": "2014-04-05 11:45:34"
         },
         {
             "name": "incenteev/composer-parameter-handler",
@@ -1362,12 +1362,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataAdminBundle.git",
-                "reference": "da0484054736dc405e381b53ee6ae76cfcbe5198"
+                "reference": "a9db7dbecc844a0cdfdb4e8767365bbdc12ddbd9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/da0484054736dc405e381b53ee6ae76cfcbe5198",
-                "reference": "da0484054736dc405e381b53ee6ae76cfcbe5198",
+                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/a9db7dbecc844a0cdfdb4e8767365bbdc12ddbd9",
+                "reference": "a9db7dbecc844a0cdfdb4e8767365bbdc12ddbd9",
                 "shasum": ""
             },
             "require": {
@@ -1434,7 +1434,7 @@
                 "bootstrap",
                 "sonata"
             ],
-            "time": "2014-04-03 13:56:43"
+            "time": "2014-04-08 12:54:21"
         },
         {
             "name": "sonata-project/block-bundle",
@@ -2020,17 +2020,17 @@
         },
         {
             "name": "symfony/swiftmailer-bundle",
-            "version": "v2.3.6",
+            "version": "v2.3.7",
             "target-dir": "Symfony/Bundle/SwiftmailerBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/SwiftmailerBundle.git",
-                "reference": "d272424f01656f9327198fd6c07a48499622d133"
+                "reference": "e98defd402f72e8b54a029ba4d3ac4cb51dc3577"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/SwiftmailerBundle/zipball/d272424f01656f9327198fd6c07a48499622d133",
-                "reference": "d272424f01656f9327198fd6c07a48499622d133",
+                "url": "https://api.github.com/repos/symfony/SwiftmailerBundle/zipball/e98defd402f72e8b54a029ba4d3ac4cb51dc3577",
+                "reference": "e98defd402f72e8b54a029ba4d3ac4cb51dc3577",
                 "shasum": ""
             },
             "require": {
@@ -2073,20 +2073,20 @@
             ],
             "description": "Symfony SwiftmailerBundle",
             "homepage": "http://symfony.com",
-            "time": "2014-04-03 07:36:17"
+            "time": "2014-04-05 17:15:52"
         },
         {
             "name": "symfony/symfony",
-            "version": "v2.4.2",
+            "version": "v2.4.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "b70633f92ff71ef490af4c17e7ca3f3bf3d0f304"
+                "reference": "3199b2e0d194f71fe2e13c95768b2ef22206682b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/b70633f92ff71ef490af4c17e7ca3f3bf3d0f304",
-                "reference": "b70633f92ff71ef490af4c17e7ca3f3bf3d0f304",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/3199b2e0d194f71fe2e13c95768b2ef22206682b",
+                "reference": "3199b2e0d194f71fe2e13c95768b2ef22206682b",
                 "shasum": ""
             },
             "require": {
@@ -2188,7 +2188,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2014-02-12 19:27:03"
+            "time": "2014-04-04 10:27:02"
         },
         {
             "name": "twig/extensions",
