@@ -52,4 +52,10 @@ class DefaultController extends Controller
 
         return array('form' => $form->createView());
     }
+
+    public function recipeTableAction()
+    {
+        $list = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:Recipe')->findAll();
+        return $this->render('CocktailsRecipesBundle:List:recipeTable.html.twig', array('list' => $list));
+    }
 }

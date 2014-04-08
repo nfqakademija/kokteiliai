@@ -5,3 +5,8 @@ cocktails_recipes_homepage:
 cocktails_recipes_list:
     pattern:  /list
     defaults: { _controller: CocktailsRecipesBundle:Default:list }
+
+cocktails_recipes_table:
+    pattern: /table
+    defaults: {_controller: CocktailsRecipesBundle:Default:recipeTable }
+

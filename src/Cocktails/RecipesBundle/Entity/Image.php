@@ -154,7 +154,7 @@ class Image
     public function removeUpload()
     {
         $file = $this->getPath();
-        if ($file == true && file_exists ($this->path)){
+        if (is_file($file)){
             unlink($file);
         }
     }
@@ -177,7 +177,7 @@ class Image
     {
         // the absolute directory path where uploaded
         // documents should be saved
-        return __DIR__.'/../../../../web/'.$this->getUploadDir();
+        return __DIR__.'/kokteiliai/web/'.$this->getUploadDir();
     }
 
     protected function getUploadDir()

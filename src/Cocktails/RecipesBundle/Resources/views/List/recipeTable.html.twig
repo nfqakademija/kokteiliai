@@ -1,0 +1,13 @@
+
+
+{% block table %}
+<table>
+    {% for recipe in list %}
+        <tr>
+        <td> <img src="{{ asset(recipe.foto) }}" alt="" height="100" width="100"/></td>
+        <td></td>
+        <td></td>
+        </tr>
+    {% endfor %}
+</table>
+{% endblock %}
