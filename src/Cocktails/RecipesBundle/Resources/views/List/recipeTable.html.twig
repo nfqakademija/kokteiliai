@@ -1,13 +1,20 @@
-
-
+<link href="{{ asset('css/table.css') }}" type="text/css" rel="stylesheet" />
+{{ asset('css/table.css') }}
 {% block table %}
-<table>
-    {% for recipe in list %}
-        <tr>
-        <td> <img src="{{ asset(recipe.foto) }}" alt="" height="100" width="100"/></td>
-        <td></td>
-        <td></td>
-        </tr>
-    {% endfor %}
-</table>
-{% endblock %}
+
+    <table class="main_table">
+
+        {% for recipe in list %}
+            <tr>
+                <td> <img src="{{ asset(recipe.foto) }}" alt="" height="100" width="100"/></td>
+                <td>
+                    <p>{{ recipe.name }}</p>
+                    <p>--Aprasymas--</p>
+                    <p>Reitingas: {{ recipe.rank }}</p>
+                    <button type="button">Pasirinkti</button>
+                </td>
+
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock table %}
