@@ -35,6 +35,30 @@ class RecipesIngredients
      */
     private $recipe;
 
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="quantity", type="integer")
+     */
+    private $quantity;
+
+    /**
+     * @param int $quantity
+     */
+    public function setQuantity($quantity)
+    {
+        $this->quantity = $quantity;
+    }
+
+    /**
+     * @return int
+     */
+    public function getQuantity()
+    {
+        return $this->quantity;
+    }
+
+
 
     /**
      * Get id

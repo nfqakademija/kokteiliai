@@ -37,6 +37,10 @@ class IngredientType extends AbstractType
             'label' => 'Ingredient'
         ));
 
+        $builder->add('quantity', 'text', array(
+            'data' => 1
+        ));
+
         $builder->add('recipe', 'hidden', array('data' => $this->recipe));
 
 //        $builder->addEventListener(

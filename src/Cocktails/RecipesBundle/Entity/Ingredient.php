@@ -48,7 +48,6 @@ class Ingredient
      */
     private $recipes;
 
-
     /**
      * Get id
      *
