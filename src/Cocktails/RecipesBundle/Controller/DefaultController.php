@@ -20,6 +20,10 @@ class DefaultController extends Controller
 
         return $this->render('CocktailsRecipesBundle:Default:list.html.twig', array('list' => $list));
     }
+    public function headerAction()
+    {
+        return $this->render('CocktailsRecipesBundle:Default:header.html.twig');
+    }
 
 
     /**

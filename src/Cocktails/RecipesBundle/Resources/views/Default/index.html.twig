@@ -1,1 +1,42 @@
-Hello {{ name }}!
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    {% block header %}
+    {% endblock %}
+    {% block content %}
+        {#{{ render(controller('CocktailsRecipesBundle:Default:header')) }}#}
+        <table>
+            <tr>
+
+                <td colspan="3"><a href="{{ path('fos_user_security_login') }}">Prisijungti</a></td>
+
+            </tr>
+            <tr>
+                <td><a href="#">Receptai</a></td>
+                <td><a href="#">Mano kokteiliai</a></td>
+                <td><a href="#">Mano produktai</a></td>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <td><a href="#">Pagal mano produktus</a></td>
+                <td><a href="#">Pagal skoni</a></td>
+                <td><a href="#">Pagal tipa</a></td>
+                <td><a href="#">Pagal ingredienta</a></td>
+            </tr>
+            <tr>
+                <td colspan="4"><span>Rikiuoti pagal: </span><a href="#">Populiariausius</a> |
+                    <a href="#">Naujausius</a>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">Receptas</td>
+                <td colspan="2">Receptas2</td>
+            </tr>
+            <tr>
+                <td colspan="2">Receptas3</td>
+                <td colspan="2">Receptas4</td>
+            </tr>
+        </table>
+    {% endblock %}
+{% endblock %}

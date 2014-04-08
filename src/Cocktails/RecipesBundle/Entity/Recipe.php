@@ -48,7 +48,28 @@ class Recipe
      * @ORM\Column(name="rank", type="integer")
      */
     private $rank;
+    /**
+     * @var datetime
+     *
+     * @ORM\Column(name="createDate", type="datetime")
+     */
+    private $createDate;
 
+    /**
+     * @param \Cocktails\RecipesBundle\Entity\datetime $createDate
+     */
+    public function setCreateDate($createDate)
+    {
+        $this->createDate = $createDate;
+    }
+
+    /**
+     * @return \Cocktails\RecipesBundle\Entity\datetime
+     */
+    public function getCreateDate()
+    {
+        return $this->createDate;
+    }
     /**
      * @ORM\OneToMany(targetEntity="RecipesIngredients", mappedBy="recipe", cascade={"all"})
      */
