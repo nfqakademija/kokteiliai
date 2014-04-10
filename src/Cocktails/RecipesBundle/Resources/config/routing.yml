@@ -10,3 +10,10 @@ cocktails_recipes_table:
     pattern: /table
     defaults: {_controller: CocktailsRecipesBundle:Default:recipeTable }
 
+cocktails_recipes_menu:
+    pattern: /menu
+    defaults: {_controller: CocktailsRecipesBundle:Default:menu }
+
+cocktails_recipes_taste:
+    pattern: /tasteSort
+    defaults: {_controller: CocktailsRecipesBundle:Default:tasteSort}
