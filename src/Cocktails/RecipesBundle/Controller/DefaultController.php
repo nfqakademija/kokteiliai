@@ -60,7 +60,7 @@ class DefaultController extends Controller
     public function recipeTableAction()
     {
         $list = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:Recipe')->findAll();
-        return $this->render('CocktailsRecipesBundle:List:recipeTable.html.twig', array('list' => $list));
+        return $this->render('CocktailsRecipesBundle:Default:recipesWindow.html.twig', array('list' => $list));
     }
 
     public function tasteSortAction()
@@ -68,4 +68,6 @@ class DefaultController extends Controller
         $tastes = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:RecipeTaste')->findAll();
         return $this->render('CocktailsRecipesBundle:Default:tasteSort.html.twig', array('tastes'=>$tastes, 'list' => $list));
     }
+
+
 }
