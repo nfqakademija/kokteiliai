@@ -25,6 +25,10 @@ class DefaultController extends Controller
         return $this->render('CocktailsRecipesBundle:Default:header.html.twig');
     }
 
+    public function menuAction()
+    {
+        return $this->render('CocktailsRecipesBundle:Default:menu.html.twig');
+    }
 
     /**
      * @Template()

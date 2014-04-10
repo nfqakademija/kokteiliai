@@ -1,11 +1,10 @@
-<link href="{{ asset('css/table.css') }}" type="text/css" rel="stylesheet" />
-{{ asset('css/table.css') }}
+<link href="{{ asset('css/table.css') }}" rel="stylesheet" type="text/css" />
 {% block table %}
-
-    <table class="main_table">
+    <table class="main_table" border="1px solid black">
 
         {% for recipe in list %}
-            <tr>
+
+            <tr >
                 <td> <img src="{{ asset(recipe.foto) }}" alt="" height="100" width="100"/></td>
                 <td>
                     <p>{{ recipe.name }}</p>
