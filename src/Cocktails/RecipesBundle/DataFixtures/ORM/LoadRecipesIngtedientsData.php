@@ -16,17 +16,18 @@ class LoadRecipesIngtedientsData extends AbstractFixture implements OrderedFixtu
     {
 
         $recipesIngredients = array(
-            array('recipe-1','ingredient-1'),
-            array('recipe-2','ingredient-3'),
-            array('recipe-1','ingredient-5'),
-            array('recipe-4','ingredient-4'),
-            array('recipe-3','ingredient-2'),
+            array('recipe-1','ingredient-1','66'),
+            array('recipe-2','ingredient-3', '15'),
+            array('recipe-1','ingredient-5', '20'),
+            array('recipe-4','ingredient-4', '5'),
+            array('recipe-3','ingredient-2', '125'),
         );
 
         foreach($recipesIngredients as $r_s){
             $data = new RecipesIngredients();
             $data->setRecipe($this->getReference($r_s[0],$data));
             $data->setIngredient($this->getReference($r_s[1],$data));
+            $data->setQuantity($r_s[2]);
             $manager->persist($data);
         }
         $manager->flush();
