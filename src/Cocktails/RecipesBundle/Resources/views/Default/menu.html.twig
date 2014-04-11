@@ -1,17 +1,15 @@
+<link href="{{ asset('/css/style.css') }}" rel="stylesheet" type="text/css" />
+
 {% block menu %}
-    <table>
-        <tr>
-            <td><a href="/app_dev.php/table">Receptai</a></td>
-            <td><a href="#">Mano kokteiliai</a></td>
-            <td><a href="#">Mano produktai</a></td>
-        </tr>
-    </table>
-    <table>
-        <tr>
-            <td><a href="#">Pagal mano produktus</a></td>
-            <td><a href="/app_dev.php/tasteSort">Pagal skoni</a></td>
-            <td><a href="#">Pagal tipa</a></td>
-            <td><a href="#">Pagal ingredienta</a></td>
-        </tr>
-    </table>
+    <ul class="navbar">
+        <li><a href="/app_dev.php/table">Receptai</a></li>
+        <li><a href="#">Mano kokteiliai</a></li>
+        <li><a href="#">Mano produktai</a></li>
+    </ul>
+    <ul class="navbar">
+        <li><a href="#">Pagal mano produktus</a></li>
+        <li><a href="/app_dev.php/tasteSort">Pagal skonį</a></li>
+        <li><a href="/app_dev.php/typeSort">Pagal tipą</a></li>
+    </ul>
+
 {% endblock menu %}

@@ -4,17 +4,18 @@
     <table class="main_table">
 
         {% for recipe in list %}
-
-            <tr class="element" onclick="return confirm('make action')">
-                <td class="image"> <img src="{{ asset(recipe.foto) }}" alt="" height="100" width="100"/></td>
+            <tr class="element">
+                <td class="image"> <img src="{{ asset(recipe.foto) }}" alt=""/></td>
                 <td class="description">
                     <p class="title">{{ recipe.name }}</p>
                     <p>--Aprasymas--</p>
                     <p>Reitingas: {{ recipe.rank }}</p>
                     <button type="button">Pasirinkti</button>
-                </td>
 
+                </td>
             </tr>
         {% endfor %}
+
     </table>
+
 {% endblock %}

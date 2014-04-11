@@ -1,7 +1,9 @@
 {% include '::layout.html.twig' %}
 
-{% block tasteTable %}
-    <table>
-        <td>{% include 'CocktailsRecipesBundle:List:recipeTable.html.twig' %}</td>
-    </table>
+<link href="{{ asset('/css/table.css') }}" rel="stylesheet" type="text/css" />
+
+{% block recipesWindow %}
+    <div class="recipesTable">
+        {% include 'CocktailsRecipesBundle:List:recipeTable.html.twig' %}
+    </div>
 {% endblock %}

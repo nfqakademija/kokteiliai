@@ -17,3 +17,7 @@ cocktails_recipes_menu:
 cocktails_recipes_taste:
     pattern: /tasteSort
     defaults: {_controller: CocktailsRecipesBundle:Default:tasteSort}
+
+cocktails_recipes_type:
+    pattern: /typeSort
+    defaults: {_controller: CocktailsRecipesBundle:Default:typeSort}

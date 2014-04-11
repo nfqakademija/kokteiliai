@@ -1,11 +1,46 @@
+/*TABLE*/
+table
+{
+    width: 1000px;
+    border: 1px solid #000000;
+    margin-left: 5%;
+    margin-right: auto;
+}
+.element
+{
+    background-color: lavender;
 
-.main_table{border: 1px solid #000000}
+}
+.image
+{
+    height: 100px;
+    width: 150px;
+}
+.image > img
+{
+    vertical-align: middle;
+    margin-left: 10%;
+}
 .description
 {
-    width: 500px;
+    padding: 15px;
 }
 .description .title
 {
     font-size: 25px;
+    margin: 0px;
 }
-.description .button{}
+.description > button
+{
+    float: right;
+    height: 50px;
+    text-align: center;
+}
+
+/*RECIPES WINDOW VIEW*/
+.recipesTable
+{
+    margin-top: 20px;
+    margin-left: 10%;
+    margin-right: 10%;
+}

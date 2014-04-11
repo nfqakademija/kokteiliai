@@ -66,7 +66,13 @@ class DefaultController extends Controller
     public function tasteSortAction()
     {   $list = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:Recipe')->findAll();
         $tastes = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:RecipeTaste')->findAll();
-        return $this->render('CocktailsRecipesBundle:Default:tasteSort.html.twig', array('tastes'=>$tastes, 'list' => $list));
+        return $this->render('CocktailsRecipesBundle:Default:tasteWindow.html.twig', array('tastes'=>$tastes, 'list' => $list));
+    }
+
+    public function typeSortAction()
+    {   $list = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:Recipe')->findAll();
+        $types = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:RecipeType')->findAll();
+        return $this->render('CocktailsRecipesBundle:Default:typeWindow.html.twig', array('types'=>$types, 'list' => $list));
     }
 
 
