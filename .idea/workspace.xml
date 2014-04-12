@@ -2,11 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0ef5fb2f-f404-4939-9135-4fd8e44152be" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Cocktails/RecipesBundle/Resources/views/Default/recipeSingleWindow.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Cocktails/RecipesBundle/Controller/DefaultController.php" afterPath="$PROJECT_DIR$/src/Cocktails/RecipesBundle/Controller/DefaultController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Cocktails/RecipesBundle/Resources/views/List/recipeTable.html.twig" afterPath="$PROJECT_DIR$/src/Cocktails/RecipesBundle/Resources/views/List/recipeTable.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Cocktails/RecipesBundle/Resources/config/routing.yml" afterPath="$PROJECT_DIR$/src/Cocktails/RecipesBundle/Resources/config/routing.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/table.css" afterPath="$PROJECT_DIR$/web/css/table.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="kokteiliai.iws" />
@@ -33,10 +28,10 @@
     <splitter split-orientation="horizontal" split-proportion="0.5">
       <split-first>
         <leaf>
-          <file leaf-file-name="recipeSingleWindow.html.twig" pinned="false" current="false" current-in-tab="true">
+          <file leaf-file-name="recipeSingleWindow.html.twig" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/Cocktails/RecipesBundle/Resources/views/Default/recipeSingleWindow.html.twig">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="17" column="16" selection-start="545" selection-end="545" vertical-scroll-proportion="0.52737224" vertical-offset="0" max-vertical-offset="548">
+                <state line="22" column="0" selection-start="616" selection-end="616" vertical-scroll-proportion="1.0809249" vertical-offset="0" max-vertical-offset="493">
                   <folding />
                 </state>
               </provider>
@@ -64,10 +59,10 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="table.css" pinned="false" current="true" current-in-tab="true">
+          <file leaf-file-name="table.css" pinned="false" current="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/web/css/table.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="60" column="14" selection-start="785" selection-end="785" vertical-scroll-proportion="0.36476868" vertical-offset="815" max-vertical-offset="1445">
+                <state line="76" column="17" selection-start="1011" selection-end="1011" vertical-scroll-proportion="1.2305555" vertical-offset="849" max-vertical-offset="1411">
                   <folding />
                 </state>
               </provider>
@@ -691,10 +686,10 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.6182708" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32952693" sideWeight="0.5506042" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32952693" sideWeight="0.5506042" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20880914" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1036,16 +1031,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Cocktails/RecipesBundle/Resources/views/Default/recipeSingleWindow.html.twig">
+    <entry file="file://$PROJECT_DIR$/web/css/table.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="16" selection-start="545" selection-end="545" vertical-scroll-proportion="0.52737224" vertical-offset="0" max-vertical-offset="548">
+        <state line="76" column="17" selection-start="1011" selection-end="1011" vertical-scroll-proportion="1.2305555" vertical-offset="849" max-vertical-offset="1411">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/css/table.css">
+    <entry file="file://$PROJECT_DIR$/src/Cocktails/RecipesBundle/Resources/views/Default/recipeSingleWindow.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="60" column="14" selection-start="785" selection-end="785" vertical-scroll-proportion="0.36476868" vertical-offset="815" max-vertical-offset="1445">
+        <state line="22" column="0" selection-start="616" selection-end="616" vertical-scroll-proportion="1.0809249" vertical-offset="0" max-vertical-offset="493">
           <folding />
         </state>
       </provider>
