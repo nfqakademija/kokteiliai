@@ -17,9 +17,8 @@ table
     width: 150px;
 }
 .image > img
-{
+{   width: 150px;
     vertical-align: middle;
-    margin-left: 10%;
 }
 .description
 {

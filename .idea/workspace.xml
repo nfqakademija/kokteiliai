@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0ef5fb2f-f404-4939-9135-4fd8e44152be" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/files/images/2014-04-08_17-38_apie_logo_min.png.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/files/images/2014-04-08_17-40_apie_logo_min.png.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Cocktails/RecipesBundle/Resources/config/validation.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Cocktails/RecipesBundle/Entity/Recipe.php" afterPath="$PROJECT_DIR$/src/Cocktails/RecipesBundle/Entity/Recipe.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Cocktails/RecipesBundle/Admin/RecipeAdmin.php" afterPath="$PROJECT_DIR$/src/Cocktails/RecipesBundle/Admin/RecipeAdmin.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Cocktails/RecipesBundle/Resources/views/List/recipeTable.html.twig" afterPath="$PROJECT_DIR$/src/Cocktails/RecipesBundle/Resources/views/List/recipeTable.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/table.css" afterPath="$PROJECT_DIR$/web/css/table.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="kokteiliai.iws" />
@@ -40,6 +37,33 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="recipeTable.html.twig" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Cocktails/RecipesBundle/Resources/views/List/recipeTable.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="11" column="51" selection-start="469" selection-end="469" vertical-scroll-proportion="0.37869823" vertical-offset="59" max-vertical-offset="459">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="style.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/css/style.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="54" column="1" selection-start="948" selection-end="948" vertical-scroll-proportion="0.0" vertical-offset="264" max-vertical-offset="1190">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="table.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/css/table.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="19" column="4" selection-start="226" selection-end="226" vertical-scroll-proportion="0.0" vertical-offset="93" max-vertical-offset="867">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="Ingredient.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Cocktails/RecipesBundle/Entity/Ingredient.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -67,10 +91,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RecipeAdmin.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="RecipeAdmin.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Cocktails/RecipesBundle/Admin/RecipeAdmin.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="52" column="30" selection-start="1870" selection-end="1870" vertical-scroll-proportion="0.718663" vertical-offset="524" max-vertical-offset="969">
+            <state line="52" column="30" selection-start="1870" selection-end="1870" vertical-scroll-proportion="-9.923077" vertical-offset="524" max-vertical-offset="969">
               <folding />
             </state>
           </provider>
@@ -134,8 +158,6 @@
         <option value="$PROJECT_DIR$/src/Cocktails/RecipesBundle/Resources/views/List/typeTable.html.twig" />
         <option value="$PROJECT_DIR$/src/Cocktails/RecipesBundle/Resources/config/routing.yml" />
         <option value="$PROJECT_DIR$/src/Cocktails/RecipesBundle/Resources/views/Default/tasteWindow.html.twig" />
-        <option value="$PROJECT_DIR$/src/Cocktails/RecipesBundle/Resources/views/List/recipeTable.html.twig" />
-        <option value="$PROJECT_DIR$/web/css/table.css" />
         <option value="$PROJECT_DIR$/src/Cocktails/RecipesBundle/Resources/views/Default/menu.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/layout.html.twig" />
@@ -143,6 +165,8 @@
         <option value="$PROJECT_DIR$/web/css/style.css" />
         <option value="$PROJECT_DIR$/src/Cocktails/RecipesBundle/Entity/Recipe.php" />
         <option value="$PROJECT_DIR$/src/Cocktails/RecipesBundle/Admin/RecipeAdmin.php" />
+        <option value="$PROJECT_DIR$/web/css/table.css" />
+        <option value="$PROJECT_DIR$/src/Cocktails/RecipesBundle/Resources/views/List/recipeTable.html.twig" />
       </list>
     </option>
   </component>
@@ -690,7 +714,7 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1971299" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.260574" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.9184339" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
@@ -922,20 +946,6 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="545" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="1" selection-start="948" selection-end="948" vertical-scroll-proportion="1.6219081" vertical-offset="0" max-vertical-offset="1190">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/css/table.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="23" selection-start="457" selection-end="457" vertical-scroll-proportion="0.51943463" vertical-offset="318" max-vertical-offset="884">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Cocktails/RecipesBundle/Controller/DefaultController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="74" column="96" selection-start="2544" selection-end="2544" vertical-scroll-proportion="0.6451613" vertical-offset="867" max-vertical-offset="1394">
@@ -999,13 +1009,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Cocktails/RecipesBundle/Resources/views/List/recipeTable.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="40" selection-start="421" selection-end="421" vertical-scroll-proportion="0.3030303" vertical-offset="0" max-vertical-offset="561">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Cocktails/RecipesBundle/Resources/config/routing.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="21" column="22" selection-start="620" selection-end="620" vertical-scroll-proportion="0.6081772" vertical-offset="0" max-vertical-offset="587">
@@ -1050,7 +1053,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Cocktails/RecipesBundle/Admin/RecipeAdmin.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="30" selection-start="1870" selection-end="1870" vertical-scroll-proportion="0.718663" vertical-offset="524" max-vertical-offset="969">
+        <state line="52" column="30" selection-start="1870" selection-end="1870" vertical-scroll-proportion="-9.923077" vertical-offset="524" max-vertical-offset="969">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="54" column="1" selection-start="948" selection-end="948" vertical-scroll-proportion="0.0" vertical-offset="264" max-vertical-offset="1190">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/css/table.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="4" selection-start="226" selection-end="226" vertical-scroll-proportion="0.0" vertical-offset="93" max-vertical-offset="867">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Cocktails/RecipesBundle/Resources/views/List/recipeTable.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="51" selection-start="469" selection-end="469" vertical-scroll-proportion="0.37869823" vertical-offset="59" max-vertical-offset="459">
           <folding />
         </state>
       </provider>
