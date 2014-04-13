@@ -48,7 +48,10 @@ table
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 55eeea0
 /*SINGLE RECIPE VIEW*/
 .single
 {
@@ -77,5 +80,9 @@ table
 .single .description > button
 {
     height: 50px;
+<<<<<<< HEAD
+}
+>>>>>>> 55eeea0
+=======
 }
 >>>>>>> 55eeea0
