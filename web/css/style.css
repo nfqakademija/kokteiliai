@@ -49,6 +49,16 @@
 .typeTable > ul > li:hover
 {
     background-color: cornflowerblue;
+}
+/*USER*/
+.login
+{
+    text-transform: uppercase;
+    font-size: 20px;
+}
+.login > a
+{
+    text-decoration: none;
 
 }
 

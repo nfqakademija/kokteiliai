@@ -8,10 +8,11 @@
                 <td class="image"> <img src="{{ asset(recipe.foto) }}" alt=""/></td>
                 <td class="description">
                     <p class="title">{{ recipe.name }}</p>
-                    <p>--Aprasymas--</p>
+                    <p>Aprašymas</p>
+                    <p>{{ recipe.description }}</p>
                     <p>Reitingas: {{ recipe.rank }}</p>
-                    <button type="button">Pasirinkti</button>
 
+                    <a class="button" href="{{ path('cocktails_recipe_single', {'id': recipe.id }) }}"><button>Pasirinkti</button></a>
                 </td>
             </tr>
         {% endfor %}

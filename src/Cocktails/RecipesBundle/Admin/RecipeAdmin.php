@@ -24,6 +24,7 @@ class RecipeAdmin extends Admin
             ))
             ->add('name', 'text', array('label' => 'Name'))
             ->add('image', 'sonata_type_model', array('property' => 'name'))
+            ->add('description', 'text', array('label' => 'Description'))
             ->add('rank', 'text', array('label' => 'Rank'))
             ->add('recipeType', 'sonata_type_model', array('property' => 'name'))
             ->add('recipeTaste', 'sonata_type_model', array('property' => 'name'))
@@ -49,6 +50,7 @@ class RecipeAdmin extends Admin
         $listMapper
             ->addIdentifier('name')
             ->add('foto', null, array('template' => 'CocktailsRecipesBundle:List:path.html.twig'))
+            ->add('description')
             ->add('rank')
         ;
     }
