@@ -4,7 +4,6 @@ namespace Cocktails\RecipesBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
-
 /**
  * Recipe
  *
@@ -52,7 +51,7 @@ class Recipe
     /**
      * @var string
      *
-     * @ORM\Column(name="description", type="string", length=255)
+     * @ORM\Column(name="description", type="text")
      */
     private $description;
 
@@ -305,5 +304,25 @@ class Recipe
     public function getDescription()
     {
         return $this->description;
+    }
+
+    /**
+     * Get Taste by from Taste table
+     *
+     * @return $taste
+     */
+    public function getTasteByStatus($id)
+    {   $taste = $this->getRecipeTaste($id)->getName();
+        return $taste;
+    }
+
+    /**
+     * Get Type by from Taste table
+     *
+     * @return $type
+     */
+    public function getTypeByStatus($id)
+    {   $type = $this->getRecipeType($id)->getName();
+        return $type;
     }
 }

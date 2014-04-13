@@ -3,7 +3,7 @@ table
 {
     width: 1000px;
     border: 1px solid #000000;
-    margin-left: 5%;
+    margin-left: auto;
     margin-right: auto;
 }
 .element
@@ -43,8 +43,8 @@ table
 .recipesTable
 {
     margin-top: 20px;
-    margin-left: 10%;
-    margin-right: 10%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /*SINGLE RECIPE VIEW*/
@@ -75,4 +75,15 @@ table
 .single .description > button
 {
     height: 50px;
+}
+/*TYPE SORT VIEW*/
+.typeTable
+{
+    margin-right: 5%;
+}
+
+/*TASTE SORT VIEW*/
+.tasteTable
+{
+    margin-right: 5%;
 }

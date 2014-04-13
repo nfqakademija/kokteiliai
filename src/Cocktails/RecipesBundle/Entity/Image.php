@@ -296,6 +296,40 @@ class Image
     public function __construct()
     {
         $this->recipes = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->ingredients = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add ingredients
+     *
+     * @param \Cocktails\RecipesBundle\Entity\Ingredient $ingredients
+     * @return Image
+     */
+    public function addIngredient(\Cocktails\RecipesBundle\Entity\Ingredient $ingredients)
+    {
+        $this->ingredients[] = $ingredients;
+
+        return $this;
+    }
+
+    /**
+     * Remove ingredients
+     *
+     * @param \Cocktails\RecipesBundle\Entity\Ingredient $ingredients
+     */
+    public function removeIngredient(\Cocktails\RecipesBundle\Entity\Ingredient $ingredients)
+    {
+        $this->ingredients->removeElement($ingredients);
+    }
+
+    /**
+     * Get ingredients
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getIngredients()
+    {
+        return $this->ingredients;
     }
 
 }

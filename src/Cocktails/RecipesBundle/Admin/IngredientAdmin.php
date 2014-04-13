@@ -15,7 +15,7 @@ class IngredientAdmin extends Admin
     {
         $formMapper
             ->add('name', 'text', array('label' => 'Name'))
-            ->add('foto', 'text', array('label' => 'Foto'))
+            ->add('image', 'sonata_type_model', array('property' => 'name'))
             ->add('measureUnit', 'sonata_type_model', array('property' => 'name'))
         ;
     }
@@ -33,7 +33,6 @@ class IngredientAdmin extends Admin
     {
         $listMapper
             ->addIdentifier('name')
-            ->add('foto')
-        ;
+            ->add('foto', null, array('template' => 'CocktailsRecipesBundle:List:path.html.twig'))        ;
     }
 }

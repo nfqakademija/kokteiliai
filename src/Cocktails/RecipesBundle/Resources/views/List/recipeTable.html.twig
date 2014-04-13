@@ -10,6 +10,8 @@
                     <p class="title">{{ recipe.name }}</p>
                     <p>Aprašymas</p>
                     <p>{{ recipe.description }}</p>
+                    <p>Skonis: {{ recipe.getTasteByStatus(recipe.RecipeTaste)}}</p>
+                    <p>Tipas: {{ recipe.getTypeByStatus(recipe.RecipeType) }}</p>
                     <p>Reitingas: {{ recipe.rank }}</p>
 
                     <a class="button" href="{{ path('cocktails_recipe_single', {'id': recipe.id }) }}"><button>Pasirinkti</button></a>

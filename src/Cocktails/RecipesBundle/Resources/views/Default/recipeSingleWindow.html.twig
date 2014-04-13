@@ -10,9 +10,9 @@
                 <p>Aprašymas:</p>
                 {{ recipe.description }}
 
-                <p>Skonis:</p>
+                <p>Skonis: {{ recipe.getTasteByStatus(recipe.RecipeTaste)}}</p>
 
-                <p>Tipas:</p>
+                <p>Tipas: {{ recipe.getTypeByStatus(recipe.RecipeType) }}</p>
 
                 <p>Ingredientai:</p>
                 <button>Gaminti</button>
