@@ -7,7 +7,7 @@ use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Cocktails\RecipesBundle\Entity\MeasureUnit;
 
-class MeasureUnitData  extends AbstractFixture implements OrderedFixtureInterface
+class LoadMeasureUnitData  extends AbstractFixture implements OrderedFixtureInterface
 {
     /**
      * {@inheritDoc}

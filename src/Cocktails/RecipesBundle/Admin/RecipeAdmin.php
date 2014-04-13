@@ -51,7 +51,7 @@ class RecipeAdmin extends Admin
     {
         $listMapper
             ->addIdentifier('name')
-            ->add('foto', null, array('template' => 'CocktailsRecipesBundle:List:path.html.twig'))
+            //->add('foto', null, array('template' => 'CocktailsRecipesBundle:List:path.html.twig'))
             ->add('description')
             ->add('rank')
             ->add('_action', 'actions', array(
