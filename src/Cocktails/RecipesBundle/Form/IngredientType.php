@@ -30,27 +30,38 @@ class IngredientType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-
         $builder->add('ingredient', 'entity', array(
             'class' => 'CocktailsRecipesBundle:Ingredient',
             'property' => 'name',
             'label' => 'Ingredient'
         ));
 
+        $builder->add('recipe', 'hidden', array(
+            'data_class' => 'Cocktails\RecipesBundle\Entity\Recipe',
+            'data' => NULL,
+        ));
+
         $builder->add('quantity', 'text', array(
             'data' => 1
         ));
 
-        $builder->add('recipe', 'hidden', array('data' => $this->recipe));
+//        $builder->add('recipe', 'entity', array(
+//            'class' => 'CocktailsRecipesBundle:Recipe',
+//            'property' => 'name',
+//            'label' => 'Recipe',
+//            'required' => false
+//        ));
 
 //        $builder->addEventListener(
 //            FormEvents::POST_SET_DATA,
 //            function (FormEvent $event) {
 //                $form = $event->getForm();
-//                $recipeField = $form->get('recipe')->setData(1);
-//                //$recipeField->setData($this->recipe->getId());
+//                $recipeField = $form->get('recipe')->setData($this->recipe);
+//                //$recipeField->setData($this->recipe);
 //            }
 //        );
+
+
 
     }
     

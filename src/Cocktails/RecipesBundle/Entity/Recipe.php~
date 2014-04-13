@@ -56,6 +56,21 @@ class Recipe
     private $createDate;
 
     /**
+     * @param \Cocktails\RecipesBundle\Entity\datetime $createDate
+     */
+    public function setCreateDate($createDate)
+    {
+        $this->createDate = $createDate;
+    }
+
+    /**
+     * @return \Cocktails\RecipesBundle\Entity\datetime
+     */
+    public function getCreateDate()
+    {
+        return $this->createDate;
+    }
+    /**
      * @ORM\OneToMany(targetEntity="RecipesIngredients", mappedBy="recipe", cascade={"all"})
      */
     private $ingredients;
@@ -166,7 +181,6 @@ class Recipe
      */
     public function addIngredient(\Cocktails\RecipesBundle\Entity\RecipesIngredients $ingredients)
     {
-        $ingredients->setRecipe($this);
         $this->ingredients[] = $ingredients;
 
         return $this;
@@ -260,21 +274,5 @@ class Recipe
     public function getImage()
     {
         return $this->image;
-    }
-
-    /**
-     * @param \Cocktails\RecipesBundle\Entity\datetime $createDate
-     */
-    public function setCreateDate($createDate)
-    {
-        $this->createDate = $createDate;
-    }
-
-    /**
-     * @return \Cocktails\RecipesBundle\Entity\datetime
-     */
-    public function getCreateDate()
-    {
-        return $this->createDate;
     }
 }

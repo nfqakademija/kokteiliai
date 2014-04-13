@@ -30,6 +30,8 @@ class RecipeAdmin extends Admin
             ->add('ingredients', 'collection', array(
                 'type'         => new IngredientType($this->getSubject()),
                 'allow_add'    => true,
+                'allow_delete'    => true,
+                'by_reference' => false,
             ))
 
         ;
@@ -39,7 +41,7 @@ class RecipeAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            #->add('name')
+            ->add('name')
         ;
     }
 
@@ -50,6 +52,13 @@ class RecipeAdmin extends Admin
             ->addIdentifier('name')
             ->add('foto', null, array('template' => 'CocktailsRecipesBundle:List:path.html.twig'))
             ->add('rank')
+            ->add('_action', 'actions', array(
+                'actions' => array(
+                    'show' => array(),
+                    'edit' => array(),
+                    'delete' => array(),
+                )
+            ))
         ;
     }
 }
