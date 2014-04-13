@@ -53,6 +53,13 @@ class ImageAdmin extends Admin
         $listMapper
             ->addIdentifier('name')
             ->add('path', null, array('template' => 'CocktailsRecipesBundle:List:path.html.twig', 'label' => 'Preview'))
+            ->add('_action', 'actions', array(
+                'actions' => array(
+                    'show' => array(),
+                    'edit' => array(),
+                    'delete' => array(),
+                )
+            ))
         ;
     }
 }

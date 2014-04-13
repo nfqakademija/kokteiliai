@@ -31,7 +31,7 @@ class User extends BaseUser
      * @return integer 
      */
     public function getId()
-    {
+    {   //$this->getLastLogin();
         return $this->id;
     }
 }
