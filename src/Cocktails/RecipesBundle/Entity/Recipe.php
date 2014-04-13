@@ -188,6 +188,7 @@ class Recipe
      */
     public function addIngredient(\Cocktails\RecipesBundle\Entity\RecipesIngredients $ingredients)
     {
+        $ingredients->setRecipe($this);
         $this->ingredients[] = $ingredients;
 
         return $this;

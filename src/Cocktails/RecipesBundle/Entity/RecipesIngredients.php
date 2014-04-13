@@ -25,6 +25,7 @@ class RecipesIngredients
      * @var Ingredient
      *
      * @ORM\ManyToOne(targetEntity="Ingredient", inversedBy="recipes")
+     * @ORM\JoinColumn(name="ingredient_id", referencedColumnName="id")
      */
     private $ingredient;
 
@@ -32,6 +33,7 @@ class RecipesIngredients
      * @var Recipe
      *
      * @ORM\ManyToOne(targetEntity="Recipe", inversedBy="ingredients")
+     * @ORM\JoinColumn(name="recipe_id", referencedColumnName="id")
      */
     private $recipe;
 
@@ -79,6 +81,7 @@ class RecipesIngredients
      */
     public function setIngredient(\Cocktails\RecipesBundle\Entity\Ingredient $ingredient = null)
     {
+
         $this->ingredient = $ingredient;
 
         return $this;
