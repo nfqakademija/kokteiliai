@@ -1,0 +1,12 @@
+<link href="{{ asset('/css/table.css') }}" rel="stylesheet" type="text/css" />
+{% block table %}
+    <div class="tasteTable">
+        <ul>
+            {% for taste in tastes %}
+                <li class="element" onclick="return confirm('make action')">
+                    <p class="title">{{ taste.name }}</p>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

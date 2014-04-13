@@ -5,3 +5,23 @@ cocktails_recipes_homepage:
 cocktails_recipes_list:
     pattern:  /list
     defaults: { _controller: CocktailsRecipesBundle:Default:list }
+
+cocktails_recipes_table:
+    pattern: /table
+    defaults: {_controller: CocktailsRecipesBundle:Default:recipeTable }
+
+cocktails_recipes_menu:
+    pattern: /menu
+    defaults: {_controller: CocktailsRecipesBundle:Default:menu }
+
+cocktails_recipes_taste:
+    pattern: /tasteSort
+    defaults: {_controller: CocktailsRecipesBundle:Default:tasteSort}
+
+cocktails_recipes_type:
+    pattern: /typeSort
+    defaults: {_controller: CocktailsRecipesBundle:Default:typeSort}
+
+cocktails_recipe_single:
+    pattern: /Recipe/{id}
+    defaults: {_controller: CocktailsRecipesBundle:Default:showRecipe, id: id}

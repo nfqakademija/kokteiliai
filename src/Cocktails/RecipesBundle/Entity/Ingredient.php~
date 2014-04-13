@@ -49,12 +49,6 @@ class Ingredient
     private $recipes;
 
     /**
-     * @var integer
-     */
-    private $quantity;
-
-
-    /**
      * Get id
      *
      * @return integer 

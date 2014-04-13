@@ -48,6 +48,14 @@ class Recipe
      * @ORM\Column(name="rank", type="integer")
      */
     private $rank;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="description", type="string", length=255)
+     */
+    private $description;
+
     /**
      * @var datetime
      *
@@ -55,6 +63,21 @@ class Recipe
      */
     private $createDate;
 
+    /**
+     * @param \Cocktails\RecipesBundle\Entity\datetime $createDate
+     */
+    public function setCreateDate($createDate)
+    {
+        $this->createDate = $createDate;
+    }
+
+    /**
+     * @return \Cocktails\RecipesBundle\Entity\datetime
+     */
+    public function getCreateDate()
+    {
+        return $this->createDate;
+    }
     /**
      * @ORM\OneToMany(targetEntity="RecipesIngredients", mappedBy="recipe", cascade={"all"})
      */
@@ -166,7 +189,6 @@ class Recipe
      */
     public function addIngredient(\Cocktails\RecipesBundle\Entity\RecipesIngredients $ingredients)
     {
-        $ingredients->setRecipe($this);
         $this->ingredients[] = $ingredients;
 
         return $this;
@@ -263,18 +285,25 @@ class Recipe
     }
 
     /**
-     * @param \Cocktails\RecipesBundle\Entity\datetime $createDate
+     * Set description
+     *
+     * @param string $description
+     * @return Recipe
      */
-    public function setCreateDate($createDate)
+    public function setDescription($description)
     {
-        $this->createDate = $createDate;
+        $this->description = $description;
+
+        return $this;
     }
 
     /**
-     * @return \Cocktails\RecipesBundle\Entity\datetime
+     * Get description
+     *
+     * @return string 
      */
-    public function getCreateDate()
+    public function getDescription()
     {
-        return $this->createDate;
+        return $this->description;
     }
 }
