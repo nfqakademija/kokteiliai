@@ -5,7 +5,7 @@
     <div class="single">
         <p class="title">{{ recipe.name }}</p>
         <div class="info">
-            <div><img class="image" src="{{ asset(recipe.foto) }}" alt=""/></div>
+            <div><img class="image" src="{{ asset(recipe.getImageByStatus(recipe.image)) }}" alt=""/></div>
             <div class="description">
                 <p>Aprašymas:</p>
                 {{ recipe.description }}
