@@ -1,17 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0ef5fb2f-f404-4939-9135-4fd8e44152be" name="Default" comment="insert">
-      <change type="DELETED" beforePath="C:\wamp\www\kokteiliai\.idea\commandlinetools\Symfony_4_8_14_7_47_PM_s.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\wamp\www\kokteiliai\.idea\commandlinetools\schemas\frameworkDescriptionVersion1.1.3.xsd" afterPath="" />
-      <change type="DELETED" beforePath="C:\wamp\www\kokteiliai\.idea\encodings.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\wamp\www\kokteiliai\.idea\kokteiliai.iml" afterPath="" />
-      <change type="DELETED" beforePath="C:\wamp\www\kokteiliai\.idea\misc.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\wamp\www\kokteiliai\.idea\modules.xml" afterPath="" />
+    <list default="true" id="0ef5fb2f-f404-4939-9135-4fd8e44152be" name="Default" comment="">
       <change type="DELETED" beforePath="C:\wamp\www\kokteiliai\.idea\scopes\scope_settings.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\wamp\www\kokteiliai\.idea\vcs.xml" afterPath="" />
       <change type="DELETED" beforePath="C:\wamp\www\kokteiliai\.idea\workspace.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\wamp\www\kokteiliai\composer.lock" afterPath="" />
     </list>
     <ignored path="kokteiliai.iws" />
     <ignored path=".idea/" />
@@ -675,7 +667,11 @@
       <created>1397509568218</created>
       <updated>1397509568218</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="del">
+      <created>1397509789018</created>
+      <updated>1397509789018</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -703,7 +699,7 @@
     <editor active="false" />
     <layout>
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32842582" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="true" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.45073614" sideWeight="0.5311653" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="true" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.45073614" sideWeight="0.6280488" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22876558" sideWeight="0.55058825" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32842582" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -712,7 +708,7 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28455284" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.45073614" sideWeight="0.4688347" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.45073614" sideWeight="0.37195122" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3975085" sideWeight="0.49864498" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13412017" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -774,10 +770,10 @@
     <MESSAGE value="Working example after merge" />
     <MESSAGE value="space" />
     <MESSAGE value="fix:ingrediento rodymas" />
-    <MESSAGE value="del" />
     <MESSAGE value="insert" />
     <MESSAGE value="fix: show foto" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: show foto" />
+    <MESSAGE value="del" />
+    <option name="LAST_COMMIT_MESSAGE" value="del" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
