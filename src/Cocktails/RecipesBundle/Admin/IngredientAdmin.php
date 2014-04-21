@@ -33,6 +33,13 @@ class IngredientAdmin extends Admin
     {
         $listMapper
             ->addIdentifier('name')
-            ->add('foto', null, array('template' => 'CocktailsRecipesBundle:List:path.html.twig'))        ;
+            ->add('foto', null, array('template' => 'CocktailsRecipesBundle:List:path.html.twig'))
+            ->add('_action', 'actions', array(
+                'actions' => array(
+                    'show' => array(),
+                    'edit' => array(),
+                    'delete' => array(),
+                )
+            ));
     }
 }

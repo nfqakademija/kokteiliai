@@ -1,0 +1,7 @@
+{% include '::layout.html.twig' %}
+
+<link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css" />
+
+{% block productTable %}
+    {% include 'CocktailsRecipesBundle:List:productTable.html.twig' %}
+{% endblock %}

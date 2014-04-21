@@ -55,6 +55,11 @@ class Ingredient
     private $recipes;
 
     /**
+     * @ORM\ManyToMany(targetEntity="User", mappedBy="ingredients")
+     */
+    private $users;
+
+    /**
      * Get id
      *
      * @return integer 
@@ -199,4 +204,37 @@ class Ingredient
     }
 
 
+
+    /**
+     * Add users
+     *
+     * @param \Cocktails\RecipesBundle\Entity\User $users
+     * @return Ingredient
+     */
+    public function addUser(\Cocktails\RecipesBundle\Entity\User $users)
+    {
+        $this->users[] = $users;
+
+        return $this;
+    }
+
+    /**
+     * Remove users
+     *
+     * @param \Cocktails\RecipesBundle\Entity\User $users
+     */
+    public function removeUser(\Cocktails\RecipesBundle\Entity\User $users)
+    {
+        $this->users->removeElement($users);
+    }
+
+    /**
+     * Get users
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getUsers()
+    {
+        return $this->users;
+    }
 }

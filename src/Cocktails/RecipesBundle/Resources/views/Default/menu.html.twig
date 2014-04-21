@@ -1,14 +1,14 @@
-<link href="{{ asset('/css/style.css') }}" rel="stylesheet" type="text/css" />
+<link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css" />
 
 {% block menu %}
     <ul class="navbar">
-        <li><a href="/app_dev.php/table">Receptai</a></li>
+        <li><a href="{{ path('cocktails_recipes_table') }}">Receptai</a></li>
         <li><a href="#">Mano kokteiliai</a></li>
-        <li><a href="#">Mano produktai</a></li>
+        <li><a href="{{ path('cocktails_my_products') }}">Mano produktai</a></li>
     </ul>
     <ul class="navbar">
         <li><a href="#">Pagal mano produktus</a></li>
-        <li><a href="/app_dev.php/tasteSort">Pagal skonį</a></li>
-        <li><a href="/app_dev.php/typeSort">Pagal tipą</a></li>
+        <li><a href="{{ path('cocktails_recipes_taste') }}">Pagal skonį</a></li>
+        <li><a href="{{ path('cocktails_recipes_type') }}">Pagal tipą</a></li>
     </ul>
 {% endblock menu %}

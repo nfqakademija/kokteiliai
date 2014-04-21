@@ -65,6 +65,17 @@ services:
         calls:
             - [ setTranslationDomain, [CocktailsRecipesBundle]]
 
+    sonata.admin.user:
+            class: Cocktails\RecipesBundle\Admin\UserAdmin
+            tags:
+                - { name: sonata.admin, manager_type: orm, group: "Content", label: "User" }
+            arguments:
+                - ~
+                - Cocktails\RecipesBundle\Entity\User
+                - ~
+            calls:
+                - [ setTranslationDomain, [CocktailsRecipesBundle]]
+
 #    sonata.admin.recipesingredients:
 #            class: Cocktails\RecipesBundle\Admin\RecipesIngredientsAdmin
 #            tags:

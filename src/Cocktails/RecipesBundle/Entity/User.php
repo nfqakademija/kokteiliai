@@ -19,6 +19,12 @@ class User extends BaseUser
      */
     protected $id;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="Ingredient", inversedBy="users")
+     * @ORM\JoinTable(name="user_ingredients")
+     */
+    private $ingredients;
+
     public function __construct()
     {
         parent::__construct();
@@ -31,7 +37,40 @@ class User extends BaseUser
      * @return integer 
      */
     public function getId()
-    {
+    {   //$this->getLastLogin();
         return $this->id;
+    }
+
+    /**
+     * Add ingredients
+     *
+     * @param \Cocktails\RecipesBundle\Entity\Ingredient $ingredients
+     * @return User
+     */
+    public function addIngredient(\Cocktails\RecipesBundle\Entity\Ingredient $ingredients)
+    {
+        $this->ingredients[] = $ingredients;
+
+        return $this;
+    }
+
+    /**
+     * Remove ingredients
+     *
+     * @param \Cocktails\RecipesBundle\Entity\Ingredient $ingredients
+     */
+    public function removeIngredient(\Cocktails\RecipesBundle\Entity\Ingredient $ingredients)
+    {
+        $this->ingredients->removeElement($ingredients);
+    }
+
+    /**
+     * Get ingredients
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getIngredients()
+    {
+        return $this->ingredients;
     }
 }

@@ -15,17 +15,6 @@ class DefaultController extends Controller
         return $this->render('CocktailsRecipesBundle:Default:index.html.twig', array('name' => 'Index'));
     }
 
-    public function listAction()
-    {
-        $list = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:Measureunit')->findAll();
-
-        return $this->render('CocktailsRecipesBundle:Default:list.html.twig', array('list' => $list));
-    }
-    public function headerAction()
-    {
-        return $this->render('CocktailsRecipesBundle:Default:header.html.twig');
-    }
-
     public function menuAction()
     {
         return $this->render('CocktailsRecipesBundle:Default:menu.html.twig');
@@ -60,8 +49,7 @@ class DefaultController extends Controller
 
     public function recipeTableAction()
     {
-        $list = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:Recipe')->findAll();
-        return $this->render('CocktailsRecipesBundle:Default:recipesWindow.html.twig', array('list' => $list));
+        $list = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:Recipe')->findAll();      return $this->render('CocktailsRecipesBundle:Default:recipesWindow.html.twig', array('list' => $list));
     }
 
     public function tasteSortAction()
@@ -84,5 +72,10 @@ class DefaultController extends Controller
             );
         }
         return $this->render('CocktailsRecipesBundle:Default:recipeSingleWindow.html.twig', array('recipe'=>$recipe));
+    }
+
+    public function myProductsAction(){
+        $products = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:Ingredient')->findAll();
+        return $this->render('CocktailsRecipesBundle:Default:myProductsWindow.html.twig', array('products'=>$products));
     }
 }

@@ -1,0 +1,14 @@
+<link href="{{ asset('css/table.css') }}" rel="stylesheet" type="text/css" />
+
+{% block productTableBlock %}
+    <div class="productTable">
+        {% for product in products %}
+            <div class="product">
+                <img class="image" src="{{ asset(product.getFoto) }}"/>
+                <div>{{ product.name }}</div>
+                <div>Kiekis: <input type="text" name="FirstName" value="1"> {{ product.getMeasureUnit.getName }}</div>
+                <button name="pasirinkti" onclick="{{ app.user. }}">Pasirinkti</button>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

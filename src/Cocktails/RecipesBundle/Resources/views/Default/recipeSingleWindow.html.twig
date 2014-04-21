@@ -1,11 +1,11 @@
 {% include '::layout.html.twig' %}
 
-<link href="{{ asset('/css/table.css') }}" rel="stylesheet" type="text/css" />
+<link href="{{ asset('css/table.css') }}" rel="stylesheet" type="text/css" />
 {% block recipe %}
     <div class="single">
         <p class="title">{{ recipe.name }}</p>
         <div class="info">
-            <div><img class="image" src="{{ asset(recipe.foto) }}" alt=""/></div>
+            <div><img class="image" src="{{ asset(recipe.getImageByStatus(recipe.image)) }}" alt=""/></div>
             <div class="description">
                 <p>Aprašymas:</p>
                 {{ recipe.description }}

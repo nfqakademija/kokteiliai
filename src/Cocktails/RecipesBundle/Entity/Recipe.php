@@ -2,7 +2,6 @@
 
 namespace Cocktails\RecipesBundle\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 /**
  * Recipe
@@ -27,13 +26,6 @@ class Recipe
      * @ORM\Column(name="name", type="string", length=255)
      */
     private $name;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="foto", type="string", length=255)
-     */
-    private $foto;
 
     /**
      * @ORM\ManyToOne(targetEntity="Image", inversedBy="recipes")
@@ -123,29 +115,6 @@ class Recipe
     public function getName()
     {
         return $this->name;
-    }
-
-    /**
-     * Set foto
-     *
-     * @param string $foto
-     * @return Recipe
-     */
-    public function setFoto($foto)
-    {
-        $this->foto = $foto;
-
-        return $this;
-    }
-
-    /**
-     * Get foto
-     *
-     * @return string 
-     */
-    public function getFoto()
-    {
-        return $this->foto;
     }
 
     /**
@@ -269,7 +238,6 @@ class Recipe
     public function setImage(\Cocktails\RecipesBundle\Entity\Image $image = null)
     {
         $this->image = $image;
-        $this->foto = $image->getPath();
 
         return $this;
     }
@@ -325,5 +293,15 @@ class Recipe
     public function getTypeByStatus($id)
     {   $type = $this->getRecipeType($id)->getName();
         return $type;
+    }
+
+    /**
+     * @param $id
+     * @return string
+     */
+    public function getImageByStatus($id)
+    {
+        $image = $this->getImage($id)->getPath();
+        return $image;
     }
 }
