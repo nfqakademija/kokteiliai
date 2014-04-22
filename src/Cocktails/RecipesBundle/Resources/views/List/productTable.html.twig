@@ -1,14 +1,24 @@
 <link href="{{ asset('css/table.css') }}" rel="stylesheet" type="text/css" />
+<script src="{{ asset('js/functions.js') }}" type="text/javascript"></script>
 
 {% block productTableBlock %}
     <div class="productTable">
         {% for product in products %}
             <div class="product">
                 <img class="image" src="{{ asset(product.getFoto) }}"/>
-                <div>{{ product.name }}</div>
+                <div id="11">{{ product.name }}</div>
                 <div>Kiekis: <input type="text" name="FirstName" value="1"> {{ product.getMeasureUnit.getName }}</div>
-                <button name="pasirinkti" onclick="{{ app.user. }}">Pasirinkti</button>
+                <button name="pasirinkti" onclick="addProduct(product)">Pasirinkti</button>
+
             </div>
         {% endfor %}
+
+        {% for test in app.user.getIngredients() %}
+            {{ test.name }}
+        {% endfor %}
+
+        {% macro input(name, value, type, size) %}
+            <input type="{{ type|default('text') }}" name="{{ name }}" value="{{ value|e }}" size="{{ size|default(20) }}" />
+        {% endmacro %}
     </div>
 {% endblock %}
