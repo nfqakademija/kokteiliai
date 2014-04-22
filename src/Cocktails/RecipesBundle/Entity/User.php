@@ -20,8 +20,7 @@ class User extends BaseUser
     protected $id;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Ingredient", inversedBy="users")
-     * @ORM\JoinTable(name="user_ingredients")
+     * @ORM\OneToMany(targetEntity="UsersIngredients", mappedBy="user", cascade={"all"})
      */
     private $ingredients;
 

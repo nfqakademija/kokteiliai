@@ -55,7 +55,7 @@ class Ingredient
     private $recipes;
 
     /**
-     * @ORM\ManyToMany(targetEntity="User", mappedBy="ingredients")
+     * @ORM\OneToMany(targetEntity="UsersIngredients", mappedBy="user", cascade={"all"})
      */
     private $users;
 
