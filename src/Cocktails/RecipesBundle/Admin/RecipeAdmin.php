@@ -29,7 +29,7 @@ class RecipeAdmin extends Admin
             ->add('recipeType', 'sonata_type_model', array('property' => 'name'))
             ->add('recipeTaste', 'sonata_type_model', array('property' => 'name'))
             ->add('ingredients', 'collection', array(
-                'type'         => new IngredientType($this->getSubject()),
+                'type'         => new IngredientType(),
                 'allow_add'    => true,
                 'allow_delete'    => true,
                 'by_reference' => false,

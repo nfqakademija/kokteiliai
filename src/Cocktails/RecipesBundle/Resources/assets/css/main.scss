@@ -1,0 +1,42 @@
+@import 'menu';
+
+.clear{
+  clear: both;
+}
+body{
+  min-width: 300px;
+}
+.bd{
+  border: 1px dotted blue;
+}
+.btn-right{
+  float: right;
+}
+.login-btn-margin{
+  margin: 10px;
+}
+.nav-user{
+  border-bottom: 2px solid #ddd !important;
+}
+
+.nav a{
+  font-weight: bold;
+}
+.nav .active a{
+  background: #eee;
+}
+
+.recipe-image{
+  position: relative;
+  text-align: center;
+
+  img{
+    max-width: 100%;
+    max-height: 230px;
+  }
+}
+.recipe-col{
+  height: 260px;
+  border-bottom: 1px solid #ddd !important;
+  margin: 20px 0;
+}
