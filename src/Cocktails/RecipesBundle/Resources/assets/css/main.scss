@@ -18,14 +18,15 @@ body{
 .nav-user{
   border-bottom: 2px solid #ddd !important;
 }
+.nav{
+  a{
+    font-weight: bold;
+  }
 
-.nav a{
-  font-weight: bold;
+  .active a{
+    background: #eee;
+  }
 }
-.nav .active a{
-  background: #eee;
-}
-
 .recipe-image{
   position: relative;
   text-align: center;
@@ -40,3 +41,8 @@ body{
   border-bottom: 1px solid #ddd !important;
   margin: 20px 0;
 }
+
+h4.border-bottom{
+  border-bottom: 2px solid #ddd;
+}
+
