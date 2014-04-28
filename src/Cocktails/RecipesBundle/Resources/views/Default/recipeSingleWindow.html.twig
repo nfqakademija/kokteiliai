@@ -10,7 +10,7 @@
             <div class="clear">&nbsp;</div>
             <div class="col-md-9">
 
-                <div class="col-sm-4 recipe-image">
+                <div class="col-sm-4 recipe-image single">
                     <img src="{{ asset(recipe.getImageByStatus(recipe.image)) }}" alt=""/>
                     <p>&nbsp;</p>
                 </div>
@@ -18,8 +18,10 @@
                 <div class="col-sm-8">
                     <p><b>Skonis:</b> {{ recipe.getTasteByStatus(recipe.RecipeTaste)}}</p>
                     <p><b>Tipas:</b> {{ recipe.getTypeByStatus(recipe.RecipeType) }}</p>
+                    <p><b>Gaminta:</b> n kartų</p>
 
-                    <p><b>Kokteilio gaminimas:</b></p>
+                    <p>&nbsp;</p>
+                    <p><b>Gaminimo instrukcija:</b></p>
                     <p>{{ recipe.description }}</p>
                     <p>&nbsp;</p>
                     <a class="btn btn-default" href="{{ path('cocktails_recipe_single', {'id': recipe.id }) }}">
