@@ -1,24 +1,33 @@
-<link href="{{ asset('css/table.css') }}" rel="stylesheet" type="text/css" />
+{#<link href="{{ asset('css/table.css') }}" rel="stylesheet" type="text/css" />#}
 
 {% block table %}
-    <table class="main_table">
+    <div class="clear">&nbsp;</div>
+    <div class="container">
 
-        {% for recipe in list %}
-            <tr class="element">
-                <td class="image"> <img src="{{ asset(recipe.getImageByStatus(recipe.image)) }}" alt=""/></td>
-                <td class="description">
-                    <p class="title">{{ recipe.name }}</p>
-                    <p>Aprašymas</p>
-                    <p>{{ recipe.description }}</p>
-                    <p>Skonis: {{ recipe.getTasteByStatus(recipe.RecipeTaste)}}</p>
-                    <p>Tipas: {{ recipe.getTypeByStatus(recipe.RecipeType) }}</p>
-                    <p>Reitingas: {{ recipe.rank }}</p>
+        <div class="row">
 
-                    <a class="button" href="{{ path('cocktails_recipe_single', {'id': recipe.id }) }}"><button>Pasirinkti</button></a>
-                </td>
-            </tr>
-        {% endfor %}
+            {% for recipe in list %}
+                <div class="col-sm-6">
+                    <div class="col-xs-6 recipe-image recipe-col">
+                        <img src="{{ asset(recipe.getImageByStatus(recipe.image)) }}" alt=""/>
+                    </div>
+                    <div class="col-xs-6 recipe-col ">
+                        <h4>{{ recipe.name }}</h4>
+                        <div class="clear">&nbsp;</div>
+                        <p><strong>Skonis:</strong> {{ recipe.getTasteByStatus(recipe.RecipeTaste) }}</p>
+                        <p><strong>Tipas:</strong> {{ recipe.getTypeByStatus(recipe.RecipeType) }}</p>
+                        <p><strong>Reitingas:</strong> {{ recipe.rank }}</p>
+                        <div class="clear">&nbsp;</div>
+                        <a class="btn btn-default" href="{{ path('cocktails_recipe_single', {'id': recipe.id }) }}">
+                            Plačiau
+                        </a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
 
-    </table>
+        </table>
+    </div>
+
 
 {% endblock %}
