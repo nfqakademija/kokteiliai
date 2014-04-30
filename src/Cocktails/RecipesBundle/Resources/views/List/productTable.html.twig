@@ -3,52 +3,20 @@
 <script>
     var addIngredient = function(element){
         var ingredient = element.getAttribute('data-id');
+        var quantity  =
         console.log(ingredient);
         $.ajax({
-            type: "POST",
+            type: "GET",
             url: "{{ path('cocktails_add_ingredient') }}",
-            dataType: 'json',
-            data: {id: ingredient},
-            contentType: "application/json; charset=utf-8",
+
+            data: {ingredient: ingredient},
             success: function() {
                 console.log("pavyko");
             }
         })
     };
-
-//    function addIngredientToUser(element){
-//        var ajaxRequest;
-//        ajaxRequest = new XMLHttpRequest();
-//        ajaxRequest.onreadystatechange = function () {
-//            if (ajaxRequest.readyState == 4) {
-//                var ajaxDisplay = document.getElementById('1');
-//                ajaxDisplay.innerHTML = ajaxRequest.responseText;
-//            }
-//        };
-//        var name = document.getElementById(element.getAttribute('data-id')).value;
-//        ajaxRequest.open("GET", name, true);
-//        ajaxRequest.send(null);
-//    }
-    {#$(document).ready(function(){#}
-        {#console.log('kiki');#}
-        {#$('.pasirinkti').click(function(element){#}
-
-            {#var ingredient = element.getAttribute('data-id');#}
-            {#console.log(ingredient);#}
-            {#$.ajax({#}
-                {#type: "GET",#}
-                {#url: "{{ path('cocktails_add_ingredient') }}",#}
-                {#data:{ ingredientId: 'data-id'},#}
-                {#success: function() {#}
-                    {#console.log("pavyko");#}
-                {#}#}
-            {#})#}
-        {#});#}
-        {#console.log('kiki');#}
-    {#})#}
-
-
 </script>
+
 {% block ingredientTableBlock %}
     <div class="productTable">
         {% for ingredient in ingredients %}

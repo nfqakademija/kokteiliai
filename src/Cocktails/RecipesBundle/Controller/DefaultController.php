@@ -82,12 +82,11 @@ class DefaultController extends Controller
 
     public function addIngredientToUserAction(Request $request){
         $usr= $this->getUser();
-        $id = $request->get('id');
+        $id = $request->get('ingredient');
         $ingredientEntity = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:Ingredient')->find($id);
         $usr->addIngredient($ingredientEntity);
-
+        var_dump($_GET, $_POST, $_REQUEST, $id);
 
         return $this->render('CocktailsRecipesBundle:Default:menu.html.twig');
-
     }
 }
