@@ -58,4 +58,21 @@ h4.border-bottom{
   border-bottom: 0px !important;
 }
 
-
+/*********************************************/
+/** filters **/
+.filters-container{
+  overflow: hidden;
+  max-height: 0px;
+}
+.filters-container.active{
+  max-height: 1000px;
+  border-bottom: 1px solid #ddd !important;
+}
+label.filter-checkbox{
+  padding: 10px;
+  font-weight: normal;
+}
+.filter-button-right{
+  float: right;
+  margin: 10px;
+}
