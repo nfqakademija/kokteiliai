@@ -27,13 +27,13 @@
     <favorites_list name="kokteiliai" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.47860697">
+    <splitter split-orientation="horizontal" split-proportion="0.45671642">
       <split-first>
         <leaf>
           <file leaf-file-name="myProductsWindow.html.twig" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/Cocktails/RecipesBundle/Resources/views/Default/myProductsWindow.html.twig">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="204">
+                <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="204">
                   <folding />
                 </state>
               </provider>
@@ -42,7 +42,7 @@
           <file leaf-file-name="productTable.html.twig" pinned="false" current="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/Cocktails/RecipesBundle/Resources/views/List/productTable.html.twig">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="10" column="43" selection-start="450" selection-end="450" vertical-scroll-proportion="0.310219" vertical-offset="0" max-vertical-offset="1326">
+                <state line="15" column="14" selection-start="578" selection-end="578" vertical-scroll-proportion="0.8306189" vertical-offset="0" max-vertical-offset="901">
                   <folding />
                 </state>
               </provider>
@@ -82,7 +82,7 @@
           <file leaf-file-name="DefaultController.php" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/Cocktails/RecipesBundle/Controller/DefaultController.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="91" column="1" selection-start="3443" selection-end="3443" vertical-scroll-proportion="0.7741935" vertical-offset="1139" max-vertical-offset="1666">
+                <state line="87" column="0" selection-start="3306" selection-end="3306" vertical-scroll-proportion="1.2482518" vertical-offset="1122" max-vertical-offset="1717">
                   <folding>
                     <element signature="e#54#111#0" expanded="true" />
                   </folding>
@@ -666,10 +666,10 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39314845" sideWeight="0.8882175" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3344209" sideWeight="0.5234139" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39314845" sideWeight="0.8882175" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3344209" sideWeight="0.8240181" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3284553" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -677,7 +677,7 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24093656" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.7177814" sideWeight="0.11178248" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39314845" sideWeight="0.11178248" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39967373" sideWeight="0.4989339" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13412017" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -972,13 +972,6 @@
         <state line="148" column="80" selection-start="2588" selection-end="2661" vertical-scroll-proportion="0.61290324" vertical-offset="2193" max-vertical-offset="5321" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Cocktails/RecipesBundle/Resources/views/Default/myProductsWindow.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="204">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/doctrine/collections/lib/Doctrine/Common/Collections/ArrayCollection.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="117" column="20" selection-start="2853" selection-end="2853" vertical-scroll-proportion="0.0" vertical-offset="1989" max-vertical-offset="6647">
@@ -993,6 +986,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Cocktails/RecipesBundle/Resources/views/Default/myProductsWindow.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="204">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Cocktails/RecipesBundle/Resources/config/routing.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="33" column="18" selection-start="986" selection-end="986" vertical-scroll-proportion="0.0" vertical-offset="106" max-vertical-offset="680">
@@ -1002,14 +1002,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Cocktails/RecipesBundle/Resources/views/List/productTable.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="43" selection-start="450" selection-end="450" vertical-scroll-proportion="0.310219" vertical-offset="0" max-vertical-offset="1326">
+        <state line="15" column="14" selection-start="578" selection-end="578" vertical-scroll-proportion="0.8306189" vertical-offset="0" max-vertical-offset="901">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Cocktails/RecipesBundle/Controller/DefaultController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="91" column="1" selection-start="3443" selection-end="3443" vertical-scroll-proportion="0.7741935" vertical-offset="1139" max-vertical-offset="1666">
+        <state line="87" column="0" selection-start="3306" selection-end="3306" vertical-scroll-proportion="1.2482518" vertical-offset="1122" max-vertical-offset="1717">
           <folding>
             <element signature="e#54#111#0" expanded="true" />
           </folding>

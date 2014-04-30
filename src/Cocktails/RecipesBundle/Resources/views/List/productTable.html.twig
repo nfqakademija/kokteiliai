@@ -2,14 +2,18 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script>
     var addIngredient = function(element){
-        var ingredient = element.getAttribute('data-id');
-        var quantity  =
-        console.log(ingredient);
+        var ingredient = element.getAttribute('id');
+        var quantity  = element.value;
+        console.log(element);
+        console.log(quantity);
         $.ajax({
             type: "GET",
             url: "{{ path('cocktails_add_ingredient') }}",
 
-            data: {ingredient: ingredient},
+            data: {
+                ingredient: ingredient,
+                quantity: quantity
+            },
             success: function() {
                 console.log("pavyko");
             }
@@ -20,12 +24,14 @@
 {% block ingredientTableBlock %}
     <div class="productTable">
         {% for ingredient in ingredients %}
-            <div class="product" id="{{ ingredient.id }}">
+            <div class="product">
                 <img class="image" src="{{ asset(ingredient.getFoto) }}"/>
-                <div id="11">{{ ingredient.name }}</div>
-                <div>Kiekis: <input type="text" name="FirstName" value="1"> {{ ingredient.getMeasureUnit.getName }}</div>
-                <button class="pasirinkti" onclick="addIngredient(this)" data-id="{{ingredient.id}}">Pasirinkti</button>
-
+                <div>{{ ingredient.name }}</div>
+                <form>
+                    Kiekis:
+                    <input type="text" name="quantity" id="{{ ingredient.id }}" value="1"> {{ ingredient.getMeasureUnit.getName }}
+                    <input type="button" value="Pasirinkti" class="pasirinkti" onclick="addIngredient(document.getElementById({{ ingredient.id }}))"/>
+                </form>
             </div>
         {% endfor %}
 

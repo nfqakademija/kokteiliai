@@ -84,8 +84,11 @@ class DefaultController extends Controller
         $usr= $this->getUser();
         $id = $request->get('ingredient');
         $ingredientEntity = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:Ingredient')->find($id);
+        $quantity = $request->get('quantity');
+
         $usr->addIngredient($ingredientEntity);
-        var_dump($_GET, $_POST, $_REQUEST, $id);
+
+        var_dump($_GET, $_POST, $_REQUEST, $id, $quantity);
 
         return $this->render('CocktailsRecipesBundle:Default:menu.html.twig');
     }
