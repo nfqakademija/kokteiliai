@@ -5,6 +5,7 @@ namespace Cocktails\RecipesBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Cocktails\RecipesBundle\Entity\Image;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Symfony\Component\Console\Output\ConsoleOutput;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
@@ -75,7 +76,18 @@ class DefaultController extends Controller
     }
 
     public function myProductsAction(){
-        $products = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:Ingredient')->findAll();
-        return $this->render('CocktailsRecipesBundle:Default:myProductsWindow.html.twig', array('products'=>$products));
+        $ingredients = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:Ingredient')->findAll();
+        return $this->render('CocktailsRecipesBundle:Default:myProductsWindow.html.twig', array('ingredients'=>$ingredients));
+    }
+
+    public function addIngredientToUserAction(Request $request){
+        $usr= $this->getUser();
+        $id = $request->get('id');
+        $ingredientEntity = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:Ingredient')->find($id);
+        $usr->addIngredient($ingredientEntity);
+
+
+        return $this->render('CocktailsRecipesBundle:Default:menu.html.twig');
+
     }
 }

@@ -144,6 +144,7 @@ class Ingredient
     public function __construct()
     {
         $this->recipes = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->users = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**

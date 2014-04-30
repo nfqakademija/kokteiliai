@@ -29,3 +29,7 @@ cocktails_recipe_single:
 cocktails_my_products:
     pattern: /myProducts
     defaults: {_controller: CocktailsRecipesBundle:Default:myProducts}
+
+cocktails_add_ingredient:
+    pattern: /ajax
+    defaults: {_controller: CocktailsRecipesBundle:Default:addIngredientToUser}
