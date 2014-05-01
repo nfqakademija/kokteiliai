@@ -4,6 +4,7 @@ namespace Cocktails\RecipesBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Cocktails\RecipesBundle\Entity\Image;
+use Cocktails\RecipesBundle\Entity\UsersIngredients;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\Console\Output\ConsoleOutput;
 use Symfony\Component\HttpFoundation\Request;
@@ -86,7 +87,16 @@ class DefaultController extends Controller
         $ingredientEntity = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:Ingredient')->find($id);
         $quantity = $request->get('quantity');
 
-        $usr->addIngredient($ingredientEntity);
+        $UsrIngr = new UsersIngredients();
+        $UsrIngr->setQuantity($quantity);
+        $UsrIngr->setUser($usr);
+        $UsrIngr->setIngredient($ingredientEntity);
+
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($UsrIngr);
+        $em->flush();
+
+       // $usr->addIngredient($ingredientEntity);
 
         var_dump($_GET, $_POST, $_REQUEST, $id, $quantity);
 
