@@ -2,6 +2,7 @@
 
 namespace Cocktails\RecipesBundle\Controller;
 
+use Cocktails\RecipesBundle\Entity\UsersRecipes;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Cocktails\RecipesBundle\Entity\Image;
 use Cocktails\RecipesBundle\Entity\UsersIngredients;
@@ -79,45 +80,71 @@ class DefaultController extends Controller
 
     public function myProductsAction(){
         //TODO: patikrinti ar prisijunges
-        $usr= $this->getUser()->getId();
+        $usr = $this->getUser()->getId();
         $ingredients = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:Ingredient')->findAll();
         $userIngredients = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:UsersIngredients')->findBy(array('user'=>$usr));
         return $this->render('CocktailsRecipesBundle:Default:myProductsWindow.html.twig', array('ingredients'=>$ingredients, 'userIngredients'=>$userIngredients));
     }
 
+    public function myRecipesAction(){
+        //TODO: patikrinti ar prisijunges
+        $usr = $this->getUser()->getId();
+        $recipes = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:UsersRecipes')->findBy(array('user'=>$usr));
+
+        return $this->render('CocktailsRecipesBundle:Default:myRecipesWindow.html.twig', array('recipes'=>$recipes));
+    }
+
     public function addIngredientToUserAction(Request $request){
-        $usr= $this->getUser();
+        $usr = $this->getUser();
         $id = $request->get('ingredient');
-        $ingredientEntity = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:Ingredient')->find($id);
+        $ingredient = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:Ingredient')->find($id);
         $quantity = $request->get('quantity');
 
-        $UsrIngr = new UsersIngredients();
-        $UsrIngr->setQuantity($quantity);
-        $UsrIngr->setUser($usr);
-        $UsrIngr->setIngredient($ingredientEntity);
+        $usrIngr = new UsersIngredients();
+        $usrIngr->setQuantity($quantity);
+        $usrIngr->setUser($usr);
+        $usrIngr->setIngredient($ingredient);
 
         $em = $this->getDoctrine()->getManager();
-        $em->persist($UsrIngr);
+        $em->persist($usrIngr);
         $em->flush();
-
-       // $usr->addIngredient($ingredientEntity);
-
-        var_dump($_GET, $_POST, $_REQUEST, $id, $quantity);
 
         return $this->render('CocktailsRecipesBundle:Default:menu.html.twig');
     }
 
     public function removeIngredientFromUserAction(Request $request){
-        $usr= $this->getUser();
         $id = $request->get('ingredient');
-        $ingredientEntity = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:UsersIngredients')->find($id);
-        //$usr->removeIngredient($ingredientEntity);
-
+        $ingredient = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:UsersIngredients')->find($id);
         $em = $this->getDoctrine()->getManager();
-        $em->remove($ingredientEntity);
+        $em->remove($ingredient);
         $em->flush();
 
-        var_dump($id);
+        return $this->render('CocktailsRecipesBundle:Default:menu.html.twig');
+    }
+
+    public function addRecipeToUserAction(Request $request){
+        $usr = $this->getUser();
+        $recipeId = $request->get('id');
+        $recipe = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:Recipe')->find($recipeId);
+
+        $usrRecipe = new UsersRecipes();
+        $usrRecipe->setUser($usr);
+        $usrRecipe->setRecipe($recipe);
+
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($usrRecipe);
+        $em->flush();
+
+        return $this->render('CocktailsRecipesBundle:Default:menu.html.twig');
+    }
+
+    public function removeRecipeFromUserAction(Request $request){
+        $id = $request->get('id');
+        $recipe = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:UsersRecipes')->find($id);
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($recipe);
+        $em->flush();
+
         return $this->render('CocktailsRecipesBundle:Default:menu.html.twig');
     }
 }

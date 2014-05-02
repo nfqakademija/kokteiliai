@@ -75,6 +75,11 @@ class Recipe
     private $ingredients;
 
     /**
+     * @ORM\OneToMany(targetEntity="UsersRecipes", mappedBy="recipe", orphanRemoval=true)
+     */
+    private $users;
+
+    /**
      * @ORM\ManyToOne(targetEntity="RecipeType", inversedBy="recipe")
      */
     private $recipeType;
@@ -147,6 +152,7 @@ class Recipe
     public function __construct()
     {
         $this->ingredients = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->users = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -309,5 +315,38 @@ class Recipe
     {
         $image = $this->getImage($id)->getPath();
         return $image;
+    }
+
+    /**
+     * Add users
+     *
+     * @param \Cocktails\RecipesBundle\Entity\UsersRecipes $users
+     * @return Recipe
+     */
+    public function addUser(\Cocktails\RecipesBundle\Entity\UsersRecipes $users)
+    {
+        $this->users[] = $users;
+
+        return $this;
+    }
+
+    /**
+     * Remove users
+     *
+     * @param \Cocktails\RecipesBundle\Entity\UsersRecipes $users
+     */
+    public function removeUser(\Cocktails\RecipesBundle\Entity\UsersRecipes $users)
+    {
+        $this->users->removeElement($users);
+    }
+
+    /**
+     * Get users
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getUsers()
+    {
+        return $this->users;
     }
 }

@@ -6,7 +6,7 @@
             <div class="row">
                 <ul class="nav nav-bar nav-justified nav-top-menu">
                     <li class="{% if app.request.attributes.get('_route')=='cocktails_recipes_table' %}active{% endif %}"><a href="{{ path('cocktails_recipes_table') }}">Receptai</a></li>
-                    <li><a href="#">Mano kokteiliai</a></li>
+                    <li class="{% if app.request.attributes.get('_route')=='cocktails_my_recipes' %}active{% endif %}"><a href="{{ path('cocktails_my_recipes') }}">Mano kokteiliai</a></li>
                     <li class="{% if app.request.attributes.get('_route')=='cocktails_my_products' %}active{% endif %}"><a href="{{ path('cocktails_my_products') }}">Mano produktai</a></li>
                 </ul>
             </div>

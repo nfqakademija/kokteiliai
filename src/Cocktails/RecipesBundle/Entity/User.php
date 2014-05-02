@@ -24,10 +24,16 @@ class User extends BaseUser
      */
     private $ingredients;
 
+    /**
+     * @ORM\OneToMany(targetEntity="UsersRecipes", mappedBy="user", cascade={"all"})
+     */
+    private $recipes;
+
     public function __construct()
     {
         parent::__construct();
         $this->ingredients = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->recipes = new \Doctrine\Common\Collections\ArrayCollection();
 
     }
 
@@ -75,4 +81,37 @@ class User extends BaseUser
     }
 
 
+
+    /**
+     * Add recipes
+     *
+     * @param \Cocktails\RecipesBundle\Entity\UsersRecipes $recipes
+     * @return User
+     */
+    public function addRecipe(\Cocktails\RecipesBundle\Entity\UsersRecipes $recipes)
+    {
+        $this->recipes[] = $recipes;
+
+        return $this;
+    }
+
+    /**
+     * Remove recipes
+     *
+     * @param \Cocktails\RecipesBundle\Entity\UsersRecipes $recipes
+     */
+    public function removeRecipe(\Cocktails\RecipesBundle\Entity\UsersRecipes $recipes)
+    {
+        $this->recipes->removeElement($recipes);
+    }
+
+    /**
+     * Get recipes
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getRecipes()
+    {
+        return $this->recipes;
+    }
 }

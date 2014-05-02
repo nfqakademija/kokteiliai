@@ -23,7 +23,7 @@
                         <div class="col-sm-3 col-md-4">
                             <h4>{{ ingredient.getIngredient.name }}</h4>
                             <form>
-                                <p>Kiekis: {{ ingredient.getQuantity }} {{ ingredient.getIngredient.getMeasureUnit.getName }}</p> {{ ingredient.id }}
+                                <p>Kiekis: {{ ingredient.getQuantity }} {{ ingredient.getIngredient.getMeasureUnit.getName }}</p>
                                 <input type="button" value="Pašalinti" class="pasirinkti" onclick="removeIngredient({{ ingredient.id }})"/>
                             </form>
                         </div>
