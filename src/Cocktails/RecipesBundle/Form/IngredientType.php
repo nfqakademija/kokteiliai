@@ -11,18 +11,6 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class IngredientType extends AbstractType
 {
-    /**
-     * @var Recipe
-     */
-    private $recipe;
-
-    /**
-     * @param Recipe $recipe
-     */
-    public function __constructor(Recipe $recipe)
-    {
-        $this->recipe = $recipe;
-    }
 
     /**
      * @param FormBuilderInterface $builder
@@ -45,12 +33,6 @@ class IngredientType extends AbstractType
             'data' => 1
         ));
 
-//        $builder->add('recipe', 'entity', array(
-//            'class' => 'CocktailsRecipesBundle:Recipe',
-//            'property' => 'name',
-//            'label' => 'Recipe',
-//            'required' => false
-//        ));
 
 //        $builder->addEventListener(
 //            FormEvents::POST_SET_DATA,

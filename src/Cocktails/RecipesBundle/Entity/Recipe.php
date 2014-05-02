@@ -70,7 +70,7 @@ class Recipe
         return $this->createDate;
     }
     /**
-     * @ORM\OneToMany(targetEntity="RecipesIngredients", mappedBy="recipe", cascade={"all"})
+     * @ORM\OneToMany(targetEntity="RecipesIngredients", mappedBy="recipe", orphanRemoval=true)
      */
     private $ingredients;
 
@@ -170,6 +170,12 @@ class Recipe
      */
     public function removeIngredient(\Cocktails\RecipesBundle\Entity\RecipesIngredients $ingredients)
     {
+//        print_r($ingredients->getIngredient()->getId());
+//        echo '<br />';
+//        print_r($ingredients->getRecipe()->getId());
+//        echo '<br />';
+//        die('remove');
+
         $this->ingredients->removeElement($ingredients);
     }
 

@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Cocktails\RecipesBundle\Entity\Image;
 use Cocktails\RecipesBundle\Entity\UsersIngredients;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Symfony\Component\BrowserKit\Response;
 use Symfony\Component\Console\Output\ConsoleOutput;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -77,8 +78,11 @@ class DefaultController extends Controller
     }
 
     public function myProductsAction(){
+        //TODO: patikrinti ar prisijunges
+        $usr= $this->getUser()->getId();
         $ingredients = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:Ingredient')->findAll();
-        return $this->render('CocktailsRecipesBundle:Default:myProductsWindow.html.twig', array('ingredients'=>$ingredients));
+        $userIngredients = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:UsersIngredients')->findBy(array('user'=>$usr));
+        return $this->render('CocktailsRecipesBundle:Default:myProductsWindow.html.twig', array('ingredients'=>$ingredients, 'userIngredients'=>$userIngredients));
     }
 
     public function addIngredientToUserAction(Request $request){
@@ -100,6 +104,20 @@ class DefaultController extends Controller
 
         var_dump($_GET, $_POST, $_REQUEST, $id, $quantity);
 
+        return $this->render('CocktailsRecipesBundle:Default:menu.html.twig');
+    }
+
+    public function removeIngredientFromUserAction(Request $request){
+        $usr= $this->getUser();
+        $id = $request->get('ingredient');
+        $ingredientEntity = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:UsersIngredients')->find($id);
+        //$usr->removeIngredient($ingredientEntity);
+
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($ingredientEntity);
+        $em->flush();
+
+        var_dump($id);
         return $this->render('CocktailsRecipesBundle:Default:menu.html.twig');
     }
 }

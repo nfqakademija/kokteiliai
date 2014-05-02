@@ -4,8 +4,6 @@
     var addIngredient = function(element){
         var ingredient = element.getAttribute('id');
         var quantity  = element.value;
-        console.log(element);
-        console.log(quantity);
         $.ajax({
             type: "GET",
             url: "{{ path('cocktails_add_ingredient') }}",
@@ -22,27 +20,33 @@
 </script>
 
 {% block ingredientTableBlock %}
-    <div class="productTable">
+    <div class="clear">&nbsp;</div>
+    <h4>Produktų sąrašas:</h4>
+    <ul class="list-group col-sm-5 col-md-5"  >
         {% for ingredient in ingredients %}
-            <div class="product">
-                <img class="image" src="{{ asset(ingredient.getFoto) }}"/>
-                <div>{{ ingredient.name }}</div>
-                <form>
-                    Kiekis:
-                    <input type="text" name="quantity" id="{{ ingredient.id }}" value="1"> {{ ingredient.getMeasureUnit.getName }}
-                    <input type="button" value="Pasirinkti" class="pasirinkti" onclick="addIngredient(document.getElementById({{ ingredient.id }}))"/>
-                </form>
-            </div>
+            <li class="list-group-item " >
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-2 col-md-1">
+                            <img class="thumbnail ingredient-image" src="{{ asset(ingredient.getFoto) }}"/>
+                        </div>
+                        <div class="col-sm-3 col-md-4">
+                            <h4>{{ ingredient.name }}</h4>
+                            <form>
+                                Kiekis:
+                                <input type="text" name="quantity" id="{{ ingredient.id }}" value="1"> {{ ingredient.getMeasureUnit.getName }}
+                                <input type="button" value="Pasirinkti" class="pasirinkti" onclick="addIngredient(document.getElementById({{ ingredient.id }}))"/>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </li>
         {% endfor %}
+    </ul>
 
-        {% for test in app.user.getIngredients() %}
-            {{ test.name }}
-        {% endfor %}
-        <div id="1">
-
-        </div>
         {% macro input(name, value, type, size) %}
             <input type="{{ type|default('text') }}" name="{{ name }}" value="{{ value|e }}" size="{{ size|default(20) }}" />
         {% endmacro %}
-    </div>
+
 {% endblock %}
+

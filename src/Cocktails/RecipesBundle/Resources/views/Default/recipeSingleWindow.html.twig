@@ -1,24 +1,51 @@
 {% include '::layout.html.twig' %}
 
-<link href="{{ asset('css/table.css') }}" rel="stylesheet" type="text/css" />
 {% block recipe %}
-    <div class="single">
-        <p class="title">{{ recipe.name }}</p>
-        <div class="info">
-            <div><img class="image" src="{{ asset(recipe.getImageByStatus(recipe.image)) }}" alt=""/></div>
-            <div class="description">
-                <p>Aprašymas:</p>
-                {{ recipe.description }}
 
-                <p>Skonis: {{ recipe.getTasteByStatus(recipe.RecipeTaste)}}</p>
+    <div class="clear">&nbsp;</div>
+    <div class="container">
 
-                <p>Tipas: {{ recipe.getTypeByStatus(recipe.RecipeType) }}</p>
+        <div class="row">
+            <div class="col-md-12"><h3>{{ recipe.name }}</h3></div>
+            <div class="clear">&nbsp;</div>
+            <div class="col-md-9">
 
-                <p>Ingredientai:</p>
-                <button>Gaminti</button>
+                <div class="col-sm-4 recipe-image single">
+                    <img src="{{ asset(recipe.getImageByStatus(recipe.image)) }}" alt=""/>
+                    <p>&nbsp;</p>
+                </div>
+
+                <div class="col-sm-8">
+                    <p><b>Skonis:</b> {{ recipe.getTasteByStatus(recipe.RecipeTaste)}}</p>
+                    <p><b>Tipas:</b> {{ recipe.getTypeByStatus(recipe.RecipeType) }}</p>
+                    <p><b>Gaminta:</b> n kartų</p>
+
+                    <p>&nbsp;</p>
+                    <p><b>Gaminimo instrukcija:</b></p>
+                    <p>{{ recipe.description }}</p>
+                    <p>&nbsp;</p>
+                    <a class="btn btn-default" href="{{ path('cocktails_recipe_single', {'id': recipe.id }) }}">
+                        Gaminsiu
+                    </a>
+                    <p>&nbsp;</p>
+                </div>
+
+                <div class="clear"></div>
+            </div>
+
+            <div class="col-md-3" style="min-height: 200px;">
+                <h4 class="border-bottom">Ingredientai</h4>
+                <p><b>Ingredientas: </b> ingredientas</p>
+                <p><b>Ingredientas: </b> ingredientas</p>
+                <p><b>Ingredientas: </b> ingredientas</p>
+                <p><b>Ingredientas: </b> ingredientas</p>
+                <p><b>Ingredientas: </b> ingredientas</p>
             </div>
         </div>
+
     </div>
+
+
 
 
 {% endblock %}

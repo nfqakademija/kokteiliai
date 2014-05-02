@@ -1,16 +1,19 @@
-<link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css" />
-
 
 {% block user %}
-    {% if app.user %}
-        <div class="logged">
-            <a> Labas {{ app.user.username }}</a>
-            <p><a href="{{ path('fos_user_security_logout') }}">Atsijungti</a></p>
+
+
+        <div class="container">
+            <div class="row nav-user">
+            {% if app.user %}
+                <div class="logged">
+                    <p><a href="{{ path('fos_user_security_logout') }}" class="btn btn-default btn-right login-btn-margin">Atsijungti: {{ app.user.username }}</a></p>
+                </div>
+            {% else %}
+                <div class="login">
+                    <a href="{{ path('fos_user_security_login') }}" class="btn btn-default btn-right login-btn-margin">Prisijungti</a>
+                </div>
+            {% endif %}
+            </div>
         </div>
-    {% else %}
-        <div class="login">
-            <a href="{{ path('fos_user_security_login') }}">Prisijungti</a>
-        </div>
-    {% endif %}
 
 {% endblock %}

@@ -204,7 +204,15 @@ class Ingredient
         return $this->image;
     }
 
-
+    /**
+     * @param $id
+     * @return string
+     */
+    public function getImageByStatus($id)
+    {
+        $image = $this->getImage($id)->getPath();
+        return $image;
+    }
 
     /**
      * Add users

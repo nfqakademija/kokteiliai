@@ -33,3 +33,7 @@ cocktails_my_products:
 cocktails_add_ingredient:
     pattern: /ajax
     defaults: {_controller: CocktailsRecipesBundle:Default:addIngredientToUser}
+
+cocktails_remove_ingredient:
+    pattern: /ajaxRemove
+    defaults: {_controller: CocktailsRecipesBundle:Default:removeIngredientFromUser}

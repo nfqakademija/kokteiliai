@@ -119,4 +119,8 @@ class UsersIngredients
     {
         return $this->user;
     }
+
+    public function getIngredientEntities(\Cocktails\RecipesBundle\Entity\User $user = null)
+    {
+    }
 }

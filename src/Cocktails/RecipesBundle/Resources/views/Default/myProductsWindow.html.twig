@@ -1,7 +1,14 @@
 {% include '::layout.html.twig' %}
 
-<link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css" />
+{#<link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css" />#}
 
 {% block productTable %}
-    {% include 'CocktailsRecipesBundle:List:productTable.html.twig' %}
+    <div class="container">
+        <div class="row">
+            <div>{% include 'CocktailsRecipesBundle:List:productTable.html.twig' %}</div>
+            <div>{% include 'CocktailsRecipesBundle:List:UseringredientTable.html.twig' %}</div>
+        </div>
+    </div>
+
+
 {% endblock %}

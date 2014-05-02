@@ -1,14 +1,22 @@
-<link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css" />
+{#<link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css" />#}
 
 {% block menu %}
-    <ul class="navbar">
-        <li><a href="{{ path('cocktails_recipes_table') }}">Receptai</a></li>
-        <li><a href="#">Mano kokteiliai</a></li>
-        <li><a href="{{ path('cocktails_my_products') }}">Mano produktai</a></li>
-    </ul>
-    <ul class="navbar">
-        <li><a href="#">Pagal mano produktus</a></li>
-        <li><a href="{{ path('cocktails_recipes_taste') }}">Pagal skonį</a></li>
-        <li><a href="{{ path('cocktails_recipes_type') }}">Pagal tipą</a></li>
-    </ul>
+
+        <div class="container">
+            <div class="row">
+                <ul class="nav nav-bar nav-justified nav-top-menu">
+                    <li class="{% if app.request.attributes.get('_route')=='cocktails_recipes_table' %}active{% endif %}"><a href="{{ path('cocktails_recipes_table') }}">Receptai</a></li>
+                    <li><a href="#">Mano kokteiliai</a></li>
+                    <li class="{% if app.request.attributes.get('_route')=='cocktails_my_products' %}active{% endif %}"><a href="{{ path('cocktails_my_products') }}">Mano produktai</a></li>
+                </ul>
+            </div>
+            <div class="row">
+                <ul class="nav nav-bar nav-justified nav-top-menu filters-buttons">
+                    <li data-filters="filter-taste"><a href="#">Pagal skonį</a></li>
+                    <li data-filters="filter-my-products"><a href="#">Pagal mano produktus</a></li>
+                    <li data-filters="filter-type"><a href="#">Pagal tipą</a></li>
+                </ul>
+            </div>
+        </div>
+
 {% endblock menu %}
