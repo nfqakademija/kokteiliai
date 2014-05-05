@@ -1,0 +1,52 @@
+<link href="{{ asset('css/table.css') }}" rel="stylesheet" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script>
+    var addIngredient = function(element){
+        var ingredient = element.getAttribute('id');
+        var quantity  = element.value;
+        $.ajax({
+            type: "GET",
+            url: "{{ path('cocktails_add_ingredient') }}",
+
+            data: {
+                ingredient: ingredient,
+                quantity: quantity
+            },
+            success: function() {
+                console.log("pavyko");
+            }
+        })
+    };
+</script>
+
+{% block ingredientTableBlock %}
+    <div class="clear">&nbsp;</div>
+    <h4>Produktų sąrašas:</h4>
+    <ul class="list-group col-sm-5 col-md-5"  >
+        {% for ingredient in ingredients %}
+            <li class="list-group-item " >
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-2 col-md-1">
+                            <img class="thumbnail ingredient-image" src="{{ asset(ingredient.getFoto) }}"/>
+                        </div>
+                        <div class="col-sm-3 col-md-4">
+                            <h4>{{ ingredient.name }}</h4>
+                            <form>
+                                Kiekis:
+                                <input type="text" name="quantity" id="{{ ingredient.id }}" value="1"> {{ ingredient.getMeasureUnit.getName }}
+                                <input type="button" value="Pasirinkti" class="pasirinkti" onclick="addIngredient(document.getElementById({{ ingredient.id }}))"/>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+
+        {% macro input(name, value, type, size) %}
+            <input type="{{ type|default('text') }}" name="{{ name }}" value="{{ value|e }}" size="{{ size|default(20) }}" />
+        {% endmacro %}
+
+{% endblock %}
+

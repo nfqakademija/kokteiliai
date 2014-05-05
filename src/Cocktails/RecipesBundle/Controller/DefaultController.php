@@ -2,9 +2,13 @@
 
 namespace Cocktails\RecipesBundle\Controller;
 
+use Cocktails\RecipesBundle\Entity\UsersRecipes;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Cocktails\RecipesBundle\Entity\Image;
+use Cocktails\RecipesBundle\Entity\UsersIngredients;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Symfony\Component\BrowserKit\Response;
+use Symfony\Component\Console\Output\ConsoleOutput;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
@@ -74,31 +78,73 @@ class DefaultController extends Controller
         return $this->render('CocktailsRecipesBundle:Default:recipeSingleWindow.html.twig', array('recipe'=>$recipe));
     }
 
-    /**
-     * My Recipes action
-     * @return \Symfony\Component\HttpFoundation\Response
-     */
-    public function myCocktailsAction()
-    {
-        $list = array();
-
-
-        return $this->render('CocktailsRecipesBundle:Default:myCocktails.html.twig', array(
-            'list' => $list
-        ));
+    public function myProductsAction(){
+        //TODO: patikrinti ar prisijunges
+        $usr = $this->getUser()->getId();
+        $ingredients = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:Ingredient')->findAll();
+        $userIngredients = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:UsersIngredients')->findBy(array('user'=>$usr));
+        return $this->render('CocktailsRecipesBundle:Default:myProductsWindow.html.twig', array('ingredients'=>$ingredients, 'userIngredients'=>$userIngredients));
     }
 
-    /**
-     * My products action
-     * @return \Symfony\Component\HttpFoundation\Response
-     */
-    public function myProductsAction()
-    {
-        $list = array();
+    public function myRecipesAction(){
+        //TODO: patikrinti ar prisijunges
+        $usr = $this->getUser()->getId();
+        $recipes = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:UsersRecipes')->findBy(array('user'=>$usr));
 
+        return $this->render('CocktailsRecipesBundle:Default:myRecipesWindow.html.twig', array('recipes'=>$recipes));
+    }
 
-        return $this->render('CocktailsRecipesBundle:Default:myProducts.html.twig', array(
-            'list' => $list
-        ));
+    public function addIngredientToUserAction(Request $request){
+        $usr = $this->getUser();
+        $id = $request->get('ingredient');
+        $ingredient = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:Ingredient')->find($id);
+        $quantity = $request->get('quantity');
+
+        $usrIngr = new UsersIngredients();
+        $usrIngr->setQuantity($quantity);
+        $usrIngr->setUser($usr);
+        $usrIngr->setIngredient($ingredient);
+
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($usrIngr);
+        $em->flush();
+
+        return $this->render('CocktailsRecipesBundle:Default:menu.html.twig');
+    }
+
+    public function removeIngredientFromUserAction(Request $request){
+        $id = $request->get('ingredient');
+        $ingredient = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:UsersIngredients')->find($id);
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($ingredient);
+        $em->flush();
+
+        return $this->render('CocktailsRecipesBundle:Default:menu.html.twig');
+    }
+
+    public function addRecipeToUserAction(Request $request){
+        $usr = $this->getUser();
+        $recipeId = $request->get('id');
+        $recipe = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:Recipe')->find($recipeId);
+
+        $usrRecipe = new UsersRecipes();
+        $usrRecipe->setUser($usr);
+        $usrRecipe->setRecipe($recipe);
+
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($usrRecipe);
+        $em->flush();
+
+        return $this->render('CocktailsRecipesBundle:Default:menu.html.twig');
+    }
+
+    public function removeRecipeFromUserAction(Request $request){
+        $id = $request->get('id');
+        $recipe = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:UsersRecipes')->find($id);
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($recipe);
+        $em->flush();
+
+        return $this->render('CocktailsRecipesBundle:Default:menu.html.twig');
     }
 }

@@ -6,9 +6,8 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Recipe
  *
+ * @ORM\Table()
  * @ORM\Entity(repositoryClass="Cocktails\RecipesBundle\Entity\RecipeRepository")
- * @ORM\Table(name="recipe", uniqueConstraints={
- *      @ORM\UniqueConstraint(name="ingredients_idx", columns={"name"})})
  */
 class Recipe
 {
@@ -71,7 +70,7 @@ class Recipe
         return $this->createDate;
     }
     /**
-     * @ORM\OneToMany(targetEntity="RecipesIngredients", mappedBy="recipe", orphanRemoval=true, cascade={"all"})
+     * @ORM\OneToMany(targetEntity="RecipesIngredients", mappedBy="recipe", orphanRemoval=true)
      */
     private $ingredients;
 
@@ -316,38 +315,5 @@ class Recipe
     {
         $image = $this->getImage($id)->getPath();
         return $image;
-    }
-
-    /**
-     * Add users
-     *
-     * @param \Cocktails\RecipesBundle\Entity\UsersRecipes $users
-     * @return Recipe
-     */
-    public function addUser(\Cocktails\RecipesBundle\Entity\UsersRecipes $users)
-    {
-        $this->users[] = $users;
-
-        return $this;
-    }
-
-    /**
-     * Remove users
-     *
-     * @param \Cocktails\RecipesBundle\Entity\UsersRecipes $users
-     */
-    public function removeUser(\Cocktails\RecipesBundle\Entity\UsersRecipes $users)
-    {
-        $this->users->removeElement($users);
-    }
-
-    /**
-     * Get users
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getUsers()
-    {
-        return $this->users;
     }
 }

@@ -26,10 +26,26 @@ cocktails_recipe_single:
     pattern: /Recipe/{id}
     defaults: {_controller: CocktailsRecipesBundle:Default:showRecipe, id: id}
 
-cocktails_my_cocktails:
-    pattern: /myRecipes
-    defaults: {_controller: CocktailsRecipesBundle:Default:myCocktails}
-
 cocktails_my_products:
     pattern: /myProducts
     defaults: {_controller: CocktailsRecipesBundle:Default:myProducts}
+
+cocktails_my_recipes:
+    pattern: /myRecipes
+    defaults: {_controller: CocktailsRecipesBundle:Default:myRecipes}
+
+cocktails_add_ingredient:
+    pattern: /ajax
+    defaults: {_controller: CocktailsRecipesBundle:Default:addIngredientToUser}
+
+cocktails_remove_ingredient:
+    pattern: /ajaxRemoveIngr
+    defaults: {_controller: CocktailsRecipesBundle:Default:removeIngredientFromUser}
+
+cocktails_add_recipe_to_user:
+    pattern: /ajaxAddRecipe
+    defaults: {_controller: CocktailsRecipesBundle:Default:addRecipeToUser}
+
+cocktails_remove_recipe:
+    pattern: /ajaxRemoveRec
+    defaults: {_controller: CocktailsRecipesBundle:Default:removeRecipeFromUser}

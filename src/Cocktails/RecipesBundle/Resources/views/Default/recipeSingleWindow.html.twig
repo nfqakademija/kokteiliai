@@ -1,4 +1,16 @@
 {% include '::layout.html.twig' %}
+<script>
+    var addRecipeToUser = function(id){
+        $.ajax({
+            type: "GET",
+            url: "{{ path('cocktails_add_recipe_to_user') }}",
+            data:{id: id},
+            cuccess: function(){
+                console.log("recipe added");
+            }
+        })
+    };
+</script>
 
 {% block recipe %}
 
@@ -24,7 +36,7 @@
                     <p><b>Gaminimo instrukcija:</b></p>
                     <p>{{ recipe.description }}</p>
                     <p>&nbsp;</p>
-                    <a class="btn btn-default" href="{{ path('cocktails_recipe_single', {'id': recipe.id }) }}">
+                    <a class="btn btn-default" onclick="addRecipeToUser({{ recipe.id }})">
                         Gaminsiu
                     </a>
                     <p>&nbsp;</p>
