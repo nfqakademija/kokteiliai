@@ -73,4 +73,32 @@ class DefaultController extends Controller
         }
         return $this->render('CocktailsRecipesBundle:Default:recipeSingleWindow.html.twig', array('recipe'=>$recipe));
     }
+
+    /**
+     * My Recipes action
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function myCocktailsAction()
+    {
+        $list = array();
+
+
+        return $this->render('CocktailsRecipesBundle:Default:myCocktails.html.twig', array(
+            'list' => $list
+        ));
+    }
+
+    /**
+     * My products action
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function myProductsAction()
+    {
+        $list = array();
+
+
+        return $this->render('CocktailsRecipesBundle:Default:myProducts.html.twig', array(
+            'list' => $list
+        ));
+    }
 }

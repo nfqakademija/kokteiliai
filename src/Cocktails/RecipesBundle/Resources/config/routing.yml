@@ -25,3 +25,11 @@ cocktails_recipes_type:
 cocktails_recipe_single:
     pattern: /Recipe/{id}
     defaults: {_controller: CocktailsRecipesBundle:Default:showRecipe, id: id}
+
+cocktails_my_cocktails:
+    pattern: /myRecipes
+    defaults: {_controller: CocktailsRecipesBundle:Default:myCocktails}
+
+cocktails_my_products:
+    pattern: /myProducts
+    defaults: {_controller: CocktailsRecipesBundle:Default:myProducts}
