@@ -75,23 +75,27 @@ class DefaultController extends Controller
                 'No product found for id '.$id
             );
         }
-        return $this->render('CocktailsRecipesBundle:Default:recipeSingleWindow.html.twig', array('recipe'=>$recipe));
+        $usr = $this->getUser()->getId();
+        $ingredients = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:RecipesIngredients')->findBy(array('recipe'=>$recipe->getId()));
+        $userIngredients = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:UsersIngredients')->findBy(array('user'=>$usr));
+        return $this->render('CocktailsRecipesBundle:Default:recipeSingleWindow.html.twig', array('recipe'=>$recipe, 'ingredients'=>$ingredients, 'userIngredients'=>$userIngredients));
     }
 
     public function myProductsAction(){
-        //TODO: patikrinti ar prisijunges
-        $usr = $this->getUser()->getId();
-        $ingredients = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:Ingredient')->findAll();
-        $userIngredients = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:UsersIngredients')->findBy(array('user'=>$usr));
-        return $this->render('CocktailsRecipesBundle:Default:myProductsWindow.html.twig', array('ingredients'=>$ingredients, 'userIngredients'=>$userIngredients));
+        if( $this->container->get('security.context')->isGranted('IS_AUTHENTICATED_FULLY') ){
+            $usr = $this->getUser()->getId();
+            $ingredients = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:Ingredient')->findAll();
+            $userIngredients = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:UsersIngredients')->findBy(array('user'=>$usr));
+            return $this->render('CocktailsRecipesBundle:Default:myProductsWindow.html.twig', array('ingredients'=>$ingredients, 'userIngredients'=>$userIngredients));
+        } else {return $this->render('CocktailsRecipesBundle:Default:index.html.twig', array('name' => 'Index'));}
     }
 
     public function myRecipesAction(){
-        //TODO: patikrinti ar prisijunges
+        if( $this->container->get('security.context')->isGranted('IS_AUTHENTICATED_FULLY') ){
         $usr = $this->getUser()->getId();
         $recipes = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:UsersRecipes')->findBy(array('user'=>$usr));
-
         return $this->render('CocktailsRecipesBundle:Default:myRecipesWindow.html.twig', array('recipes'=>$recipes));
+        } else {return $this->render('CocktailsRecipesBundle:Default:index.html.twig', array('name' => 'Index'));}
     }
 
     public function addIngredientToUserAction(Request $request){
@@ -99,17 +103,21 @@ class DefaultController extends Controller
         $id = $request->get('ingredient');
         $ingredient = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:Ingredient')->find($id);
         $quantity = $request->get('quantity');
-
-        $usrIngr = new UsersIngredients();
-        $usrIngr->setQuantity($quantity);
-        $usrIngr->setUser($usr);
-        $usrIngr->setIngredient($ingredient);
-
         $em = $this->getDoctrine()->getManager();
-        $em->persist($usrIngr);
-        $em->flush();
-
-        return $this->render('CocktailsRecipesBundle:Default:menu.html.twig');
+        if($this->getDoctrine()->getRepository('CocktailsRecipesBundle:UsersIngredients')->findBy(array('ingredient'=>$ingredient)))
+        {
+            $this->getDoctrine()->getRepository('CocktailsRecipesBundle:UsersIngredients')->findOneBy(array('ingredient'=>$ingredient, 'user'=>$usr))->setQuantity($quantity);
+            $em->flush();
+        } else
+        {
+            $usrIngr = new UsersIngredients();
+            $usrIngr->setQuantity($quantity);
+            $usrIngr->setUser($usr);
+            $usrIngr->setIngredient($ingredient);
+            $em->persist($usrIngr);
+            $em->flush();
+        }
+        return $this->render('CocktailsRecipesBundle:Default:index.html.twig');
     }
 
     public function removeIngredientFromUserAction(Request $request){
@@ -119,7 +127,7 @@ class DefaultController extends Controller
         $em->remove($ingredient);
         $em->flush();
 
-        return $this->render('CocktailsRecipesBundle:Default:menu.html.twig');
+        return $this->render('CocktailsRecipesBundle:Default:index.html.twig');
     }
 
     public function addRecipeToUserAction(Request $request){
@@ -135,7 +143,7 @@ class DefaultController extends Controller
         $em->persist($usrRecipe);
         $em->flush();
 
-        return $this->render('CocktailsRecipesBundle:Default:menu.html.twig');
+        return $this->render('CocktailsRecipesBundle:Default:index.html.twig');
     }
 
     public function removeRecipeFromUserAction(Request $request){
@@ -145,6 +153,6 @@ class DefaultController extends Controller
         $em->remove($recipe);
         $em->flush();
 
-        return $this->render('CocktailsRecipesBundle:Default:menu.html.twig');
+        return $this->render('CocktailsRecipesBundle:Default:index.html.twig');
     }
 }

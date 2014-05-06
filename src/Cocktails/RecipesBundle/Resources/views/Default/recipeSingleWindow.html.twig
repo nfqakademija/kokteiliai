@@ -47,11 +47,14 @@
 
             <div class="col-md-3" style="min-height: 200px;">
                 <h4 class="border-bottom">Ingredientai</h4>
-                <p><b>Ingredientas: </b> ingredientas</p>
-                <p><b>Ingredientas: </b> ingredientas</p>
-                <p><b>Ingredientas: </b> ingredientas</p>
-                <p><b>Ingredientas: </b> ingredientas</p>
-                <p><b>Ingredientas: </b> ingredientas</p>
+                {% for ingredient in ingredients %}
+                    <p><b>{{ ingredient.getIngredient.name }} </b> {{ ingredient.quantity }} {{ ingredient.getIngredient.getMeasureUnit.getName }}</p>
+                    {% for userIngredient in userIngredients %}
+                        {% if ingredient.id == userIngredient.getIngredient.id %}
+                            turiu
+                        {% endif %}
+                    {% endfor %}
+                {% endfor %}
             </div>
         </div>
 
