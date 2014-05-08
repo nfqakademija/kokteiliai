@@ -18,6 +18,16 @@ class NavigationController extends Controller
         if( $this->container->get('security.context')->isGranted('IS_AUTHENTICATED_FULLY') ){
             $usr = $this->getUser()->getId();
             $recipes = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:UsersRecipes')->findBy(array('user'=>$usr));
+//            $ingredientsNeeded = array();
+//            foreach($recipes as $recipe){
+//                $recipeEnt = $recipe->getRecipe();
+//                $recipeIngr = $recipeEnt->getIngredients();
+//                foreach($recipeIngr as $ingredient){
+//                    if (!in_array($ingredient, $ingredientsNeeded)){
+//                        $ingredientsNeeded = $ingredient;
+//                    }
+//                }
+//            }
             return $this->render('CocktailsRecipesBundle:Default:myRecipesWindow.html.twig', array('recipes'=>$recipes));
         } else {return $this->render('CocktailsRecipesBundle:Default:index.html.twig', array('name' => 'Index'));}
     }

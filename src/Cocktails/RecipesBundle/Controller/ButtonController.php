@@ -28,6 +28,7 @@ class ButtonController extends Controller
         $usr = $this->getUser();
         $recipeId = $request->get('id');
         $recipe = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:Recipe')->find($recipeId);
+        $recipe->incRank();
         $usrRecipe = new UsersRecipes();
         $usrRecipe->setUser($usr);
         $usrRecipe->setRecipe($recipe);

@@ -145,6 +145,15 @@ class Recipe
         return $this->rank;
     }
 
+    /**
+     * Increase rank
+     * @return Recipe
+     */
+    public function incRank()
+    {
+        $this->rank += 1;
+        return $this;
+    }
 
     /**
      * Constructor

@@ -2,7 +2,7 @@
 <script>
     var addRecipeToUser = function(id){
         $.ajax({
-            type: "GET",
+            type: "POST",
             url: "{{ path('cocktails_add_recipe_to_user') }}",
             data:{id: id},
             cuccess: function(){
