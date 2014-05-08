@@ -33,18 +33,6 @@ class IngredientType extends AbstractType
             'data' => 1
         ));
 
-
-//        $builder->addEventListener(
-//            FormEvents::POST_SET_DATA,
-//            function (FormEvent $event) {
-//                $form = $event->getForm();
-//                $recipeField = $form->get('recipe')->setData($this->recipe);
-//                //$recipeField->setData($this->recipe);
-//            }
-//        );
-
-
-
     }
     
     /**

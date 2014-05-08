@@ -6,8 +6,9 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Recipe
  *
- * @ORM\Table()
  * @ORM\Entity(repositoryClass="Cocktails\RecipesBundle\Entity\RecipeRepository")
+ * @ORM\Table(name="recipe", uniqueConstraints={
+ *      @ORM\UniqueConstraint(name="ingredients_idx", columns={"name"})})
  */
 class Recipe
 {
@@ -70,7 +71,7 @@ class Recipe
         return $this->createDate;
     }
     /**
-     * @ORM\OneToMany(targetEntity="RecipesIngredients", mappedBy="recipe", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity="RecipesIngredients", mappedBy="recipe", orphanRemoval=true, cascade={"all"})
      */
     private $ingredients;
 
