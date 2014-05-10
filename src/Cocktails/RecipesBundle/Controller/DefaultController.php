@@ -7,7 +7,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Cocktails\RecipesBundle\Entity\Image;
 use Cocktails\RecipesBundle\Entity\UsersIngredients;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-use Symfony\Component\BrowserKit\Response;
+use Symfony\Component\HttpFoundation\Response;
+//use Symfony\Component\BrowserKit\Response;
 use Symfony\Component\Console\Output\ConsoleOutput;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -53,11 +54,18 @@ class DefaultController extends Controller
 
     public function recipeTableAction()
     {
-        $list = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:Recipe')->findAll();      return $this->render('CocktailsRecipesBundle:Default:recipesWindow.html.twig', array('list' => $list));
+        $list = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:Recipe')->findAll();
+        $tastes = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:RecipeTaste')->findAll();
+        $types = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:RecipeType')->findAll();
+        return $this->render('CocktailsRecipesBundle:Default:recipesWindow.html.twig', array('list' => $list, 'tastes' => $tastes, 'types' => $types));
     }
 
-    public function tasteSortAction()
-    {   $list = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:Recipe')->findAll();
+    public function tasteSortAction(Request $request)
+    {
+       // print_r($request);
+        //echo $request->query->get("filt");
+        //echo $request->
+        $list = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:Recipe')->findAll();
         $tastes = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:RecipeTaste')->findAll();
         return $this->render('CocktailsRecipesBundle:Default:tasteWindow.html.twig', array('tastes'=>$tastes, 'list' => $list));
     }
@@ -146,5 +154,19 @@ class DefaultController extends Controller
         $em->flush();
 
         return $this->render('CocktailsRecipesBundle:Default:menu.html.twig');
+    }
+
+    public function updateDataAction(Request $request){
+
+        //$request = $this->container->get('request');
+        $data1 = $request->get('data1');
+        $data2 = $request->get('data2');
+        //prepare the response, e.g.
+
+        //$response = array("code" => 100, "success" => true, "data1" => $data1);
+        //you can return result as JSON
+        //return new Response(json_encode($response));
+        $list = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:Recipe')->findAll();
+        return $this->render('CocktailsRecipesBundle:List:recipeList.html.twig', array('list' => $list));
     }
 }

@@ -1,12 +1,13 @@
 
 {% block table %}
+    <form method="get" action="">
     <div class="tasteTable">
-        <ul>
             {% for taste in tastes %}
-                <li class="element" onclick="return confirm('make action')">
+                    <input type="checkbox" name="filt[{{ taste.name }}]" value="2" >
                     <p class="title">{{ taste.name }}</p>
-                </li>
+
             {% endfor %}
-        </ul>
+        <input type="submit" value="Filtruoti">
     </div>
+    </form>
 {% endblock %}

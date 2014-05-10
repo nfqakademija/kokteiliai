@@ -49,3 +49,7 @@ cocktails_add_recipe_to_user:
 cocktails_remove_recipe:
     pattern: /ajaxRemoveRec
     defaults: {_controller: CocktailsRecipesBundle:Default:removeRecipeFromUser}
+
+cocktails_recipes_filter:
+  pattern:  /ajaxFilter
+  defaults: { _controller:  CocktailsRecipesBundle:Default:updateData}
