@@ -158,15 +158,10 @@ class DefaultController extends Controller
 
     public function updateDataAction(Request $request){
 
-        //$request = $this->container->get('request');
-        $data1 = $request->get('data1');
-        $data2 = $request->get('data2');
-        //prepare the response, e.g.
+        $data = $request->get('data');
+        $type = $request->get('type');
 
-        //$response = array("code" => 100, "success" => true, "data1" => $data1);
-        //you can return result as JSON
-        //return new Response(json_encode($response));
-        $list = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:Recipe')->findAll();
+        $list = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:Recipe')->getFilteredRecipes($data, $type);
         return $this->render('CocktailsRecipesBundle:List:recipeList.html.twig', array('list' => $list));
     }
 }

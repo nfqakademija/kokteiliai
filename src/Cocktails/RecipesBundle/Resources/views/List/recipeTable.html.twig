@@ -1,17 +1,23 @@
 {#<link href="{{ asset('css/table.css') }}" rel="stylesheet" type="text/css" />#}
 <script>
-
     function filter_with_ajax(type)
     {
         $("#recipe_row").html('<div style=\"text-align:center;\"><img src="{{ asset('files/images/load.gif') }}"></div>');
+
+        var id = [];
+        $('input:checked').each(function() {
+            var myMatch = $(this).attr("name").search(type);
+            if(myMatch != -1)
+                id.push($(this).attr("name").replace(type + "_",""));
+        });
+        id = id.join();
         $.ajax({
             type: "POST",
             url: "{{ path('cocktails_recipes_filter') }}",
             dataType: "html",
-            data:{data1: 'mydata1'},
+            data:{data: id, type: type},
             success: function(data){
                 $("#recipe_row").html(data);
-                console.log("recipe removed");
             }
         })
 
@@ -24,7 +30,7 @@
         <div class="col-md-12">
             <div class="row filters-container filter-taste">
                 {% for taste in tastes %}
-                    <label class="filter-checkbox"><input type="checkbox"> {{ taste.name }} </label>
+                    <label class="filter-checkbox"><input name="taste_{{ taste.id }}" type="checkbox"> {{ taste.name }} </label>
                 {% endfor %}
                 <a class="btn btn-default filter-button-right" href="#" onclick="filter_with_ajax('taste');">
                     Filtruoti
@@ -32,7 +38,7 @@
             </div>
             <div class="row filters-container filter-type">
                 {% for type in types %}
-                    <label class="filter-checkbox"><input type="checkbox"> {{ type.name }} </label>
+                    <label class="filter-checkbox"><input name="type_{{ type.id }}" type="checkbox"> {{ type.name }} </label>
                 {% endfor %}
                 <a class="btn btn-default filter-button-right" href="#" onclick="filter_with_ajax('type');">
                     Filtruoti

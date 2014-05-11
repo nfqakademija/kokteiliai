@@ -12,4 +12,21 @@ use Doctrine\ORM\EntityRepository;
  */
 class RecipeRepository extends EntityRepository
 {
+    public function getFilteredRecipes($data, $type)
+    {
+        $em = $this->getEntityManager();
+        $where = "";
+        if($data != "")
+            $where = "WHERE r.recipe".ucfirst($type)." IN($data)";
+
+        $query = $em->createQuery(
+            "
+                            SELECT r
+                            FROM Cocktails\RecipesBundle\Entity\Recipe r
+                            $where
+                        "
+        );
+        $recipes = $query->getResult();
+        return $recipes;
+    }
 }
