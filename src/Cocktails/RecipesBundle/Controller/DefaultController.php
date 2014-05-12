@@ -47,7 +47,18 @@ class DefaultController extends Controller
     public function recipeTableAction()
     {
         $list = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:Recipe')->findAll();
-        return $this->render('CocktailsRecipesBundle:Default:recipesWindow.html.twig', array('list' => $list));
+        $tastes = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:RecipeTaste')->findAll();
+        $types = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:RecipeType')->findAll();
+        return $this->render('CocktailsRecipesBundle:Default:recipesWindow.html.twig', array('list' => $list, 'tastes' => $tastes, 'types' => $types));
+    }
+
+    public function updateDataAction(Request $request){
+
+        $data = $request->get('data');
+        $type = $request->get('type');
+
+        $list = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:Recipe')->getFilteredRecipes($data, $type);
+        return $this->render('CocktailsRecipesBundle:List:recipeList.html.twig', array('list' => $list));
     }
 
 }

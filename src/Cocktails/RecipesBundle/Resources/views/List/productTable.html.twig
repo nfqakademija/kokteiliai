@@ -1,23 +1,4 @@
 <link href="{{ asset('css/table.css') }}" rel="stylesheet" type="text/css" />
-<script>
-    var addIngredient = function(element){
-        var ingredient = element.getAttribute('id');
-        var quantity  = element.value;
-        $.ajax({
-            type: "POST",
-            url: "{{ path('cocktails_add_ingredient') }}",
-
-            data: {
-                ingredient: ingredient,
-                quantity: quantity
-            },
-            success: function(){
-                window.location.reload(true);
-            }
-
-        })
-    };
-</script>
 
 {% block ingredientTableBlock %}
     <div class="clear">&nbsp;</div>
@@ -35,7 +16,7 @@
                             <form>
                                 Kiekis:
                                 <input type="text" name="quantity" id="{{ ingredient.id }}" value="1"> {{ ingredient.getMeasureUnit.getName }}
-                                <input type="button" value="Pasirinkti" class="pasirinkti" onclick="addIngredient(document.getElementById({{ ingredient.id }}))"/>
+                                <input type="button" value="Pasirinkti" class="pasirinkti" onclick="addIngredient(document.getElementById({{ ingredient.id }}));"/>
                             </form>
                         </div>
                     </div>
