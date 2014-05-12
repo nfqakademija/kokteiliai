@@ -19,6 +19,8 @@ class LoadMeasureUnitData  extends AbstractFixture implements OrderedFixtureInte
             array('g', 'measureUnit-1'),
             array('ml', 'measureUnit-2'),
             array('vnt', 'measureUnit-3'),
+            array('stiklinė', 'measureUnit-4'),
+            array('šaukštelis', 'measureUnit-5'),
         );
 
         foreach($measureUnits as $measureUnit){
