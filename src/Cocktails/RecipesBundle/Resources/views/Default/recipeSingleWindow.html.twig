@@ -1,15 +1,17 @@
 {% include '::layout.html.twig' %}
 <script>
-    var addRecipeToUser = function(id){
+    function addRecipeToUser(id){
+        $("#pasirinkti_button").html('Pridedama');
+
         $.ajax({
             type: "POST",
             url: "{{ path('cocktails_add_recipe_to_user') }}",
             data:{id: id},
-            cuccess: function(){
-                console.log("recipe added");
+            success: function(data){
+                $("#pasirinkti_button").html('Pridėta');
             }
         })
-    };
+    }
 </script>
 
 {% block recipe %}
@@ -36,7 +38,7 @@
                     <p><b>Gaminimo instrukcija:</b></p>
                     <p>{{ recipe.description }}</p>
                     <p>&nbsp;</p>
-                    <a class="btn btn-default" onclick="addRecipeToUser({{ recipe.id }})">
+                    <a id="pasirinkti_button" class="btn btn-default" onclick="addRecipeToUser({{ recipe.id }})">
                         Gaminsiu
                     </a>
                     <p>&nbsp;</p>

@@ -21,7 +21,9 @@ class ButtonController extends Controller
         $em->remove($recipe);
         $em->flush();
 
-        return $this->render('CocktailsRecipesBundle:Default:index.html.twig');
+        $usr = $this->getUser();
+        $recipes = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:UsersRecipes')->findBy(array('user'=>$usr));
+        return $this->render('CocktailsRecipesBundle:List:userRecipesTable.html.twig', array('recipes'=>$recipes));
     }
 
     public function addRecipeToUserAction(Request $request){

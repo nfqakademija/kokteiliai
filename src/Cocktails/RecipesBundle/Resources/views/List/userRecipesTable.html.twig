@@ -1,16 +1,5 @@
 {#<link href="{{ asset('css/table.css') }}" rel="stylesheet" type="text/css" />#}
-<script>
-    var removeRecipeFromUser = function(id){
-        $.ajax({
-            type: "POST",
-            url: "{{ path('cocktails_remove_recipe') }}",
-            data:{id: id},
-            success: function(){
-                console.log("recipe removed");
-            }
-        })
-    };
-</script>
+
 {% block table %}
     <div class="clear">&nbsp;</div>
     <div class="container">

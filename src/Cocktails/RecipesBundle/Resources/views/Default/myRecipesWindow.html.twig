@@ -1,7 +1,19 @@
 {% include '::layout.html.twig' %}
-
+<script>
+    function removeRecipeFromUser(id){
+        $("#recipes_table").html('<div style=\"text-align:center;\"><img src="{{ asset('files/images/load.gif') }}"></div>');
+        $.ajax({
+            type: "POST",
+            url: "{{ path('cocktails_remove_recipe') }}",
+            data:{id: id},
+            success: function(data){
+                $("#recipes_table").html(data);
+            }
+        })
+    }
+</script>
 {% block myRecipes %}
-    <div class="myRecipesTable">
+    <div id="recipes_table" class="myRecipesTable">
         {% include 'CocktailsRecipesBundle:List:userRecipesTable.html.twig' %}
     </div>
 {% endblock %}
