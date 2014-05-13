@@ -53,6 +53,17 @@ class ButtonController extends Controller
         return $this->render('CocktailsRecipesBundle:List:UserIngredientTable.html.twig', array( 'userIngredients'=>$userIngredients));
     }
 
+    public function updateIngredientAction(Request $request){
+        $usr = $this->getUser();
+        $id = $request->get('ingredient');
+        $quantity = $request->get('quantity');
+        $em = $this->getDoctrine()->getManager();
+        $this->getDoctrine()->getRepository('CocktailsRecipesBundle:UsersIngredients')->findOneBy(array('id'=>$id, 'user'=>$usr))->setQuantity($quantity);
+        $em->flush();
+        $userIngredients = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:UsersIngredients')->findBy(array('user'=>$usr));
+        return $this->render('CocktailsRecipesBundle:List:UserIngredientTable.html.twig', array( 'userIngredients'=>$userIngredients));
+    }
+
     public function addIngredientToUserAction(Request $request){
         $usr = $this->getUser();
         $id = $request->get('ingredient');
@@ -75,5 +86,6 @@ class ButtonController extends Controller
         $userIngredients = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:UsersIngredients')->findBy(array('user'=>$usr));
         return $this->render('CocktailsRecipesBundle:List:UserIngredientTable.html.twig', array( 'userIngredients'=>$userIngredients));
     }
+
 
 }

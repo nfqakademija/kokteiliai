@@ -12,7 +12,15 @@
                         <div class="col-sm-4 col-md-4">
                             <h4>{{ ingredient.getIngredient.name }}</h4>
                             <div class="row">
-                                <h5 class="col-sm-4">Kiekis: {{ ingredient.getQuantity }} {{ ingredient.getIngredient.getMeasureUnit.getName }}</h5>
+                                <div id="quantity_show" style="display:inline" class="col-sm-4">
+                                    Kiekis: {{ ingredient.getQuantity }} {{ ingredient.getIngredient.getMeasureUnit.getName }}
+                                </div>
+                                <div id="quantity_edit" style="display:none" class="col-sm-4">
+                                    Naujas kiekis:
+                                    <input type="text" name="quantity" id="input_{{ ingredient.id }}" value="{{ ingredient.getQuantity }}">
+                                </div>
+
+                                <button type="button" class="btn btn-default" onclick="updateIngredient(this, {{ ingredient.id }})">Atnaujinti</button>
                                 <button type="button" class="btn btn-default" onclick="removeIngredient({{ ingredient.id }})">Pašalinti</button>
                             </div>
                         </div>

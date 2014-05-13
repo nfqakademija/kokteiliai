@@ -42,6 +42,10 @@ cocktails_remove_ingredient:
     pattern: /ajaxRemoveIngr
     defaults: {_controller: CocktailsRecipesBundle:Button:removeIngredientFromUser}
 
+cocktails_update_ingredient:
+    pattern: /ajaxUpdateIngr
+    defaults: {_controller: CocktailsRecipesBundle:Button:updateIngredient}
+
 cocktails_add_recipe_to_user:
     pattern: /ajaxAddRecipe
     defaults: {_controller: CocktailsRecipesBundle:Button:addRecipeToUser}

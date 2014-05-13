@@ -31,6 +31,31 @@
             }
         })
     }
+
+    function updateIngredient(obj, element){
+
+        if(obj.innerHTML == "Atnaujinti"){
+            $(obj).siblings('#quantity_show').hide();
+            $(obj).siblings('#quantity_edit').show();
+            obj.innerHTML = "Patvirtinti";
+        }
+        else {
+        var quantity = document.getElementById("input_"+element).value;
+        $.ajax({
+            type: "POST",
+            url: "{{ path('cocktails_update_ingredient') }}",
+            dataType: "html",
+            data: {
+                ingredient: element,
+                quantity: quantity
+            },
+            success: function(data){
+                $("#user_ingr_table").html(data);
+            }
+        })
+        }
+    }
+
 </script>
 
 {% block productTable %}
