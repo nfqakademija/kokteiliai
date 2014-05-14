@@ -1286,6 +1286,9 @@
      position:relative;
      top:1px;
  }
+.btn.button{
+    line-height: 35px;
+}
 
  .clear{
      clear: both;
