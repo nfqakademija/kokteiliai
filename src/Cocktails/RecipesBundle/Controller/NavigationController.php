@@ -2,6 +2,7 @@
 
 namespace Cocktails\RecipesBundle\Controller;
 
+use Cocktails\RecipesBundle\Entity\RecipesIngredients;
 use Cocktails\RecipesBundle\Entity\UsersRecipes;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Cocktails\RecipesBundle\Entity\Image;
@@ -43,15 +44,32 @@ class NavigationController extends Controller
 
     public function showRecipeAction($id){
         $recipe = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:Recipe')->find($id);
-        if (!$recipe) {
-            throw $this->createNotFoundException(
-                'No product found for id '.$id
-            );
-        }
+
         $usr = $this->getUser()->getId();
+        if($this->getDoctrine()->getRepository('CocktailsRecipesBundle:UsersRecipes')->findOneBy(array('recipe'=>$id, 'user'=>$usr)))
+        {
+            $added = true;
+        } else {
+            $added = false;
+        }
         $ingredients = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:RecipesIngredients')->findBy(array('recipe'=>$recipe->getId()));
         $userIngredients = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:UsersIngredients')->findBy(array('user'=>$usr));
-        return $this->render('CocktailsRecipesBundle:Default:recipeSingleWindow.html.twig', array('recipe'=>$recipe, 'ingredients'=>$ingredients, 'userIngredients'=>$userIngredients));
+        $ingredientsNeeded = array();
+        foreach ($ingredients as $ingredient){
+            foreach ($userIngredients as $userIngredient){
+                if ($ingredient->getIngredient() == $userIngredient->getIngredient()){
+                    if ($ingredient->getQuantity() > $userIngredient->getQuantity()){
+                        $quantity = $ingredient->getQuantity() - $userIngredient->getQuantity();
+                        $IngrNeeded = array('name'=>$ingredient->getIngredient()->getName(),
+                                            'quantity'=>$quantity,
+                                            'measureUnit'=>$ingredient->getIngredient()->getMeasureUnit()->getName()
+                        );
+                        $ingredientsNeeded[] = $IngrNeeded;
+                    }
+                }
+            }
+        }
+        return $this->render('CocktailsRecipesBundle:Default:recipeSingleWindow.html.twig', array('recipe'=>$recipe, 'ingredients'=>$ingredients, 'userIngredients'=>$userIngredients, 'ingredientsNeeded'=>$ingredientsNeeded, 'added'=>$added));
     }
 
     public function typeSortAction()

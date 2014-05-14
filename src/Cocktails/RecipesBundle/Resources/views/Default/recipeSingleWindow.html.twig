@@ -1,5 +1,12 @@
 {% include '::layout.html.twig' %}
 <script>
+    function checkIfAdded(){
+        if({{ added }}){
+            $("#pasirinkti_button").hide();
+        }
+    }
+   window.onload = checkIfAdded;
+
     function addRecipeToUser(id){
         $("#pasirinkti_button").html('Pridedama');
 
@@ -12,6 +19,7 @@
             }
         })
     }
+
 </script>
 
 {% block recipe %}
@@ -50,13 +58,18 @@
             <div class="col-md-3" style="min-height: 200px;">
                 <h4 class="border-bottom">Ingredientai</h4>
                 {% for ingredient in ingredients %}
-                    <p><b>{{ ingredient.getIngredient.name }} </b> {{ ingredient.quantity }} {{ ingredient.getIngredient.getMeasureUnit.getName }}</p>
-                    {% for userIngredient in userIngredients %}
-                        {% if ingredient.id == userIngredient.getIngredient.id %}
-                            turiu
-                        {% endif %}
-                    {% endfor %}
+                    <p id="ingredient"><b>{{ ingredient.getIngredient.name }} </b> {{ ingredient.quantity }} {{ ingredient.getIngredient.getMeasureUnit.getName }}</p>
                 {% endfor %}
+            </div>
+            <div class="col-md-3" style="min-height: 200px;">
+                <h4 class="border-bottom">Trūkstami ingredientai</h4>
+                {% if ingredientsNeeded %}
+                    {% for ingredientN in ingredientsNeeded %}
+                        <p id="ingredient"><b>{{ ingredientN.name }} </b> {{ ingredientN.quantity }} {{ ingredientN.measureUnit }}</p>
+                    {% endfor %}
+                {% else %}
+                    <b>Jūs turite visus reikiamus ingredientus</b>
+                {% endif %}
             </div>
         </div>
 
