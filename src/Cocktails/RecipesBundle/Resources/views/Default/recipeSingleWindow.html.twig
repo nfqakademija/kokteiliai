@@ -23,7 +23,9 @@
             <strong>Gaminimo bųdas: </strong>
             {{ recipe.description }}
         </p>
+        {% if is_granted("ROLE_USER") %}
         <p> <a href="javascript:addRecipeToUser({{ recipe.id }})" class="btn">GAMINSIU</a></p>
+        {% endif %}
         <div class="clear"></div>
     </article>
 
