@@ -1268,14 +1268,15 @@
     font-size:15px;
     font-weight:bold;
     font-style:normal;
-    height:50px;
-    line-height:50px;
+    height:40px;
+    line-height:40px;
     width:160px;
     text-decoration:none;
     text-align:center;
     text-shadow:1px 1px 0px #528ecc;
     margin-top: 20px;
     margin-left: 20px;
+    text-transform: uppercase;
 }
 .btn:hover {
     background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #378de5), color-stop(1, #79bbff) );
@@ -1287,7 +1288,8 @@
      top:1px;
  }
 .btn.button{
-    line-height: 35px;
+    text-transform: uppercase;
+    line-height: 25px;
 }
 
  .clear{
@@ -1338,6 +1340,7 @@
 
     .input-text-mini{
         margin: 0 10px;
+        text-align: center;
     }
 
     ul.ingredients-list{
