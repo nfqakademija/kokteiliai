@@ -1,4 +1,56 @@
-{#<link href="{{ asset('css/table.css') }}" rel="stylesheet" type="text/css" />#}
+{% block table %}
+
+    <!-- Post -->
+    <article class="is-post is-post-excerpt">
+        <header>
+            <h2>Mano kokteiliai</h2>
+        </header>
+    </article>
+
+    <!-- Search -->
+    <section class="is-search">
+
+        <h3>Trūkstamų produktų sąrašas: </h3>
+        <p></p>
+        <ul class="ingredients-list">
+            <li><p><strong>Pienas: </strong> <span> 200 ml.</p></span></li>
+            <li><p><strong>Braškės: </strong> <span>100 gl.</span></p></li>
+            <li><p><strong>Bananas: </strong> <span> 1 vnt.</p></span></li>
+            <li><p><strong>Ananasas: </strong> <span> 100 g.</p></span></li>
+            <li><p><strong>Šokoladas: </strong> <span> 50 ml.</p></span></li>
+            <li><p><strong>Pienas: </strong> <span> 200 ml.</p></span></li>
+            <li><p><strong>Braškės: </strong> <span> 100 gl.</p></span></li>
+            <li><p><strong>Bananas: </strong> <span> 1 vnt.</p></span></li>
+            <li><p><strong>Ananasas: </strong> <span> 100 g.</p></span></li>
+            <li><p><strong>Šokoladas: </strong> <span> 50 ml.</p></span></li>
+        </ul>
+    </section>
+
+    <article class="is-post is-post-excerpt">
+        <header>
+            <h3>Mano kokteiliai: </h3>
+        </header>
+    </article>
+            {% for recipe in recipes %}
+
+                <article class="is-post is-post-excerpt">
+                    <header>
+                        <span class="byline">{{ recipe.getRecipe().getTasteByStatus(recipe.getRecipe().RecipeTaste) }} / {{ recipe.getRecipe().getTypeByStatus(recipe.getRecipe().RecipeType) }} - {{ recipe.getRecipe().name }}</span>
+                    </header>
+
+                    <a href="{{ path('cocktails_recipe_single', {'id': recipe.id }) }}" class="image image-full"><img src="{{ asset(recipe.getRecipe().getImageByStatus(recipe.getRecipe().image)) }}" alt=""/></a>
+                    <p>
+                        {#<strong>Ingredientai: </strong> {%  for ingredient in recipe.ingredients %} {{ ingredient.ingredient.name }} {{ ingredient.quantity }}{{ ingredient.ingredient.measureUnit.name }}. {% if not loop.last %},{% endif %} {% endfor %}#}
+                    </p>
+                    <p>
+                        <a href="javascript:removeRecipeFromUser({{ recipe.id }})" class="btn">PAŠALINTI</a>
+                        <a href="{{ path('cocktails_recipe_single', {'id': recipe.getRecipe().id }) }}" class="btn">PLAČIAU</a>
+                    </p>
+                </article>
+            {% endfor %}
+
+{% endblock %}
+{% block script %}
 <script>
     var removeRecipeFromUser = function(id){
         $.ajax({
@@ -11,36 +63,4 @@
         })
     };
 </script>
-{% block table %}
-    <div class="clear">&nbsp;</div>
-    <div class="container">
-        <div class="clear">&nbsp;</div>
-        <div class="row">
-
-            {% for recipe in recipes %}
-                <div class="col-sm-6">
-                    <div class="col-xs-6 recipe-image recipe-col">
-                        <img src="{{ asset(recipe.getRecipe().getImageByStatus(recipe.getRecipe().image)) }}" alt=""/>
-                    </div>
-                    <div class="col-xs-6 recipe-col ">
-                        <h4>{{ recipe.getRecipe().name }}</h4>
-                        <div class="clear">&nbsp;</div>
-                        <p><strong>Skonis:</strong> {{ recipe.getRecipe().getTasteByStatus(recipe.getRecipe().RecipeTaste) }}</p>
-                        <p><strong>Tipas:</strong> {{ recipe.getRecipe().getTypeByStatus(recipe.getRecipe().RecipeType) }}</p>
-                        <p><strong>Reitingas:</strong> {{ recipe.getRecipe().rank }}</p>
-                        <div class="clear">&nbsp;</div>
-                        <a class="btn btn-default" href="{{ path('cocktails_recipe_single', {'id': recipe.getRecipe().id }) }}">
-                            Plačiau
-                        </a>
-                        <a class="btn btn-default" onclick="removeRecipeFromUser({{ recipe.id }})">
-                            Pašalinti
-                        </a>
-                    </div>
-                </div>
-            {% endfor %}
-        </div>
-
-    </div>
-
-
 {% endblock %}

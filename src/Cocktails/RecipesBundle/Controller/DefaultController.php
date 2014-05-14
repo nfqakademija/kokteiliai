@@ -17,7 +17,8 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('CocktailsRecipesBundle:Default:index.html.twig', array('name' => 'Index'));
+//        return $this->render('CocktailsRecipesBundle:Default:index.html.twig', array('name' => 'Index'));
+        return $this->recipeTableAction();
     }
 
     public function menuAction()
@@ -57,7 +58,7 @@ class DefaultController extends Controller
         $list = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:Recipe')->findAll();
         $tastes = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:RecipeTaste')->findAll();
         $types = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:RecipeType')->findAll();
-        return $this->render('CocktailsRecipesBundle:Default:recipesWindow.html.twig', array('list' => $list, 'tastes' => $tastes, 'types' => $types));
+        return $this->render('CocktailsRecipesBundle:List:recipeTable.html.twig', array('list' => $list, 'tastes' => $tastes, 'types' => $types));
     }
 
     public function tasteSortAction(Request $request)
@@ -163,5 +164,15 @@ class DefaultController extends Controller
 
         $list = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:Recipe')->getFilteredRecipes($data, $type);
         return $this->render('CocktailsRecipesBundle:List:recipeList.html.twig', array('list' => $list));
+    }
+
+    /**
+     * About page
+     *
+     * @return Response
+     */
+    public function aboutAction()
+    {
+        return $this->render('CocktailsRecipesBundle:Default:about.html.twig');
     }
 }
