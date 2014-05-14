@@ -53,3 +53,7 @@ cocktails_remove_recipe:
 cocktails_recipes_filter:
   pattern:  /ajaxFilter
   defaults: { _controller:  CocktailsRecipesBundle:Default:updateData}
+
+cocktails_recipes_about:
+  pattern:  /about
+  defaults: { _controller:  CocktailsRecipesBundle:Default:about}
