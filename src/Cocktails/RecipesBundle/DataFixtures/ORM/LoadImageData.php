@@ -16,14 +16,9 @@ class LoadImageData  extends AbstractFixture implements OrderedFixtureInterface
     {
 
         $imageData = array(
-            array('virgin-mojito-183x300.jpg', 'image-1', 'files/images/virgin-mojito-183x300.jpg.jpg'),
-            array('zalias-skanumelis-218x300.jpg', 'image-2', 'files/images/zalias-skanumelis-218x300.jpg.jpg'),
-            array('melyniu-ir-pieno-kokteilis-213x300.jpg', 'image-3', 'files/images/melyniu-ir-pieno-kokteilis-213x300.jpg.jpg'),
-            array('arbuzu-ananasu-kokteilis-203x300.jpg', 'image-4', 'files/images/arbuzu-ananasu-kokteilis-203x300.jpg.jpg'),
-            array('2sokoladinis-bananinis-pieno-kokteilis-201x300.jpg', 'image-5', 'files/images/sokoladinis-bananinis-pieno-kokteilis-201x300.jpg.jpg'),
-            array('rail-splitter-230x300.jpg', 'image-6', 'files/images/rail-splitter-230x300.jpg.jpg'),
-            array('braskine-pina-colada-232x300.jpg', 'image-7', 'files/images/braskine-pina-colada-232x300.jpg.jpg'),
-            array('limonadas1-199x300.jpg', 'image-8', 'files/images/limonadas1-199x300.jpg.jpg'),
+            array('2014-04-08_21-39_flag.png', 'image-1', 'files/images/2014-04-08_21-39_flag.png.png'),
+            array('2014-04-08_17-32_cir.png', 'image-2', 'files/images/2014-04-08_17-32_cir.png.png'),
+            array('2014-04-08_17-40_apie_logo_min.png', 'image-3', 'files/images/2014-04-08_17-40_apie_logo_min.png.png'),
         );
 
         foreach($imageData as $data){
