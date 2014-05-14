@@ -16,9 +16,12 @@ class RecipeTypeData extends AbstractFixture implements OrderedFixtureInterface
     {
 
         $types = array(
-            array("Vaisinis", 'recipeType-1'),
-            array("Sokoladinis", 'recipeType-2'),
-            array("Bananinis", 'recipeType-3'),
+            array("Gaivus", 'recipeType-1'),
+            array("Vaisinis", 'recipeType-2'),
+            array("Sokoladinis", 'recipeType-3'),
+            array("Bananinis", 'recipeType-4'),
+            array("Pieno", 'recipeType-5'),
+            array("Braškinis", 'recipeType-6'),
         );
 
         foreach($types as $typeTemp){

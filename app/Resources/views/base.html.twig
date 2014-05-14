@@ -1,66 +1,58 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE HTML>
+<!--
+	Striped 2.5 by HTML5 Up!
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% block title %}Kokteiliai!{% endblock %}</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic&subset=latin,latin-ext,vietnamese' rel='stylesheet' type='text/css'>
 
-    {#bootstrap#}
-    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
+    <script src="{{ asset('js/jquery.min.js') }}"></script>
+    <script src="{{ asset('js/skel.min.js') }}"></script>
+    <script src="{{ asset('js/skel-panels.min.js') }}"></script>
+    <script src="{{ asset('js/init.js') }}"></script>
 
-    {#page style#}
-    {% include "CocktailsRecipesBundle::stylesheets.html.twig" %}
+    <link href="{{ asset('css/skel-noscript.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('css/style-desktop.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('css/style-wide.css') }}" rel="stylesheet" type="text/css" />
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <!--[if lte IE 9]><link href="{{ asset('css/ie9.css') }}" rel="stylesheet" type="text/css" /><![endif]-->
+    <!--[if lte IE 8]><script src="{{ asset('js/html5shiv.js') }}"></script><![endif]-->
+    <!--[if lte IE 7]><link href="{{ asset('css/ie7.css') }}" rel="stylesheet" type="text/css" /><![endif]-->
 </head>
-<body>
+<!--
+    Note: Set the body element's class to "left-sidebar" to position the sidebar on the left.
+    Set it to "right-sidebar" to, you guessed it, position it on the right.
+-->
+<body class="left-sidebar">
 
-{% block head %}{% endblock %}
-{% block body %}{% endblock %}
-{% block javascripts %}{% endblock %}
+<!-- Wrapper -->
+<div id="wrapper">
 
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="{{ asset('js/bootstrap.min.js') }}"></script>
-<script src="{{ asset('js/main.js') }}"></script>
+    <!-- Content -->
+    <div id="content">
+        <div id="content-inner">
+
+            {% block body %}{% endblock %}
+
+        </div>
+    </div>
+
+    <!-- Sidebar -->
+    <div id="sidebar">
+
+        {% block head %}{% endblock %}
+
+    </div>
+
+</div>
+    {% block script %}{% endblock %}
 </body>
 </html>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-{#<!DOCTYPE html>#}
-{#<html>#}
-    {#<head>#}
-        {#<meta charset="UTF-8" />#}
-        {#<title>{% block title %}Kokteiliai!{% endblock %}</title>#}
-        {#{% block stylesheets %}{% endblock %}#}
-        {#<link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />#}
-        {#{% include "CocktailsRecipesBundle::stylesheets.html.twig" %}#}
-    {#</head>#}
-    {#<body>#}
-        {#{% block head %}{% endblock %}#}
-        {#{% block body %}{% endblock %}#}
-        {#{% block javascripts %}{% endblock %}#}
-    {#</body>#}
-{#</html>#}
