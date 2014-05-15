@@ -12,7 +12,7 @@
         </ul>
     </nav>
 
-    {% if app.request.attributes.get('_route')=='cocktails_recipes_table' %}
+    {% if app.request.attributes.get('_route')=='cocktails_recipes_table' or app.request.attributes.get('_route')=='cocktails_recipes_homepage' %}
     <section class="is-recent-posts">
         <header>
             <h2>Išsirink kokteilį</h2>

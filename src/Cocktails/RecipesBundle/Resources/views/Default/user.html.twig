@@ -6,6 +6,7 @@
                 <li class="current_page_item"><a href="{{ path('fos_user_security_logout') }}">Atsijungti: {{ app.user.username }}</a></li>
             {% else %}
                 <li class="current_page_item"><a href="{{ path('fos_user_security_login') }}">Prisijungti</a></li>
+                <li class="current_page_item"><a href="{{ path('fos_user_registration_register') }}">Registruotis</a></li>
             {% endif %}
         </ul>
     </nav>
