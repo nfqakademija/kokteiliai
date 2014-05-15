@@ -34,7 +34,11 @@
         $.ajax({
             type: "GET",
             url: "{{ path('cocktails_remove_ingredient') }}",
-            data:{ingredient: element}
+            data:{ingredient: element},
+            success: function(){
+                console.log("recipe removed");
+                location.reload(); //perkrauti pslp sekmes atveju
+            }
         })
     }
 </script>
