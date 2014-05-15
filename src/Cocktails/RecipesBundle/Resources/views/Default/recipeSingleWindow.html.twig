@@ -2,7 +2,7 @@
 
 {% block body %}
 
-    <article class="is-post is-post-excerpt">
+    <article class="is-post is-post-excerpt single">
         <header>
             <span class="byline">{{ recipe.getTasteByStatus(recipe.RecipeTaste)}} / {{ recipe.getTypeByStatus(recipe.RecipeType) }} - {{ recipe.name }}</span>
         </header>
@@ -28,6 +28,10 @@
         {% endif %}
         <div class="clear"></div>
     </article>
+
+    <artticle class="is-post is-post-excerpt">
+        <div class="fb-comments" data-href="{{app.request.uri}}" data-numposts="5" data-colorscheme="light"></div>
+    </artticle>
 
 {% endblock %}
 {% block script %}

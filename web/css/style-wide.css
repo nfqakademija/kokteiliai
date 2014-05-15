@@ -52,6 +52,10 @@
 			margin-bottom: -0.65em;
 		}
 
+        .is-post.single .info{
+            left: -10.5em;
+        }
+
 		.is-post .info
 		{
 			position: absolute;
