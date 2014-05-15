@@ -1,11 +1,14 @@
 {% include '::layout.html.twig' %}
 <script>
+
     function checkIfAdded(){
         if({{ added }}){
             $("#pasirinkti_button").hide();
+            $("#trukstami_ingr").show();
+            console.log({{ ingredientsNeeded|length }});
         }
     }
-   window.onload = checkIfAdded;
+    window.onload = checkIfAdded;
 
     function addRecipeToUser(id){
         $("#pasirinkti_button").html('Pridedama');
@@ -14,7 +17,7 @@
             type: "POST",
             url: "{{ path('cocktails_add_recipe_to_user') }}",
             data:{id: id},
-            success: function(data){
+            success: function(){
                 $("#pasirinkti_button").html('Pridėta');
             }
         })
@@ -55,15 +58,15 @@
                 <div class="clear"></div>
             </div>
 
-            <div class="col-md-3" style="min-height: 200px;">
+            <div class="col-md-3" style="min-height: 100px;">
                 <h4 class="border-bottom">Ingredientai</h4>
                 {% for ingredient in ingredients %}
                     <p id="ingredient"><b>{{ ingredient.getIngredient.name }} </b> {{ ingredient.quantity }} {{ ingredient.getIngredient.getMeasureUnit.getName }}</p>
                 {% endfor %}
             </div>
-            <div class="col-md-3" style="min-height: 200px;">
+            <div id="trukstami_ingr" class="col-md-3" style="min-height: 100px; display: none">
                 <h4 class="border-bottom">Trūkstami ingredientai</h4>
-                {% if ingredientsNeeded %}
+                {% if ingredientsNeeded|length > 0 %}
                     {% for ingredientN in ingredientsNeeded %}
                         <p id="ingredient"><b>{{ ingredientN.name }} </b> {{ ingredientN.quantity }} {{ ingredientN.measureUnit }}</p>
                     {% endfor %}
