@@ -101,17 +101,31 @@ $(function() {
 					$sc.css('min-height', $window.height()).css('height', $document.height());
 			}, 100);
 		}).trigger('resize');
-		
+
 		$('ul.ingredients-list li').on('click',function(){
-			if($(this).hasClass('checked'))
-				$(this).removeClass('checked');
-			else	
-				$(this).addClass('checked');
-							
+			if($(this).hasClass('checked')){
+                $(this).removeClass('checked');
+            }
+			else{
+                $(this).addClass('checked');
+                $(this).slideUp(400);
+                hideIngredientsTitle();
+            }
+
 		});
-		
+
 		showHideFilters();
 		
 	});
+
+    function hideIngredientsTitle(){
+
+        var totalCount = $('ul.ingredients-list li').size();
+        var count = $('ul.ingredients-list li.checked').size();
+
+        if(count == totalCount)
+            $('.is-search').slideUp(200);
+
+    }
 
 });
