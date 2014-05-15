@@ -9,8 +9,8 @@
                 <!--<span class="date"><span class="month"> </span> <span class="day">14</span></span>-->
                 <ul class="stats">
                     <li><a href="#" class="fa fa-heart">{{ recipe.rank }}</a></li>
-                    <li><a href="#" class="fa fa-comment">16</a></li>
-                    <li><a href="#" class="fa fa-facebook">128</a></li>
+                    <li><a href="#" class="fa fa-comment"><fb:comments-count href="{{ url('cocktails_recipes_homepage') }}Recipe{{ recipe.id }}"></fb:comments-count></a></li>
+                    <li><a href="#" class="fa fa-facebook">{{ fbCount[loop.index-1] }}</a></li>
                 </ul>
             </div>
             <a href="{{ path('cocktails_recipe_single', {'id': recipe.id }) }}" class="image image-full"><img src="{{ asset(recipe.getImageByStatus(recipe.image)) }}" alt=""/></a>

@@ -10,8 +10,8 @@
             <!--<span class="date"><span class="month"> </span> <span class="day">14</span></span>-->
             <ul class="stats">
                 <li><a href="#" class="fa fa-heart">{{ recipe.rank }}</a></li>
-                <li><a href="#" class="fa fa-comment">16</a></li>
-                <li><a href="#" class="fa fa-facebook">128</a></li>
+                <li><a href="#" class="fa fa-comment"><fb:comments-count href="{{app.request.uri}}"></fb:comments-count></a></li>
+                <li><a href="#" class="fa fa-facebook">{{ fbCount }}</a></li>
             </ul>
         </div>
         <a class="image image-full"><img src="{{ asset(recipe.getImageByStatus(recipe.image)) }}" alt=""/></a>
@@ -22,6 +22,9 @@
         <p>
             <strong>Gaminimo bųdas: </strong>
             {{ recipe.description }}
+        </p>
+        <p>
+         <div class="fb-like" data-href="{{app.request.uri}}" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
         </p>
         {% if is_granted("ROLE_USER") %}
         <p> <a href="javascript:addRecipeToUser({{ recipe.id }})" class="btn">GAMINSIU</a></p>

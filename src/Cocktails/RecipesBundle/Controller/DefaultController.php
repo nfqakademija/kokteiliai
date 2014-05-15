@@ -58,7 +58,9 @@ class DefaultController extends Controller
         $list = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:Recipe')->findAll();
         $tastes = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:RecipeTaste')->findAll();
         $types = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:RecipeType')->findAll();
-        return $this->render('CocktailsRecipesBundle:List:recipeTable.html.twig', array('list' => $list, 'tastes' => $tastes, 'types' => $types));
+        $fbCount = $this->getRecipesCount($list);
+
+        return $this->render('CocktailsRecipesBundle:List:recipeTable.html.twig', array('list' => $list, 'tastes' => $tastes, 'types' => $types, 'fbCount' => $fbCount));
     }
 
     public function tasteSortAction(Request $request)
@@ -84,7 +86,8 @@ class DefaultController extends Controller
                 'No product found for id '.$id
             );
         }
-        return $this->render('CocktailsRecipesBundle:Default:recipeSingleWindow.html.twig', array('recipe'=>$recipe));
+        $fbCount = $this->shinra_fb_count('http://kokteiliai.projektai.nfqakademija.lt/Recipe/'.$id);
+        return $this->render('CocktailsRecipesBundle:Default:recipeSingleWindow.html.twig', array('recipe'=>$recipe, 'fbCount' => $fbCount));
     }
 
     public function myProductsAction(){
@@ -174,5 +177,33 @@ class DefaultController extends Controller
     public function aboutAction()
     {
         return $this->render('CocktailsRecipesBundle:Default:about.html.twig');
+    }
+
+    /**
+     * Count fb like
+     *
+     * @param $url_or_id
+     * @return int
+     */
+    public function shinra_fb_count( $url_or_id ) {
+        /* url or id (for optional validation) */
+        if( is_int( $url_or_id ) ) $url = 'http://graph.facebook.com/' . $url_or_id;
+        else $url = 'http://graph.facebook.com/' .  $url_or_id;
+
+        /* get json */
+        $json = json_decode( file_get_contents( $url ), false );
+
+        /* has likes or shares? */
+        if( isset( $json->likes ) ) return (int) $json->likes;
+        elseif( isset( $json->shares ) ) return (int) $json->shares;
+
+        return 0; // otherwise zed
+    }
+
+    public function getRecipesCount($recipes){
+        foreach($recipes as $recipe)
+            $fbCount[] = $this->shinra_fb_count('http://kokteiliai.projektai.nfqakademija.lt/Recipe/'.$recipe->getId());
+
+        return $fbCount;
     }
 }
