@@ -1,0 +1,21 @@
+{% extends '::layout.html.twig' %}
+
+{% block body %}
+
+{% if error %}
+    <div>{{ error|trans }}</div>
+{% endif %}
+
+<form action="{{ path("fos_user_security_check") }}" method="post">
+    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+
+    <label for="username">Vartotojo vardas</label>
+    <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" />
+
+    <label for="password">Slaptažodis</label>
+    <input type="password" id="password" name="_password" required="required" />
+
+
+    <input type="submit" id="_submit" class="btn button full-width" name="_submit" value="prisijungti" />
+</form>
+{% endblock %}

@@ -1,19 +1,14 @@
-
 {% block user %}
 
-
-        <div class="container">
-            <div class="row nav-user">
+    <nav id="nav" class="no-top-margin">
+        <ul>
             {% if app.user %}
-                <div class="logged">
-                    <p><a href="{{ path('fos_user_security_logout') }}" class="btn btn-default btn-right login-btn-margin">Atsijungti: {{ app.user.username }}</a></p>
-                </div>
+                <li class="current_page_item"><a href="{{ path('fos_user_security_logout') }}">Atsijungti: {{ app.user.username }}</a></li>
             {% else %}
-                <div class="login">
-                    <a href="{{ path('fos_user_security_login') }}" class="btn btn-default btn-right login-btn-margin">Prisijungti</a>
-                </div>
+                <li class="current_page_item"><a href="{{ path('fos_user_security_login') }}">Prisijungti</a></li>
+                <li class="current_page_item"><a href="{{ path('fos_user_registration_register') }}">Registruotis</a></li>
             {% endif %}
-            </div>
-        </div>
+        </ul>
+    </nav>
 
 {% endblock %}

@@ -1,37 +1,45 @@
-{% block UserIngredientTableBlock %}
-    <div class="clear">&nbsp;</div>
-    <h4 class="text-center">Mano produktai:</h4>
-    <ul>
-        {% for ingredient in userIngredients %}
-            <li class="list-group-item " >
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xs-2 col-md-1">
-                            <img class="thumbnail ingredient-image" src="{{ asset(ingredient.getIngredient.getFoto) }}"/>
-                        </div>
-                        <div class="col-sm-4 col-md-4">
-                            <h4>{{ ingredient.getIngredient.name }}</h4>
-                            <div class="row">
-                                <div id="quantity_show" class="col-sm-4">
-                                    Kiekis: {{ ingredient.getQuantity }} {{ ingredient.getIngredient.getMeasureUnit.getName }}
-                                </div>
-                                <div id="quantity_edit" style="display:none" class="col-sm-4">
-                                    Naujas kiekis:
-                                    <input type="text" name="quantity" id="input_{{ ingredient.id }}" value="{{ ingredient.getQuantity }}">
-                                </div>
 
-                                <button type="button" class="btn btn-default" onclick="updateIngredient(this, {{ ingredient.id }})">Atnaujinti</button>
-                                <button type="button" class="btn btn-default" onclick="removeIngredient({{ ingredient.id }})">Pašalinti</button>
-                            </div>
-                        </div>
-                    </div>
+{% block UserIngredientTableBlock %}
+    <article class="is-post is-post-excerpt">
+        <header>
+            <h3>Mano produktai</h3>
+        </header>
+    </article>
+
+    <article class="is-post is-post-excerpt">
+
+        {% for ingredient in userIngredients %}
+
+                <div class="my-ingredient-container">
+                    <div class="img-container"><img class="thumbnail ingredient-image" src="{{ asset(ingredient.getIngredient.getFoto) }}"/></div>
+                    <h3>{{ ingredient.getIngredient.name }}</h3>
+                    <p><strong>Kiekis: </strong><input type="text" class="input-text-mini" size="2" value="{{ ingredient.getQuantity }}"/> <strong>{{ ingredient.getIngredient.getMeasureUnit.getName }}.</strong></p>
+                    <p>
+                        <a href="" class="btn">SAUGOTI</a>
+                        <a href="javascript:removeIngredient({{ ingredient.id }})" class="btn">PAŠALINTI</a>
+                    </p>
+                    <div class="clear"></div>
                 </div>
-            </li>
         {% endfor %}
-    </ul>
+    </article>
 
     {% macro input(name, value, type, size) %}
         <input type="{{ type|default('text') }}" name="{{ name }}" value="{{ value|e }}" size="{{ size|default(20) }}" />
     {% endmacro %}
 
+{% endblock %}
+{% block script %}
+<script>
+    var removeIngredient = function(element){
+        $.ajax({
+            type: "GET",
+            url: "{{ path('cocktails_remove_ingredient') }}",
+            data:{ingredient: element},
+            success: function(){
+                console.log("recipe removed");
+                location.reload(); //perkrauti pslp sekmes atveju
+            }
+        })
+    }
+</script>
 {% endblock %}

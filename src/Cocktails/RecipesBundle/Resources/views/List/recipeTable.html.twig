@@ -1,84 +1,112 @@
-{#<link href="{{ asset('css/table.css') }}" rel="stylesheet" type="text/css" />#}
-<script>
-    function filter_with_ajax(type)
-    {
-        $("#recipe_row").html('<div style=\"text-align:center;\"><img src="{{ asset('files/images/load.gif') }}"></div>');
+{% extends '::layout.html.twig' %}
 
-        var id = [];
-        $('input:checked').each(function() {
-            var myMatch = $(this).attr("name").search(type);
-            if(myMatch != -1)
-                id.push($(this).attr("name").replace(type + "_",""));
-        });
-        id = id.join();
-        $.ajax({
-            type: "POST",
-            url: "{{ path('cocktails_recipes_filter') }}",
-            dataType: "html",
-            data:{data: id, type: type},
-            success: function(data){
-                $("#recipe_row").html(data);
-            }
-        })
+{% block body %}
 
-    }
-</script>
-{% block table %}
+    {#filter type#}
+    <article class="is-post is-post-excerpt filter-container filter-type">
+        <h5 id="recipe-type">Pagal tipą:</h5>
+        <a class="filter-link" href="#" onclick="javascript:filter_with_ajax('type');">Filtruoti</a>
+        <ul class="filter_checkbox">
+            {% for type in types %}
+                <li><input type="checkbox" name="type_{{ type.id }}" id="type_{{ type.id }}" value="{{ type.name }}"/> <label for="type_{{ type.id }}">{{ type.name }}</label></li>
+            {% endfor %}
+        </ul>
+    </article>
+
+    {#filter taste#}
+    <article class="is-post is-post-excerpt filter-container filter-taste">
+        <h5 id="recipe-taste">Pagal skonį</h5>
+        <a class="filter-link" href="#" onclick="javascript:filter_with_ajax('taste');">Filtruoti</a>
+        <ul class="filter_checkbox">
+            {% for taste in tastes %}
+                <li><input type="checkbox" name="taste_{{ taste.id }}" id="taste_{{ taste.id }}" value="{{ taste.name }}"/> <label for="taste_{{ taste.id }}">{{ taste.name }}</label></li>
+            {% endfor %}
+        </ul>
+    </article>
+
+    {#filter ingredients#}
+    <article class="is-post is-post-excerpt filter-container filter-ingredients">
+        <h5 id="recipe-ingredients">Pagal ingredientus</h5>
+        <a class="filter-link" href="#">filtruoti</a>
+        <ul class="filter_checkbox">
+            <li><input type="checkbox" name="recipeType" id="recipeIngredient-1" value="saldus"/> <label for="recipeIngredient-1">Bananas</label></li>
+            <li><input type="checkbox" name="recipeType" id="recipeIngredient-2" value="saldus"/> <label for="recipeIngredient-2">Braškė</label></li>
+            <li><input type="checkbox" name="recipeType" id="recipeIngredient-3" value="saldus"/> <label for="recipeIngredient-3">Šokoladas</label></li>
+        </ul>
+    </article>
+
+    {#filter my products#}
+    <article class="is-post is-post-excerpt filter-container filter-my-ingredients">
+        <h5 id="recipe-ingredients">Pagal mano ingredientus</h5>
+        <a class="filter-link" href="#">filtruoti</a>
+        <ul class="filter_checkbox">
+            <li><input type="checkbox" name="recipeType" id="recipeIngredient-1" value="saldus"/> <label for="recipeIngredient-1">Bananas</label></li>
+            <li><input type="checkbox" name="recipeType" id="recipeIngredient-2" value="saldus"/> <label for="recipeIngredient-2">Braškė</label></li>
+            <li><input type="checkbox" name="recipeType" id="recipeIngredient-3" value="saldus"/> <label for="recipeIngredient-3">Šokoladas</label></li>
+        </ul>
+    </article>
+
+
+
     <div class="clear">&nbsp;</div>
-    <div class="container">
-
-        <div class="col-md-12">
-            <div class="row filters-container filter-taste">
-                {% for taste in tastes %}
-                    <label class="filter-checkbox"><input name="taste_{{ taste.id }}" type="checkbox"> {{ taste.name }} </label>
-                {% endfor %}
-                <a class="btn btn-default filter-button-right" href="#" onclick="filter_with_ajax('taste');">
-                    Filtruoti
-                </a>
-            </div>
-            <div class="row filters-container filter-type">
-                {% for type in types %}
-                    <label class="filter-checkbox"><input name="type_{{ type.id }}" type="checkbox"> {{ type.name }} </label>
-                {% endfor %}
-                <a class="btn btn-default filter-button-right" href="#" onclick="filter_with_ajax('type');">
-                    Filtruoti
-                </a>
-            </div>
-            <div class="row filters-container filter-my-products">
-                <label class="filter-checkbox"><input type="checkbox"> Mano produktai </label>
-                <label class="filter-checkbox"><input type="checkbox"> Mano produktai </label>
-                <label class="filter-checkbox"><input type="checkbox"> Mano produktai </label>
-                <label class="filter-checkbox"><input type="checkbox"> Mano produktai </label>
-                <label class="filter-checkbox"><input type="checkbox"> Mano produktai </label>
-                <label class="filter-checkbox"><input type="checkbox"> Mano produktai </label>
-                <label class="filter-checkbox"><input type="checkbox"> Mano produktai </label>
-                <label class="filter-checkbox"><input type="checkbox"> Mano produktai </label>
-                <label class="filter-checkbox"><input type="checkbox"> Mano produktai </label>
-                <a class="btn btn-default filter-button-right" href="#">
-                    Filtruoti
-                </a>
-            </div>
-            <div class="row filters-container filter-ingredient">
-                <label class="filter-checkbox"><input type="checkbox"> Braškė </label>
-                <label class="filter-checkbox"><input type="checkbox"> Bananas </label>
-                <label class="filter-checkbox"><input type="checkbox"> Apelsinas </label>
-                <label class="filter-checkbox"><input type="checkbox"> Mandarinas </label>
-                <label class="filter-checkbox"><input type="checkbox"> Pienas </label>
-                <label class="filter-checkbox"><input type="checkbox"> Grietinėlė </label>
-                <label class="filter-checkbox"><input type="checkbox"> Šokoladas </label>
-                <label class="filter-checkbox"><input type="checkbox"> Jogurtas </label>
-                <a class="btn btn-default filter-button-right" href="#">
-                    Filtruoti
-                </a>
-            </div>
-        </div>
-
-        <div class="clear">&nbsp;</div>
-        <div id="recipe_row" class="row">
-            {% include 'CocktailsRecipesBundle:List:recipeList.html.twig' %}
-        </div>
-
+    <div id="recipe_row" class="row">
+    {% include 'CocktailsRecipesBundle:List:recipeList.html.twig' %}
     </div>
 
+    {#<div class="clear">&nbsp;</div>#}
+    {#<div class="clear">&nbsp;</div>#}
+    {#<!-- Pager -->#}
+    {#<div class="pager">#}
+        {#<!--<a href="#" class="button previous">Previous Page</a>-->#}
+        {#<div class="pages">#}
+            {#<a href="#" class="active">1</a>#}
+            {#<a href="#">2</a>#}
+            {#<a href="#">3</a>#}
+            {#<a href="#">4</a>#}
+            {#<span>&hellip;</span>#}
+            {#<a href="#">20</a>#}
+        {#</div>#}
+        {#<a href="#" class="button next">Next Page</a>#}
+    {#</div>#}
 
+
+
+{% endblock %}
+{% block script %}
+    <script>
+        function filter_with_ajax(type)
+        {
+            $("#recipe_row").html('<div style=\"text-align:center;\"><img src="{{ asset('files/images/load.gif') }}"></div>');
+
+            var id = [];
+            $('input:checked').each(function() {
+                var myMatch = $(this).attr("name").search(type);
+                if(myMatch != -1)
+                    id.push($(this).attr("name").replace(type + "_",""));
+            });
+            id = id.join();
+            $.ajax({
+                type: "POST",
+                url: "{{ path('cocktails_recipes_filter') }}",
+                dataType: "html",
+                data:{data: id, type: type},
+                success: function(data){
+                    $("#recipe_row").html(data);
+                }
+            })
+
+        }
+    </script>
+    <script>
+        var addRecipeToUser = function(id){
+            $.ajax({
+                type: "GET",
+                url: "{{ path('cocktails_add_recipe_to_user') }}",
+                data:{id: id},
+                cuccess: function(){
+                    console.log("recipe added");
+                }
+            })
+        };
+    </script>
 {% endblock %}

@@ -1,20 +1,33 @@
 {% block table %}
     {% for recipe in list %}
-        <div class="col-sm-6">
-            <div class="col-xs-6 recipe-image recipe-col">
-                <img src="{{ asset(recipe.getImageByStatus(recipe.image)) }}" alt=""/>
+
+        <article class="is-post is-post-excerpt">
+            <header>
+                <span class="byline">{{ recipe.getTasteByStatus(recipe.RecipeTaste) }} / {{ recipe.getTypeByStatus(recipe.RecipeType) }} - {{ recipe.name }}</span>
+            </header>
+            <div class="info">
+                <!--<span class="date"><span class="month"> </span> <span class="day">14</span></span>-->
+                <ul class="stats">
+                    <li><a href="#" class="fa fa-heart">{{ recipe.rank }}</a></li>
+                    <li><a href="#" class="fa fa-comment"><fb:comments-count href="{{ url('cocktails_recipes_homepage') }}Recipe{{ recipe.id }}"></fb:comments-count></a></li>
+                    <li><a href="#" class="fa fa-facebook">{{ fbCount[loop.index-1] }}</a></li>
+                </ul>
             </div>
-            <div class="col-xs-6 recipe-col ">
-                <h4>{{ recipe.name }}</h4>
-                <div class="clear">&nbsp;</div>
-                <p><strong>Skonis:</strong> {{ recipe.getTasteByStatus(recipe.RecipeTaste) }}</p>
-                <p><strong>Tipas:</strong> {{ recipe.getTypeByStatus(recipe.RecipeType) }}</p>
-                <p><strong>Reitingas:</strong> {{ recipe.rank }}</p>
-                <div class="clear">&nbsp;</div>
-                <a class="btn btn-default" href="{{ path('cocktails_recipe_single', {'id': recipe.id }) }}">
-                    Plačiau
-                </a>
-            </div>
-        </div>
+            <a href="{{ path('cocktails_recipe_single', {'id': recipe.id }) }}" class="image image-full"><img src="{{ asset(recipe.getImageByStatus(recipe.image)) }}" alt=""/></a>
+            <p>
+                <strong>Ingredientai: </strong> {%  for ingredient in recipe.ingredients %} {{ ingredient.ingredient.name }} {{ ingredient.quantity }}{{ ingredient.ingredient.measureUnit.name }}. {% if not loop.last %},{% endif %} {% endfor %}
+            </p>
+            <p>
+                <strong>Gaminimo bųdas: </strong>
+                {{ recipe.description }}
+            </p>
+            <p>
+                <a href="{{ path('cocktails_recipe_single', {'id': recipe.id }) }}" class="btn">PLAČIAU</a>
+                {% if is_granted("ROLE_USER") %}
+                    <a href="javascript:addRecipeToUser({{ recipe.id }})" class="btn">GAMINSIU</a>
+                {% endif %}
+            </p>
+        </article>
+
     {% endfor %}
 {% endblock %}
