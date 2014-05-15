@@ -24,7 +24,7 @@
             <p>
                 <a href="{{ path('cocktails_recipe_single', {'id': recipe.id }) }}" class="btn">PLAČIAU</a>
                 {% if is_granted("ROLE_USER") %}
-                    <a href="javascript:addRecipeToUser({{ recipe.id }})" class="btn">GAMINSIU</a>
+                    <a id="gaminti_{{ recipe.id }}" href="javascript:addRecipeToUser({{ recipe.id }})" class="btn">GAMINSIU</a>
                 {% endif %}
             </p>
         </article>

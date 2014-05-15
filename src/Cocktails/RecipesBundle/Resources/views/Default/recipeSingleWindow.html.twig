@@ -11,13 +11,25 @@
             <ul class="stats">
                 <li><a href="#" class="fa fa-heart">{{ recipe.rank }}</a></li>
                 <li><a href="#" class="fa fa-comment"><fb:comments-count href="{{app.request.uri}}"></fb:comments-count></a></li>
-                <li><a href="#" class="fa fa-facebook">{{ fbCount }}</a></li>
+                {#<li><a href="#" class="fa fa-facebook">{{ fbCount }}</a></li>#}
             </ul>
         </div>
         <a class="image image-full"><img src="{{ asset(recipe.getImageByStatus(recipe.image)) }}" alt=""/></a>
         <p>
             <strong>Ingredientai: </strong>
-            {%  for ingredient in recipe.ingredients %} {{ ingredient.ingredient.name }} {{ ingredient.quantity }}{{ ingredient.ingredient.measureUnit.name }}. {% if not loop.last %},{% endif %} {% endfor %}
+            <br>
+            {%  for ingredient in recipe.ingredients %} <b>{{ ingredient.ingredient.name }}</b> {{ ingredient.quantity }}{{ ingredient.ingredient.measureUnit.name }}. {% if not loop.last %},{% endif %} {% endfor %}
+        </p>
+        <p>
+            {% if (ingredientsNeeded|length > 0) and (is_granted("ROLE_USER")) %}
+                <strong>Trūkstami ingredientai: </strong>
+                <br>
+                {% for ingredientN in ingredientsNeeded %}
+                    <b>{{ ingredientN.name }} </b> {{ ingredientN.quantity }} {{ ingredientN.measureUnit }}. {% if not loop.last %},{% endif %}
+                {% endfor %}
+            {% else %}
+                <b>Jūs turite visus reikiamus ingredientus</b>
+            {% endif %}
         </p>
         <p>
             <strong>Gaminimo bųdas: </strong>
@@ -27,7 +39,7 @@
          <div class="fb-like" data-href="{{app.request.uri}}" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
         </p>
         {% if is_granted("ROLE_USER") %}
-        <p> <a href="javascript:addRecipeToUser({{ recipe.id }})" class="btn">GAMINSIU</a></p>
+        <p id="gaminti_button"> <a href="javascript:addRecipeToUser({{ recipe.id }})" class="btn">GAMINSIU</a></p>
         {% endif %}
         <div class="clear"></div>
     </article>
@@ -49,5 +61,12 @@
                 }
             })
         };
+
+        function checkIfAdded(){
+            if({{ added }}){
+                $("#gaminti_button").hide();
+            }
+        }
+        window.onload = checkIfAdded;
     </script>
 {% endblock %}

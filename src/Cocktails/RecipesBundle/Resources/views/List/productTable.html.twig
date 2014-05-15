@@ -39,9 +39,10 @@
                 ingredient: ingredient,
                 quantity: quantity
             },
-            success: function() {
-                console.log("pavyko");
-                location.reload(); //perkrauti pslp sekmes atveju
+            success: function(data) {
+//                console.log("pavyko");
+//                location.reload(); //perkrauti pslp sekmes atveju
+                $("#user_ingr_table").html(data);
             }
         })
     };

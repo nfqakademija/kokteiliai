@@ -6,20 +6,19 @@
         </header>
     </article>
 
-    <article class="is-post is-post-excerpt">
+    <article id="user_ingr_table" class="is-post is-post-excerpt">
 
         {% for ingredient in userIngredients %}
-
-                <div class="my-ingredient-container">
-                    <div class="img-container"><img class="thumbnail ingredient-image" src="{{ asset(ingredient.getIngredient.getFoto) }}"/></div>
-                    <h3>{{ ingredient.getIngredient.name }}</h3>
-                    <p><strong>Kiekis: </strong><input type="text" class="input-text-mini" size="2" value="{{ ingredient.getQuantity }}"/> <strong>{{ ingredient.getIngredient.getMeasureUnit.getName }}.</strong></p>
-                    <p>
-                        <a href="" class="btn">SAUGOTI</a>
-                        <a href="javascript:removeIngredient({{ ingredient.id }})" class="btn">PAŠALINTI</a>
-                    </p>
-                    <div class="clear"></div>
-                </div>
+            <div class="my-ingredient-container">
+                <div class="img-container"><img class="thumbnail ingredient-image" src="{{ asset(ingredient.getIngredient.getFoto) }}"/></div>
+                <h3>{{ ingredient.getIngredient.name }}</h3>
+                <p><strong>Kiekis: </strong><input id="input_{{ ingredient.id }}" type="text" class="input-text-mini" size="2" value="{{ ingredient.getQuantity }}"/> <strong>{{ ingredient.getIngredient.getMeasureUnit.getName }}.</strong></p>
+                <p>
+                    <a href="javascript:updateIngredient({{ ingredient.id }})" class="btn">SAUGOTI</a>
+                    <a href="javascript:removeIngredient({{ ingredient.id }})" class="btn">PAŠALINTI</a>
+                </p>
+                <div class="clear"></div>
+            </div>
         {% endfor %}
     </article>
 
@@ -30,7 +29,7 @@
 {% endblock %}
 {% block script %}
 <script>
-    var removeIngredient = function(element){
+    function removeIngredient(element){
         $.ajax({
             type: "GET",
             url: "{{ path('cocktails_remove_ingredient') }}",
@@ -41,5 +40,22 @@
             }
         })
     }
+
+    function updateIngredient(id){
+        var quantity = document.getElementById("input_"+id).value;
+        $.ajax({
+            type: "POST",
+            url: "{{ path('cocktails_update_ingredient') }}",
+            dataType: "html",
+            data: {
+                ingredient: id,
+                quantity: quantity
+            },
+            success: function(data){
+                $("#user_ingr_table").html(data);
+            }
+        })
+    }
+
 </script>
 {% endblock %}

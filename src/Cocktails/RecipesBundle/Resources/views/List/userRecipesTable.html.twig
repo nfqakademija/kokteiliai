@@ -25,7 +25,7 @@
             <li><p><strong>Šokoladas: </strong> <span> 50 ml.</p></span></li>
         </ul>
     </section>
-
+        <div id="user_recipes_table">
             {% for recipe in recipes %}
                 <article class="is-post is-post-excerpt">
                     <header>
@@ -43,7 +43,7 @@
                 </article>
                 <div class="clear"></div>
             {% endfor %}
-
+        </div>
 {% endblock %}
 {% block script %}
 <script>
@@ -52,9 +52,8 @@
             type: "GET",
             url: "{{ path('cocktails_remove_recipe') }}",
             data:{id: id},
-            success: function(){
-                console.log("recipe removed");
-                location.reload(); //perkrauti pslp sekmes atveju
+            success: function(data){
+                $('#user_recipes_table').html(data);
             }
         })
     };
