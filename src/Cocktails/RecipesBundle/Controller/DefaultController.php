@@ -206,4 +206,17 @@ class DefaultController extends Controller
 
         return $fbCount;
     }
+
+    public function checkIfAddedAction(Request $request){
+        $id = $request->get('id');
+        $recipe = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:Recipe')->find($id);
+        $user = $this->getUser();
+        if ($this->getDoctrine()->getRepository('CocktailsRecipesBundle:UsersRecipes')->findOneBy(array('user'=>$user, 'recipe'=>$recipe)))
+        {
+            return new Response('true');
+        } else {
+            return new Response('false');
+        }
+
+    }
 }

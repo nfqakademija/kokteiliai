@@ -61,3 +61,7 @@ cocktails_recipes_filter:
 cocktails_recipes_about:
   pattern:  /about
   defaults: { _controller:  CocktailsRecipesBundle:Default:about}
+
+cocktails_check_added:
+  pattern: /ajaxCheckIfAdded
+  defaults: { _controller:  CocktailsRecipesBundle:Default:checkIfAdded}
