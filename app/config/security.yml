@@ -40,6 +40,9 @@ security:
         - { path: ^/user/check-resetting-email$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/user/reset-password/, role: IS_AUTHENTICATED_ANONYMOUSLY }
 
+        - { path: ^/myProducts, role: ROLE_USER }
+        - { path: ^/myRecipes, role: ROLE_USER }
+
         # Secured part of the site
         # This config requires being logged for the whole site and having the admin role for the admin part.
         # Change these rules to adapt them to your needs

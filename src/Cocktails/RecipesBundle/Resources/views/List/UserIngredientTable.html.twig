@@ -1,37 +1,65 @@
+
 {% block UserIngredientTableBlock %}
-    <div class="clear">&nbsp;</div>
-    <h4 class="text-center">Mano produktai:</h4>
-    <ul>
+    <article class="is-post is-post-excerpt">
+        <header>
+            <h3>Mano produktai</h3>
+        </header>
+    </article>
+
+    <article id="user_ingr_table" class="is-post is-post-excerpt">
+
         {% for ingredient in userIngredients %}
-            <li class="list-group-item " >
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xs-2 col-md-1">
-                            <img class="thumbnail ingredient-image" src="{{ asset(ingredient.getIngredient.getFoto) }}"/>
-                        </div>
-                        <div class="col-sm-4 col-md-4">
-                            <h4>{{ ingredient.getIngredient.name }}</h4>
-                            <div class="row">
-                                <div id="quantity_show" class="col-sm-4">
-                                    Kiekis: {{ ingredient.getQuantity }} {{ ingredient.getIngredient.getMeasureUnit.getName }}
-                                </div>
-                                <div id="quantity_edit" style="display:none" class="col-sm-4">
-                                    Naujas kiekis:
-                                    <input type="text" name="quantity" id="input_{{ ingredient.id }}" value="{{ ingredient.getQuantity }}">
-                                </div>
 
-                                <button type="button" class="btn btn-default" onclick="updateIngredient(this, {{ ingredient.id }})">Atnaujinti</button>
-                                <button type="button" class="btn btn-default" onclick="removeIngredient({{ ingredient.id }})">Pašalinti</button>
-                            </div>
-                        </div>
-                    </div>
+                <div class="my-ingredient-container">
+                    <div class="img-container"><img class="thumbnail ingredient-image" src="{{ asset(ingredient.getIngredient.getFoto) }}"/></div>
+                    <h3>{{ ingredient.getIngredient.name }}</h3>
+                    <p><strong>Kiekis: </strong><input type="text" id="{{ ingredient.id }}" class="input-text-mini" size="2" value="{{ ingredient.getQuantity }}"/> <strong>{{ ingredient.getIngredient.getMeasureUnit.getName }}.</strong></p>
+                    <p>
+                        <a href="javascript:updateIngredient(document.getElementById({{ ingredient.id }}))" class="btn">SAUGOTI</a>
+                        <a href="javascript:removeIngredient({{ ingredient.id }})" class="btn">PAŠALINTI</a>
+                    </p>
+                    <div class="clear"></div>
                 </div>
-            </li>
         {% endfor %}
-    </ul>
+    </article>
 
-    {% macro input(name, value, type, size) %}
-        <input type="{{ type|default('text') }}" name="{{ name }}" value="{{ value|e }}" size="{{ size|default(20) }}" />
-    {% endmacro %}
+    {#{% macro input(name, value, type, size) %}#}
+        {#<input type="{{ type|default('text') }}" name="{{ name }}" value="{{ value|e }}" size="{{ size|default(20) }}" />#}
+    {#{% endmacro %}#}
 
+{% endblock %}
+{% block script %}
+<script>
+    function removeIngredient(element){
+        $("#user_ingr_table").html('<div style=\"text-align:center;\"><img src="{{ asset('files/images/load.gif') }}"></div>');
+        $.ajax({
+            type: "POST",
+            url: "{{ path('cocktails_remove_ingredient') }}",
+            data:{ingredient: element},
+            success: function(data){
+                $("#user_ingr_table").html(data);
+            }
+        })
+    }
+
+    function updateIngredient(element){
+        $("#user_ingr_table").html('<div style=\"text-align:center;\"><img src="{{ asset('files/images/load.gif') }}"></div>');
+        console.log(element.id);
+        console.log(element.type);
+        console.log(element.size);
+
+        $.ajax({
+            type: "POST",
+            url: "{{ path('cocktails_update_ingredient') }}",
+            dataType: "html",
+            data: {
+                ingredient: element.id,
+                quantity: element.value
+            },
+            success: function(data){
+                $("#user_ingr_table").html(data);
+            }
+        })
+    }
+</script>
 {% endblock %}

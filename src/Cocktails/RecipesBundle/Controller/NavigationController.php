@@ -35,16 +35,9 @@ class NavigationController extends Controller
     public function showRecipeAction($id){
         $recipe = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:Recipe')->find($id);
         $ingredientsNeeded = array();
-
-        $added = false;
         $ingredients = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:RecipesIngredients')->findBy(array('recipe'=>$recipe->getId()));
         if( $this->container->get('security.context')->isGranted('IS_AUTHENTICATED_FULLY') ){
             $usr = $this->getUser()->getId();
-            if($this->getDoctrine()->getRepository('CocktailsRecipesBundle:UsersRecipes')->findOneBy(array('recipe'=>$id, 'user'=>$usr)))
-            {
-                $added = true;
-
-            }
             $userIngredients = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:UsersIngredients')->findBy(array('user'=>$usr));
             foreach ($ingredients as $ingredient){
                 $quantity = $ingredient->getQuantity();
@@ -63,7 +56,7 @@ class NavigationController extends Controller
                 }
             }
         }
-        return $this->render('CocktailsRecipesBundle:Default:recipeSingleWindow.html.twig', array('recipe'=>$recipe, 'ingredients'=>$ingredients, 'ingredientsNeeded'=>$ingredientsNeeded, 'added'=>$added));
+        return $this->render('CocktailsRecipesBundle:Default:recipeSingleWindow.html.twig', array('recipe'=>$recipe, 'ingredients'=>$ingredients, 'ingredientsNeeded'=>$ingredientsNeeded));
     }
 
     public function typeSortAction()

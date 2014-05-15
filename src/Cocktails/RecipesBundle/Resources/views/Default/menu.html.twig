@@ -1,23 +1,37 @@
-{#<link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css" />#}
 
 {% block menu %}
 
-        <div class="container">
-            <div class="row">
-                <ul class="nav nav-bar nav-justified nav-top-menu">
-                    <li class="{% if app.request.attributes.get('_route')=='cocktails_recipes_table' %}active{% endif %}"><a href="{{ path('cocktails_recipes_table') }}">Receptai</a></li>
-                    <li class="{% if app.request.attributes.get('_route')=='cocktails_my_recipes' %}active{% endif %}"><a href="{{ path('cocktails_my_recipes') }}">Mano kokteiliai</a></li>
-                    <li class="{% if app.request.attributes.get('_route')=='cocktails_my_products' %}active{% endif %}"><a href="{{ path('cocktails_my_products') }}">Mano produktai</a></li>
-                </ul>
-            </div>
-            <div class="row">
-                <ul class="nav nav-bar nav-justified nav-top-menu filters-buttons">
-                    <li data-filters="filter-my-products"><a href="#">Pagal mano produktus</a></li>
-                    <li data-filters="filter-taste"><a href="#">Pagal skonį</a></li>
-                    <li data-filters="filter-type"><a href="#">Pagal tipą</a></li>
-                    <li data-filters="filter-ingredient"><a href="#">Pagal ingredientą</a></li>
-                </ul>
-            </div>
-        </div>
+    <nav id="nav" class="no-top-margin">
+        <ul>
+            <li class="{% if app.request.attributes.get('_route')=='cocktails_recipes_table' %}current_page_item{% endif %}"><a href="{{ path('cocktails_recipes_table') }}">Kokteiliai</a></li>
+            <li class="{% if app.request.attributes.get('_route')=='cocktails_recipes_about' %}current_page_item{% endif %}"><a href="{{ path('cocktails_recipes_about') }}">Apie svetainė</a></li>
+            {% if is_granted("ROLE_USER") %}
+                <li class="{% if app.request.attributes.get('_route')=='cocktails_my_products' %}current_page_item{% endif %}"><a href="{{ path('cocktails_my_products') }}">Mano produktai</a></li>
+                <li class="{% if app.request.attributes.get('_route')=='cocktails_my_recipes' %}current_page_item{% endif %}"><a href="{{ path('cocktails_my_recipes') }}">Mano kokteiliai</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+
+    {% if app.request.attributes.get('_route')=='cocktails_recipes_table' %}
+    <section class="is-recent-posts">
+        <header>
+            <h2>Išsirink kokteilį</h2>
+        </header>
+        <ul id="filter-menu">
+            <li>Pagal <a href="#" data-link-type="filter-type"> tipą</a></li>
+            <li>Pagal <a href="#" data-link-type="filter-taste"> skonį</a></li>
+            <li>Pagal <a href="#" data-link-type="filter-ingredients"> ingredientus</a></li>
+            {% if is_granted("ROLE_USER") %}
+                <li>Pagal <a href="#" data-link-type="filter-ingredients"> mano produktus</a></li>
+            {% endif %}
+        </ul>
+    </section>
+    {% endif %}
+
+    <div id="copyright">
+        <p>
+            &copy; 2014 <a href="http://www.nfq.lt/apie-akademija/">nfq-akademija</a>
+        </p>
+    </div>
 
 {% endblock menu %}

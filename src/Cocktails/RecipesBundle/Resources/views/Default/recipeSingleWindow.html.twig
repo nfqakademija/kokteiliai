@@ -1,84 +1,59 @@
-{% include '::layout.html.twig' %}
-<script>
+{% extends '::layout.html.twig' %}
 
-    function checkIfAdded(){
-        if({{ added }}){
-            $("#pasirinkti_button").hide();
-            $("#trukstami_ingr").show();
-            console.log({{ ingredientsNeeded|length }});
-        }
-    }
-    window.onload = checkIfAdded;
+{% block body %}
 
-    function addRecipeToUser(id){
-        $("#pasirinkti_button").html('Pridedama');
-
-        $.ajax({
-            type: "POST",
-            url: "{{ path('cocktails_add_recipe_to_user') }}",
-            data:{id: id},
-            success: function(){
-                $("#pasirinkti_button").html('Pridėta');
-            }
-        })
-    }
-
-</script>
-
-{% block recipe %}
-
-    <div class="clear">&nbsp;</div>
-    <div class="container">
-
-        <div class="row">
-            <div class="col-md-12"><h3>{{ recipe.name }}</h3></div>
-            <div class="clear">&nbsp;</div>
-            <div class="col-md-9">
-
-                <div class="col-sm-4 recipe-image single">
-                    <img src="{{ asset(recipe.getImageByStatus(recipe.image)) }}" alt=""/>
-                    <p>&nbsp;</p>
-                </div>
-
-                <div class="col-sm-8">
-                    <p><b>Skonis:</b> {{ recipe.getTasteByStatus(recipe.RecipeTaste)}}</p>
-                    <p><b>Tipas:</b> {{ recipe.getTypeByStatus(recipe.RecipeType) }}</p>
-                    <p><b>Gaminta:</b> n kartų</p>
-
-                    <p>&nbsp;</p>
-                    <p><b>Gaminimo instrukcija:</b></p>
-                    <p>{{ recipe.description }}</p>
-                    <p>&nbsp;</p>
-                    <a id="pasirinkti_button" class="btn btn-default" onclick="addRecipeToUser({{ recipe.id }})">
-                        Gaminsiu
-                    </a>
-                    <p>&nbsp;</p>
-                </div>
-
-                <div class="clear"></div>
-            </div>
-
-            <div class="col-md-3" style="min-height: 100px;">
-                <h4 class="border-bottom">Ingredientai</h4>
-                {% for ingredient in ingredients %}
-                    <p id="ingredient"><b>{{ ingredient.getIngredient.name }} </b> {{ ingredient.quantity }} {{ ingredient.getIngredient.getMeasureUnit.getName }}</p>
-                {% endfor %}
-            </div>
-            <div id="trukstami_ingr" class="col-md-3" style="min-height: 100px; display: none">
-                <h4 class="border-bottom">Trūkstami ingredientai</h4>
+    <article class="is-post is-post-excerpt">
+        <header>
+            <span class="byline">{{ recipe.getTasteByStatus(recipe.RecipeTaste)}} / {{ recipe.getTypeByStatus(recipe.RecipeType) }} - {{ recipe.name }}</span>
+        </header>
+        <div class="info">
+            <!--<span class="date"><span class="month"> </span> <span class="day">14</span></span>-->
+            <ul class="stats">
+                <li><a href="#" class="fa fa-heart">{{ recipe.rank }}</a></li>
+                <li><a href="#" class="fa fa-comment">16</a></li>
+                <li><a href="#" class="fa fa-facebook">128</a></li>
+            </ul>
+        </div>
+        <a class="image image-full"><img src="{{ asset(recipe.getImageByStatus(recipe.image)) }}" alt=""/></a>
+        <p>
+            <h4>Ingredientai: </h4>
+            {%  for ingredient in recipe.ingredients %} <b>{{ ingredient.ingredient.name }}</b> {{ ingredient.quantity }}{{ ingredient.ingredient.measureUnit.name }}. {% if not loop.last %},{% endif %} {% endfor %}
+        </p>
+        {% if is_granted("ROLE_USER") %}
+            <p>
+                <h4>Trūkstami ingredientai:</h4>
                 {% if ingredientsNeeded|length > 0 %}
                     {% for ingredientN in ingredientsNeeded %}
-                        <p id="ingredient"><b>{{ ingredientN.name }} </b> {{ ingredientN.quantity }} {{ ingredientN.measureUnit }}</p>
+                        <b>{{ ingredientN.name }} </b> {{ ingredientN.quantity }} {{ ingredientN.measureUnit }}. {% if not loop.last %},{% endif %}
                     {% endfor %}
                 {% else %}
                     <b>Jūs turite visus reikiamus ingredientus</b>
                 {% endif %}
-            </div>
-        </div>
+            </p>
+        {% endif %}
+        <p>
+            <strong>Gaminimo būdas: </strong>
+            {{ recipe.description }}
+        </p>
+        {% if is_granted("ROLE_USER") %}
+        <p> <a id="gaminsiu_button" href="javascript:addRecipeToUser({{ recipe.id }})" class="btn">GAMINSIU</a></p>
+        {% endif %}
+    </article>
+{% endblock %}
 
-    </div>
+{% block script %}
+    <script>
+        function addRecipeToUser(id){
+            $("#pasirinkti_button").html('Pridedama');
 
-
-
-
+            $.ajax({
+                type: "POST",
+                url: "{{ path('cocktails_add_recipe_to_user') }}",
+                data:{id: id},
+                success: function(){
+                    $("#gaminsiu_button").html('Pridėta');
+                }
+            })
+        }
+    </script>
 {% endblock %}
