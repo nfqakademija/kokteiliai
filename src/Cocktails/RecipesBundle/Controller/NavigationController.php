@@ -29,7 +29,19 @@ class NavigationController extends Controller
         } else {return $this->render('CocktailsRecipesBundle:Default:index.html.twig', array('name' => 'Index'));}
     }
 
-    private function ingredientsNeeded($recipe, $list)
+    public function recipeTableAction(){
+        $ingredientsNeeded = array();
+        $usr = $this->getUser()->getId();
+        $recipes = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:UsersRecipes')->findBy(array('user'=>$usr));
+        foreach ($recipes as $recipe)
+        {
+            $ingredientsNeeded = $this->ingredientsNeeded($recipe->getRecipe()->getId(), $ingredientsNeeded);
+        }
+        $ingredientsNeeded = $this->subtractUserIngr($ingredientsNeeded);
+        return $this->render('CocktailsRecipesBundle:List:userRecipesTable.html.twig', array('recipes'=>$recipes, 'ingredientsNeeded'=>$ingredientsNeeded));
+    }
+
+    public function ingredientsNeeded($recipe, $list)
     {
         $ingredients = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:RecipesIngredients')->findBy(array('recipe'=>$recipe));
         foreach ($ingredients as $ingredient){

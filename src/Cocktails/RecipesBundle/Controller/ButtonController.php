@@ -18,7 +18,10 @@ class ButtonController extends Controller
 
         $usr = $this->getUser();
         $recipes = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:UsersRecipes')->findBy(array('user'=>$usr));
-        return $this->render('CocktailsRecipesBundle:List:userRecipesTable.html.twig', array('recipes'=>$recipes));
+
+        $response = $this->forward('CocktailsRecipesBundle:Navigation:recipeTable');
+
+        return $response;
     }
 
     public function addRecipeToUserAction(Request $request){

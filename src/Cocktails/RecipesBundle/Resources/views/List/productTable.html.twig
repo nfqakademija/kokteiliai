@@ -32,7 +32,7 @@
         var ingredient = element.getAttribute('id');
         var quantity  = element.value;
         $.ajax({
-            type: "GET",
+            type: "POST",
             url: "{{ path('cocktails_add_ingredient') }}",
 
             data: {
@@ -41,8 +41,8 @@
             },
             success: function(data) {
 //                console.log("pavyko");
-//                location.reload(); //perkrauti pslp sekmes atveju
-                $("#user_ingr_table").html(data);
+                location.reload(); //perkrauti pslp sekmes atveju
+                //$("#user_ingr_table").html(data);
             }
         })
     };
