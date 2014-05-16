@@ -25,8 +25,6 @@ class NavigationController extends Controller
                 $ingredientsNeeded = $this->ingredientsNeeded($recipe->getRecipe()->getId(), $ingredientsNeeded);
             }
             $ingredientsNeeded = $this->subtractUserIngr($ingredientsNeeded);
-//            todo: atimti turimus ingredientus
-//            var_dump($ingredientsNeeded);
             return $this->render('CocktailsRecipesBundle:Default:myRecipesWindow.html.twig', array('recipes'=>$recipes, 'ingredientsNeeded'=>$ingredientsNeeded));
         } else {return $this->render('CocktailsRecipesBundle:Default:index.html.twig', array('name' => 'Index'));}
     }
@@ -37,19 +35,21 @@ class NavigationController extends Controller
         foreach ($ingredients as $ingredient){
             $added = false;
             $quantity = $ingredient->getQuantity();
-            $ingrNeeded = array('name'=>$ingredient->getIngredient()->getName(),
+            $ingrNeeded = array(
+                'id'=>$ingredient->getIngredient()->getId(),
+                'name'=>$ingredient->getIngredient()->getName(),
                 'quantity'=>$quantity,
                 'measureUnit'=>$ingredient->getIngredient()->getMeasureUnit()->getName()
             );
             foreach($list as &$listElement)
             {
-                if ($listElement['name'] == $ingrNeeded['name'])
+                if ($listElement['id'] == $ingrNeeded['id'])
                 {
                     $listElement['quantity'] += $ingrNeeded['quantity'];
                     $added = true;
                 }
             }
-            if ((!$added) and($ingrNeeded['quantity'] > 0)){
+            if ((!$added) and ($ingrNeeded['quantity'] > 0)){
                 $list[] = $ingrNeeded;
             }
         }
@@ -64,9 +64,9 @@ class NavigationController extends Controller
         {
             foreach($userIngredients as $userIngredient)
             {
-                if($listElement['name'] == $userIngredient->getIngredient()->getName())
+                if($listElement['id'] == $userIngredient->getIngredient()->getId())
                 {
-                    if ($listElement['quantity']-$userIngredient->getQuantity() < 0)
+                    if ($listElement['quantity']-$userIngredient->getQuantity() <= 0)
                     {
                         unset($list[$key]);
                     } else {
@@ -104,7 +104,9 @@ class NavigationController extends Controller
             $userIngredients = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:UsersIngredients')->findBy(array('user'=>$usr));
             foreach ($ingredients as $ingredient){
                 $quantity = $ingredient->getQuantity();
-                $IngrNeeded = array('name'=>$ingredient->getIngredient()->getName(),
+                $IngrNeeded = array(
+                    'id'=>$ingredient->getIngredient()->getId(),
+                    'name'=>$ingredient->getIngredient()->getName(),
                     'quantity'=>$quantity,
                     'measureUnit'=>$ingredient->getIngredient()->getMeasureUnit()->getName()
                 );

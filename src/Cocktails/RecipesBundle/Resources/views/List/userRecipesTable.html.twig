@@ -14,7 +14,7 @@
         <p></p>
         <ul class="ingredients-list">
             {% for ingrNeeded in ingredientsNeeded %}
-                <li><p><strong>{{ ingrNeeded.name }}</strong><span>{{ ingrNeeded.quantity }} {{ ingrNeeded.measureUnit }}</p></span></li>
+                <li onclick="addIngredientToUser({{ ingrNeeded.id }}, {{ ingrNeeded.quantity }})" ><p><strong>{{ ingrNeeded.name }}</strong><span>{{ ingrNeeded.quantity }} {{ ingrNeeded.measureUnit }}</p></span></li>
             {% endfor %}
         </ul>
     </section>
@@ -40,7 +40,7 @@
 {% endblock %}
 {% block script %}
 <script>
-    var removeRecipeFromUser = function(id){
+    function removeRecipeFromUser(id){
         $.ajax({
             type: "POST",
             url: "{{ path('cocktails_remove_recipe') }}",
@@ -49,6 +49,20 @@
                 $('#user_recipes_table').html(data);
             }
         })
-    };
+    }
+
+    function addIngredientToUser(id, quantity){
+        $.ajax({
+            type: "POST",
+            url: "{{ path('cocktails_add_ingredient') }}",
+            dataType: "html",
+            data:{
+                ingredient: id,
+                quantity: quantity
+            },
+            success: function(){
+            }
+        })
+    }
 </script>
 {% endblock %}
