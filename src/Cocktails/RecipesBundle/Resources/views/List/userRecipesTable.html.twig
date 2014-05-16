@@ -13,16 +13,9 @@
         <h3>Trūkstamų produktų sąrašas: </h3>
         <p></p>
         <ul class="ingredients-list">
-            <li><p><strong>Pienas: </strong> <span> 200 ml.</p></span></li>
-            <li><p><strong>Braškės: </strong> <span>100 gl.</span></p></li>
-            <li><p><strong>Bananas: </strong> <span> 1 vnt.</p></span></li>
-            <li><p><strong>Ananasas: </strong> <span> 100 g.</p></span></li>
-            <li><p><strong>Šokoladas: </strong> <span> 50 ml.</p></span></li>
-            <li><p><strong>Pienas: </strong> <span> 200 ml.</p></span></li>
-            <li><p><strong>Braškės: </strong> <span> 100 gl.</p></span></li>
-            <li><p><strong>Bananas: </strong> <span> 1 vnt.</p></span></li>
-            <li><p><strong>Ananasas: </strong> <span> 100 g.</p></span></li>
-            <li><p><strong>Šokoladas: </strong> <span> 50 ml.</p></span></li>
+            {% for ingrNeeded in ingredientsNeeded %}
+                <li><p><strong>{{ ingrNeeded.name }}</strong><span>{{ ingrNeeded.quantity }} {{ ingrNeeded.measureUnit }}</p></span></li>
+            {% endfor %}
         </ul>
     </section>
         <div id="user_recipes_table">

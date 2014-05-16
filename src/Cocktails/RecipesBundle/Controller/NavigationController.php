@@ -17,10 +17,66 @@ class NavigationController extends Controller
 {
     public function myRecipesAction(){
         if( $this->container->get('security.context')->isGranted('IS_AUTHENTICATED_FULLY') ){
+            $ingredientsNeeded = array();
             $usr = $this->getUser()->getId();
             $recipes = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:UsersRecipes')->findBy(array('user'=>$usr));
-            return $this->render('CocktailsRecipesBundle:Default:myRecipesWindow.html.twig', array('recipes'=>$recipes));
+            foreach ($recipes as $recipe)
+            {
+                $ingredientsNeeded = $this->ingredientsNeeded($recipe->getRecipe()->getId(), $ingredientsNeeded);
+            }
+            $ingredientsNeeded = $this->subtractUserIngr($ingredientsNeeded);
+//            todo: atimti turimus ingredientus
+//            var_dump($ingredientsNeeded);
+            return $this->render('CocktailsRecipesBundle:Default:myRecipesWindow.html.twig', array('recipes'=>$recipes, 'ingredientsNeeded'=>$ingredientsNeeded));
         } else {return $this->render('CocktailsRecipesBundle:Default:index.html.twig', array('name' => 'Index'));}
+    }
+
+    private function ingredientsNeeded($recipe, $list)
+    {
+        $ingredients = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:RecipesIngredients')->findBy(array('recipe'=>$recipe));
+        foreach ($ingredients as $ingredient){
+            $added = false;
+            $quantity = $ingredient->getQuantity();
+            $ingrNeeded = array('name'=>$ingredient->getIngredient()->getName(),
+                'quantity'=>$quantity,
+                'measureUnit'=>$ingredient->getIngredient()->getMeasureUnit()->getName()
+            );
+            foreach($list as &$listElement)
+            {
+                if ($listElement['name'] == $ingrNeeded['name'])
+                {
+                    $listElement['quantity'] += $ingrNeeded['quantity'];
+                    $added = true;
+                }
+            }
+            if ((!$added) and($ingrNeeded['quantity'] > 0)){
+                $list[] = $ingrNeeded;
+            }
+        }
+        return $list;
+    }
+
+    private function subtractUserIngr($list)
+    {
+        $usr = $this->getUser()->getId();
+        $userIngredients = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:UsersIngredients')->findBy(array('user'=>$usr));
+        foreach($list as $key =>&$listElement)
+        {
+            foreach($userIngredients as $userIngredient)
+            {
+                if($listElement['name'] == $userIngredient->getIngredient()->getName())
+                {
+                    if ($listElement['quantity']-$userIngredient->getQuantity() < 0)
+                    {
+                        unset($list[$key]);
+                    } else {
+                        $listElement['quantity'] -= $userIngredient->getQuantity();
+                    }
+
+                }
+            }
+        }
+        return $list;
     }
 
     public function myProductsAction(){
