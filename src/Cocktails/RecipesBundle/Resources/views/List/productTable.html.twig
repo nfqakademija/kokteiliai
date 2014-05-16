@@ -1,10 +1,10 @@
 
 {% block ingredientTableBlock %}
-    <section class="is-search">
+    <section id="paieskos_rez" class="is-search">
+        <h3>Įvesk ieškomą produktą: </h3>
         <form method="post" action="#">
-            <input type="text" class="text" name="search" placeholder="Įveskite ieškomo ingredineto pavadinimą" />
+            <input oninput="searchIngr(this.value)" type="text" class="text" name="search" placeholder="Įveskite ieškomo ingredineto pavadinimą" />
         </form>
-        <p>&nbsp;</p>
         <h3>Paieškos rezultatai: </h3>
         <p></p>
 
@@ -28,23 +28,34 @@
 {% block script %}
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script>
-    var addIngredient = function(element){
+    function addIngredient(element){
         var ingredient = element.getAttribute('id');
         var quantity  = element.value;
         $.ajax({
             type: "POST",
             url: "{{ path('cocktails_add_ingredient') }}",
-
             data: {
                 ingredient: ingredient,
                 quantity: quantity
             },
             success: function(data) {
-//                console.log("pavyko");
-                location.reload(); //perkrauti pslp sekmes atveju
-                //$("#user_ingr_table").html(data);
+//                location.reload(); //perkrauti pslp sekmes atveju
+                $("#user_ingr_table").html(data);
             }
         })
-    };
+    }
+
+    function searchIngr(name){
+        $.ajax({
+            type: "POST",
+            url: "{{ path('cocktails_ingredient_search') }}",
+            data: {
+                name: name
+            },
+            success: function(data){
+                $('#paieskos_rez').html(data);
+            }
+        })
+    }
 </script>
 {% endblock %}

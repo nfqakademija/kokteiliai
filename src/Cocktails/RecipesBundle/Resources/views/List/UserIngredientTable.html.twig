@@ -1,11 +1,12 @@
 {% block UserIngredientTableBlock %}
+    <div id="user_ingr_table">
     <article class="is-post is-post-excerpt">
         <header>
             <h3>Mano produktai</h3>
         </header>
     </article>
 
-    <article id="user_ingr_table" class="is-post is-post-excerpt">
+    <article  class="is-post is-post-excerpt">
 
         {% for ingredient in userIngredients %}
             <div class="my-ingredient-container">
@@ -20,7 +21,7 @@
             </div>
         {% endfor %}
     </article>
-
+    </div>
     {% macro input(name, value, type, size) %}
         <input type="{{ type|default('text') }}" name="{{ name }}" value="{{ value|e }}" size="{{ size|default(20) }}" />
     {% endmacro %}

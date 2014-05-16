@@ -94,7 +94,7 @@ class NavigationController extends Controller
     public function myProductsAction(){
         if( $this->container->get('security.context')->isGranted('IS_AUTHENTICATED_FULLY') ){
             $usr = $this->getUser()->getId();
-            $ingredients = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:Ingredient')->findAll();
+            $ingredients = array();
             $userIngredients = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:UsersIngredients')->findBy(array('user'=>$usr));
             return $this->render('CocktailsRecipesBundle:Default:myProductsWindow.html.twig', array('ingredients'=>$ingredients, 'userIngredients'=>$userIngredients));
         } else {return $this->render('CocktailsRecipesBundle:Default:index.html.twig', array('name' => 'Index'));}

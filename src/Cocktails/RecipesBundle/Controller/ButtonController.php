@@ -82,9 +82,23 @@ class ButtonController extends Controller
             $em->persist($usrIngr);
             $em->flush();
         }
-        $userIngredients = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:UsersIngredients')->findBy(array('user'=>$usr));
+        $userIngredients = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:UsersIngredients')->findBy(array('user'=>$usr));;
         return $this->render('CocktailsRecipesBundle:List:UserIngredientTable.html.twig', array( 'userIngredients'=>$userIngredients));
     }
 
+    public function ingredientSearchAction(Request $request)
+    {
+        $name = $request->get('name');
+        $ingredients = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:Ingredient')->findAll();
+        foreach($ingredients as $key=>$ingredient)
+        {
+
+            if (strpos($ingredient->getName(), $name) !== false)
+            {} else {
+                unset($ingredients[$key]);
+            }
+        }
+        return $this->render('CocktailsRecipesBundle:List:productTable.html.twig', array( 'ingredients'=>$ingredients));
+    }
 
 }

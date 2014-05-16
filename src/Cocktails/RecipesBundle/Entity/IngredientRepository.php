@@ -12,4 +12,7 @@ use Doctrine\ORM\EntityRepository;
  */
 class IngredientRepository extends EntityRepository
 {
+    public function jj(){
+
+    }
 }
