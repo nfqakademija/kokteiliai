@@ -25,39 +25,25 @@
                 <a href="{{ path('cocktails_recipe_single', {'id': recipe.id }) }}" class="btn">PLAČIAU</a>
                 {% if is_granted("ROLE_USER") %}
                     <a id="gaminti_{{ recipe.id }}" href="javascript:addRecipeToUser({{ recipe.id }})" class="btn">GAMINSIU</a>
+                    <script>
+                            checkIfAdded({{ recipe.getId }});
+                        function checkIfAdded(id){
+                            $.ajax({
+                                type: "POST",
+                                url: "{{ path('cocktails_check_added') }}",
+                                data: {id: id},
+                                success: function(data){
+                                    if (data == 'true'){
+                                        $('#gaminti_'+id).hide();
+                                    }
+
+                                }
+                            })
+                        }
+                    </script>
                 {% endif %}
             </p>
         </article>
-        <script>
-            checkIfAdded({{ recipe.getId }});
-            function checkIfAdded(id){
-                $.ajax({
-                    type: "POST",
-                    url: "{{ path('cocktails_check_added') }}",
-                    data: {id: id},
-                    success: function(data){
-                        if (data == 'true'){
-                            $('#gaminti_'+id).hide();
-                        }
 
-                    }
-                })
-            }
-        </script>
     {% endfor %}
-{% endblock %}
-
-{% block script %}
-    <script>
-        function addRecipeToUser(id){
-            $.ajax({
-                type: "POST",
-                url: "{{ path('cocktails_add_recipe_to_user') }}",
-                data:{id: id},
-                success: function(){
-                    $("#gaminti_"+id).html('Pridėta');
-                }
-            })
-        }
-    </script>
 {% endblock %}

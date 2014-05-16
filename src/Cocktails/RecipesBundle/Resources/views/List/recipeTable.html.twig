@@ -103,7 +103,7 @@
                 url: "{{ path('cocktails_add_recipe_to_user') }}",
                 data:{id: id},
                 success: function(){
-                    $("#gaminti_"+id).html('Pridėta');
+                    $("#gaminti_"+id).hide();
                 }
             })
         }

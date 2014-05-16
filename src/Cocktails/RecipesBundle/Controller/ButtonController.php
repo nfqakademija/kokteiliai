@@ -70,8 +70,9 @@ class ButtonController extends Controller
         $ingredient = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:Ingredient')->find($id);
         $quantity = $request->get('quantity');
         $em = $this->getDoctrine()->getManager();
-        if($this->getDoctrine()->getRepository('CocktailsRecipesBundle:UsersIngredients')->findBy(array('ingredient'=>$ingredient, 'user'=>$usr)))
+        if($this->getDoctrine()->getRepository('CocktailsRecipesBundle:UsersIngredients')->findOneBy(array('ingredient'=>$ingredient, 'user'=>$usr)))
         {
+            $quantity += $this->getDoctrine()->getRepository('CocktailsRecipesBundle:UsersIngredients')->findOneBy(array('ingredient'=>$ingredient, 'user'=>$usr))->getQuantity();
             $this->getDoctrine()->getRepository('CocktailsRecipesBundle:UsersIngredients')->findOneBy(array('ingredient'=>$ingredient, 'user'=>$usr))->setQuantity($quantity);
             $em->flush();
         } else

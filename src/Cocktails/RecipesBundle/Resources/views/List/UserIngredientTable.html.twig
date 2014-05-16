@@ -31,12 +31,11 @@
 <script>
     function removeIngredient(element){
         $.ajax({
-            type: "GET",
+            type: "POST",
             url: "{{ path('cocktails_remove_ingredient') }}",
             data:{ingredient: element},
-            success: function(){
-                console.log("recipe removed");
-                location.reload(); //perkrauti pslp sekmes atveju
+            success: function(data){
+                $("#user_ingr_table").html(data);
             }
         })
     }

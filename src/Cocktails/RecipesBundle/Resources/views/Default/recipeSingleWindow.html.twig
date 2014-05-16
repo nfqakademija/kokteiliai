@@ -21,14 +21,16 @@
             {%  for ingredient in recipe.ingredients %} <b>{{ ingredient.ingredient.name }}</b> {{ ingredient.quantity }}{{ ingredient.ingredient.measureUnit.name }}. {% if not loop.last %},{% endif %} {% endfor %}
         </p>
         <p>
-            {% if (ingredientsNeeded|length > 0) and (is_granted("ROLE_USER")) %}
-                <strong>Trūkstami ingredientai: </strong>
-                <br>
-                {% for ingredientN in ingredientsNeeded %}
-                    <b>{{ ingredientN.name }} </b> {{ ingredientN.quantity }} {{ ingredientN.measureUnit }}. {% if not loop.last %},{% endif %}
-                {% endfor %}
-            {% else %}
-                <b>Jūs turite visus reikiamus ingredientus</b>
+            {% if is_granted("ROLE_USER") %}
+                {% if ingredientsNeeded|length > 0 %}
+                    <strong>Trūkstami ingredientai: </strong>
+                    <br>
+                    {% for ingredientN in ingredientsNeeded %}
+                        <b>{{ ingredientN.name }} </b> {{ ingredientN.quantity }} {{ ingredientN.measureUnit }}. {% if not loop.last %},{% endif %}
+                    {% endfor %}
+                {% else %}
+                    <b>Jūs turite visus reikiamus ingredientus</b>
+                {% endif %}
             {% endif %}
         </p>
         <p>
@@ -53,11 +55,11 @@
     <script>
         var addRecipeToUser = function(id){
             $.ajax({
-                type: "GET",
+                type: "POST",
                 url: "{{ path('cocktails_add_recipe_to_user') }}",
                 data:{id: id},
                 cuccess: function(){
-                    console.log("recipe added");
+                    $("#gaminti_button").hide();
                 }
             })
         };

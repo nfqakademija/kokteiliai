@@ -49,7 +49,7 @@
 <script>
     var removeRecipeFromUser = function(id){
         $.ajax({
-            type: "GET",
+            type: "POST",
             url: "{{ path('cocktails_remove_recipe') }}",
             data:{id: id},
             success: function(data){
