@@ -34,7 +34,7 @@
             {% endif %}
         </p>
         <p>
-            <strong>Gaminimo bųdas: </strong>
+            <strong>Gaminimo būdas: </strong>
             {{ recipe.description }}
         </p>
         <p>
@@ -53,7 +53,9 @@
 {% endblock %}
 {% block script %}
     <script>
-        var addRecipeToUser = function(id){
+        function addRecipeToUser(id){
+            $("#gaminti_button").html('Pridedama');
+
             $.ajax({
                 type: "POST",
                 url: "{{ path('cocktails_add_recipe_to_user') }}",

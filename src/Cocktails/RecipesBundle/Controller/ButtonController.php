@@ -4,13 +4,8 @@ namespace Cocktails\RecipesBundle\Controller;
 
 use Cocktails\RecipesBundle\Entity\UsersRecipes;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Cocktails\RecipesBundle\Entity\Image;
 use Cocktails\RecipesBundle\Entity\UsersIngredients;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-use Symfony\Component\BrowserKit\Response;
-use Symfony\Component\Console\Output\ConsoleOutput;
 use Symfony\Component\HttpFoundation\Request;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
 class ButtonController extends Controller
 {

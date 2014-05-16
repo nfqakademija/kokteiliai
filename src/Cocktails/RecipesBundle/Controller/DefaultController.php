@@ -9,6 +9,7 @@ use Cocktails\RecipesBundle\Entity\UsersIngredients;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Response;
 //use Symfony\Component\BrowserKit\Response;
+//use Symfony\Component\BrowserKit\Response;
 use Symfony\Component\Console\Output\ConsoleOutput;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -26,9 +27,6 @@ class DefaultController extends Controller
         return $this->render('CocktailsRecipesBundle:Default:menu.html.twig');
     }
 
-    /**
-     * @Template()
-     */
     public function uploadAction(Request $request)
     {
         $image = new Image();
@@ -41,13 +39,9 @@ class DefaultController extends Controller
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-
             $image->upload();
-
             $em->persist($image);
             $em->flush();
-
-            #return $this->redirect('kokteiliai/web/files/images');
         }
 
         return array('form' => $form->createView());
