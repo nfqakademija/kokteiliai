@@ -1,8 +1,7 @@
 {% extends '::layout.html.twig' %}
 
 {% block body %}
-
-    <article class="is-post is-post-excerpt single">
+        <article class="is-post is-post-excerpt single">
         <header>
             <span class="byline">{{ recipe.getTasteByStatus(recipe.RecipeTaste)}} / {{ recipe.getTypeByStatus(recipe.RecipeType) }} - {{ recipe.name }}</span>
         </header>
@@ -38,10 +37,18 @@
             {{ recipe.description }}
         </p>
         <p>
-         <div class="fb-like" data-href="{{app.request.uri}}" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
+            <div class="fb-like" data-href="{{app.request.uri}}" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
         </p>
         {% if is_granted("ROLE_USER") %}
-        <p id="gaminti_button"> <a href="javascript:addRecipeToUser({{ recipe.id }})" class="btn">GAMINSIU</a></p>
+            <p id="gaminti_button"> <a href="javascript:addRecipeToUser({{ recipe.id }})" class="btn">GAMINSIU</a></p>
+            <script>
+                checkIfAdded({{ added }});
+                function checkIfAdded(added){
+                    if(added){
+                        $("#gaminti_button").hide();
+                    }
+                }
+            </script>
         {% endif %}
         <div class="clear"></div>
     </article>
@@ -54,23 +61,14 @@
 {% block script %}
     <script>
         function addRecipeToUser(id){
-            $("#gaminti_button").html('Pridedama');
-
             $.ajax({
                 type: "POST",
                 url: "{{ path('cocktails_add_recipe_to_user') }}",
                 data:{id: id},
-                cuccess: function(){
+                success: function(){
                     $("#gaminti_button").hide();
                 }
             })
-        };
-
-        function checkIfAdded(){
-            if({{ added }}){
-                $("#gaminti_button").hide();
-            }
         }
-        window.onload = checkIfAdded;
     </script>
 {% endblock %}
