@@ -9,17 +9,18 @@ use Cocktails\RecipesBundle\Entity\UsersIngredients;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Response;
 //use Symfony\Component\BrowserKit\Response;
-//use Symfony\Component\BrowserKit\Response;
 use Symfony\Component\Console\Output\ConsoleOutput;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 class DefaultController extends Controller
 {
-    public function indexAction()
+
+    public function indexAction(Request $request)
     {
 //        return $this->render('CocktailsRecipesBundle:Default:index.html.twig', array('name' => 'Index'));
-        return $this->recipeTableAction();
+        return $this->recipeTableAction($request);
     }
 
     public function menuAction()
@@ -47,14 +48,60 @@ class DefaultController extends Controller
         return array('form' => $form->createView());
     }
 
-    public function recipeTableAction()
+    public function recipeTableAction(Request $request)
     {
+        $sess = $request->getSession();
+        //$sess->set("vardas","test");
+
+        $userIngredients =  "";
+
         $list = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:Recipe')->findAll();
         $tastes = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:RecipeTaste')->findAll();
         $types = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:RecipeType')->findAll();
         $fbCount = $this->getRecipesCount($list);
+        $ingredient = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:Ingredient')->findAll();
 
-        return $this->render('CocktailsRecipesBundle:List:recipeTable.html.twig', array('list' => $list, 'tastes' => $tastes, 'types' => $types, 'fbCount' => $fbCount));
+        if($this->getUser())
+            $userIngredients =  $this->getDoctrine()->getRepository('CocktailsRecipesBundle:UsersIngredients')->getUserIngredients($this->getUser()->getId());
+
+        $paginator  = $this->get('knp_paginator');
+        $pag = $paginator->paginate(
+            $list,
+            $this->get('request')->query->get('page', 1),
+            10
+        );
+
+        return $this->render('CocktailsRecipesBundle:List:recipeTable.html.twig', array('list' => $pag, 'tastes' => $tastes, 'types' => $types, 'fbCount' => $fbCount, 'ingredients' => $ingredient, 'userIngredients' => $userIngredients));
+    }
+    public function updateDataAction(Request $request){
+
+        $data = trim($request->get('data'));
+        $type = trim($request->get('type'));
+
+
+        //$aa = $request->getSession();
+        //echo $aa->get("vardas");
+
+        $list = "";
+
+        if($type === "type" || $type === "taste"){
+            $list = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:Recipe')->getFilteredRecipes($data, $type);
+        }
+        elseif($type === "ingredients"){
+            $list = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:RecipesIngredients')->getFilterIngredients($data);
+        }elseif($type === "myIngredients"){
+            $list = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:RecipesIngredients')->getFilterIngredients($data);
+        }
+        $fbCount = $this->getRecipesCount($list);
+
+        $paginator  = $this->get('knp_paginator');
+        $list = $paginator->paginate(
+            $list,
+            $this->get('request')->query->get('page', 1),
+            10
+        );
+
+        return $this->render('CocktailsRecipesBundle:List:recipeList.html.twig', array('list' => $list, 'fbCount' => $fbCount));
     }
 
     /**
@@ -89,6 +136,7 @@ class DefaultController extends Controller
     }
 
     public function getRecipesCount($recipes){
+        $fbCount = array();
         foreach($recipes as $recipe)
             $fbCount[] = $this->shinra_fb_count('http://kokteiliai.projektai.nfqakademija.lt/Recipe/'.$recipe->getId());
 

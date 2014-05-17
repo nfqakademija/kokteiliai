@@ -55,7 +55,7 @@ class Ingredient
     private $recipes;
 
     /**
-     * @ORM\OneToMany(targetEntity="UsersIngredients", mappedBy="user", cascade={"all"})
+     * @ORM\OneToMany(targetEntity="UsersIngredients", mappedBy="ingredient", cascade={"all"})
      */
     private $users;
 
@@ -240,7 +240,7 @@ class Ingredient
     /**
      * Get users
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getUsers()
     {

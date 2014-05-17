@@ -17,7 +17,7 @@ class RecipeRepository extends EntityRepository
         $em = $this->getEntityManager();
         $where = "";
         if($data != "")
-            $where = "WHERE r.recipe".ucfirst($type)." IN($data)";
+            $where = "WHERE r.recipe".ucfirst(trim($type))." IN($data)";
 
         $query = $em->createQuery(
             "

@@ -12,4 +12,23 @@ use Doctrine\ORM\EntityRepository;
  */
 class RecipesIngredientsRepository extends EntityRepository
 {
+    public function getFilterIngredients($data)
+    {
+        $em = $this->getEntityManager();
+
+
+        $query = $em->createQuery(
+            "
+                            SELECT r
+                            FROM Cocktails\RecipesBundle\Entity\Recipe r
+                            INNER JOIN r.ingredients i
+                            WHERE i.ingredient IN ($data)
+
+
+                        "
+        );
+        $recipes = $query->getResult();
+        return $recipes;
+
+    }
 }

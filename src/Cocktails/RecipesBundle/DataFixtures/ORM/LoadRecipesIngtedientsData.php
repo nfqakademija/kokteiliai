@@ -23,8 +23,8 @@ class LoadRecipesIngtedientsData extends AbstractFixture implements OrderedFixtu
             array('recipe-1','ingredient-9','120'),
 
             array('recipe-2','ingredient-11', '1'),
-            array('recipe-2','ingredient-1', '0.5'),
-            array('recipe-2','ingredient-6', '0.5'),
+            array('recipe-2','ingredient-1', '1'),
+            array('recipe-2','ingredient-6', '1'),
             array('recipe-2','ingredient-13', '2'),
             array('recipe-2','ingredient-14', '2'),
             array('recipe-2','ingredient-15', '100'),
@@ -34,8 +34,8 @@ class LoadRecipesIngtedientsData extends AbstractFixture implements OrderedFixtu
             array('recipe-3','ingredient-26', '400'),
             array('recipe-3','ingredient-3', '30'),
 
-            array('recipe-4','ingredient-6', '0.1'),
-            array('recipe-4','ingredient-17', '0.2'),
+            array('recipe-4','ingredient-6', '1'),
+            array('recipe-4','ingredient-17', '1'),
             array('recipe-4','ingredient-10', '5'),
 
             array('recipe-5','ingredient-18', '30'),

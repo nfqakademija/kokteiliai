@@ -8,7 +8,7 @@
         <a class="filter-link" href="#" onclick="javascript:filter_with_ajax('type');">Filtruoti</a>
         <ul class="filter_checkbox">
             {% for type in types %}
-                <li><input type="checkbox" name="type_{{ type.id }}" id="type_{{ type.id }}" value="{{ type.name }}"/> <label for="type_{{ type.id }}">{{ type.name }}</label></li>
+                <li><input class="type" type="checkbox" name="{{ type.id }}" id="type-{{ type.id }}" value="{{ type.name }}"/> <label for="type-{{ type.id }}">{{ type.name }}</label></li>
             {% endfor %}
         </ul>
     </article>
@@ -19,7 +19,7 @@
         <a class="filter-link" href="#" onclick="javascript:filter_with_ajax('taste');">Filtruoti</a>
         <ul class="filter_checkbox">
             {% for taste in tastes %}
-                <li><input type="checkbox" name="taste_{{ taste.id }}" id="taste_{{ taste.id }}" value="{{ taste.name }}"/> <label for="taste_{{ taste.id }}">{{ taste.name }}</label></li>
+                <li><input class="taste" type="checkbox" name="{{ taste.id }}" id="taste-{{ taste.id }}" value="{{ taste.name }}"/> <label for="taste-{{ taste.id }}">{{ taste.name }}</label></li>
             {% endfor %}
         </ul>
     </article>
@@ -27,25 +27,24 @@
     {#filter ingredients#}
     <article class="is-post is-post-excerpt filter-container filter-ingredients">
         <h5 id="recipe-ingredients">Pagal ingredientus</h5>
-        <a class="filter-link" href="#">filtruoti</a>
+        <a class="filter-link" href="#" onclick="javascript:filter_with_ajax('ingredients');">filtruoti</a>
         <ul class="filter_checkbox">
-            <li><input type="checkbox" name="recipeType" id="recipeIngredient-1" value="saldus"/> <label for="recipeIngredient-1">Bananas</label></li>
-            <li><input type="checkbox" name="recipeType" id="recipeIngredient-2" value="saldus"/> <label for="recipeIngredient-2">Braškė</label></li>
-            <li><input type="checkbox" name="recipeType" id="recipeIngredient-3" value="saldus"/> <label for="recipeIngredient-3">Šokoladas</label></li>
+            {% for ingredient in ingredients %}
+                <li><input class="ingredients" type="checkbox"  name="{{ ingredient.id }}"  id="ingredient-{{ ingredient.id }}" value="{{ ingredient.name }}"/> <label for="ingredient-{{ ingredient.id }}">{{ ingredient.name }}</label></li>
+            {% endfor %}
         </ul>
     </article>
 
     {#filter my products#}
     <article class="is-post is-post-excerpt filter-container filter-my-ingredients">
         <h5 id="recipe-ingredients">Pagal mano ingredientus</h5>
-        <a class="filter-link" href="#">filtruoti</a>
+        <a class="filter-link" href="#" onclick="javascript:filter_with_ajax('myIngredients');">filtruoti</a>
         <ul class="filter_checkbox">
-            <li><input type="checkbox" name="recipeType" id="recipeIngredient-1" value="saldus"/> <label for="recipeIngredient-1">Bananas</label></li>
-            <li><input type="checkbox" name="recipeType" id="recipeIngredient-2" value="saldus"/> <label for="recipeIngredient-2">Braškė</label></li>
-            <li><input type="checkbox" name="recipeType" id="recipeIngredient-3" value="saldus"/> <label for="recipeIngredient-3">Šokoladas</label></li>
+            {% for userI in userIngredients %}
+                <li><input class="myIngredients" type="checkbox" name="{{ userI.id }}" id="myIngredient-{{ userI.id }}" value="{{ userI.name }}"/> <label for="myIngredient-{{ userI.id }}">{{ userI.name }}</label></li>
+            {% endfor %}
         </ul>
     </article>
-
 
 
     <div class="clear">&nbsp;</div>
@@ -74,27 +73,24 @@
 {% endblock %}
 {% block script %}
     <script>
-        function filter_with_ajax(type)
+        function filter_with_ajax(typeFilter)
         {
             $("#recipe_row").html('<div style=\"text-align:center;\"><img src="{{ asset('files/images/load.gif') }}"></div>');
 
-            var id = [];
-            $('input:checked').each(function() {
-                var myMatch = $(this).attr("name").search(type);
-                if(myMatch != -1)
-                    id.push($(this).attr("name").replace(type + "_",""));
+            var ids = [];
+            $('.'+typeFilter+':checked').each(function() {
+                ids.push(parseInt($(this).attr("name")));
             });
-            id = id.join();
+            ids = ids.join();
             $.ajax({
                 type: "POST",
                 url: "{{ path('cocktails_recipes_filter') }}",
                 dataType: "html",
-                data:{data: id, type: type},
+                data:{data: ids, type: typeFilter},
                 success: function(data){
                     $("#recipe_row").html(data);
                 }
             })
-
         }
 
         function addRecipeToUser(id){

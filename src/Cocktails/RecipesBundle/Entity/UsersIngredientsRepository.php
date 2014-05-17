@@ -12,4 +12,21 @@ use Doctrine\ORM\EntityRepository;
  */
 class UsersIngredientsRepository extends EntityRepository
 {
+    public function getUserIngredients($user){
+        $em = $this->getEntityManager();
+
+
+        $query = $em->createQuery(
+            "
+                            SELECT i
+                            FROM Cocktails\RecipesBundle\Entity\Ingredient i
+                            INNER JOIN i.users ui
+                            WHERE ui.user = :user
+
+
+                        "
+        )->setParameters(array("user" => $user));
+        $recipes = $query->getResult();
+        return $recipes;
+    }
 }
