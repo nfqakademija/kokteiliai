@@ -5,20 +5,22 @@
         <form method="post" action="#">
             <input oninput="searchIngr(this.value)" type="text" class="text" name="search" placeholder="Įveskite ieškomo ingredineto pavadinimą" />
         </form>
-        <h3>Paieškos rezultatai: </h3>
-        <p></p>
+        {% if ingredients %}
+            <h3>Paieškos rezultatai: </h3>
+            <p></p>
 
-        {% for ingredient in ingredients %}
-            <div class="my-ingredient-container">
-                <div class="img-container"> <img class="thumbnail ingredient-image" src="{{ asset(ingredient.getFoto) }}"/></div>
-                <h3>{{ ingredient.name }}</h3>
-                <p><strong>Kiekis: </strong><input type="text" name="quantity" id="{{ ingredient.id }}" value="1" class="input-text-mini" size="2"/> <strong>{{ ingredient.getMeasureUnit.getName }}.</strong></p>
-                <p>
-                    <a href="javascript:addIngredient(document.getElementById({{ ingredient.id }}))" class="btn">Pridėti</a>
-                </p>
-                <div class="clear"></div>
-            </div>
-        {% endfor %}
+            {% for ingredient in ingredients %}
+                <div class="my-ingredient-container">
+                    <div class="img-container"> <img class="thumbnail ingredient-image" src="{{ asset(ingredient.getFoto) }}"/></div>
+                    <h3>{{ ingredient.name }}</h3>
+                    <p><strong>Kiekis: </strong><input type="text" name="quantity" id="{{ ingredient.id }}" value="1" class="input-text-mini" size="2"/> <strong>{{ ingredient.getMeasureUnit.getName }}.</strong></p>
+                    <p>
+                        <a href="javascript:addIngredient(document.getElementById({{ ingredient.id }}))" class="btn">Pridėti</a>
+                    </p>
+                    <div class="clear"></div>
+                </div>
+            {% endfor %}
+        {% endif %}
     </section>
         {% macro input(name, value, type, size) %}
             <input type="{{ type|default('text') }}" name="{{ name }}" value="{{ value|e }}" size="{{ size|default(20) }}" />
@@ -39,8 +41,8 @@
                 quantity: quantity
             },
             success: function(data) {
-//                location.reload(); //perkrauti pslp sekmes atveju
-                $("#user_ingr_table").html(data);
+                location.reload(); //perkrauti pslp sekmes atveju
+//                $("#user_ingr_table").html(data);
             }
         })
     }
@@ -54,6 +56,7 @@
             },
             success: function(data){
                 $('#paieskos_rez').html(data);
+
             }
         })
     }

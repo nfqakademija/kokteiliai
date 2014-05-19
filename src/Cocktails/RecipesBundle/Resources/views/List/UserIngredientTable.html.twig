@@ -1,27 +1,35 @@
 {% block UserIngredientTableBlock %}
-    <div id="user_ingr_table">
-    <article class="is-post is-post-excerpt">
-        <header>
-            <h3>Mano produktai</h3>
-        </header>
-    </article>
+    {% if userIngredients %}
+        <div id="user_ingr_table">
+        <article class="is-post is-post-excerpt">
+            <header>
+                <h3>Mano produktai</h3>
+            </header>
+        </article>
 
-    <article  class="is-post is-post-excerpt">
+        <article  class="is-post is-post-excerpt">
 
-        {% for ingredient in userIngredients %}
-            <div class="my-ingredient-container">
-                <div class="img-container"><img class="thumbnail ingredient-image" src="{{ asset(ingredient.getIngredient.getFoto) }}"/></div>
-                <h3>{{ ingredient.getIngredient.name }}</h3>
-                <p><strong>Kiekis: </strong><input id="input_{{ ingredient.id }}" type="text" class="input-text-mini" size="2" value="{{ ingredient.getQuantity }}"/> <strong>{{ ingredient.getIngredient.getMeasureUnit.getName }}.</strong></p>
-                <p>
-                    <a href="javascript:updateIngredient({{ ingredient.id }})" class="btn">SAUGOTI</a>
-                    <a href="javascript:removeIngredient({{ ingredient.id }})" class="btn">PAŠALINTI</a>
-                </p>
-                <div class="clear"></div>
-            </div>
-        {% endfor %}
-    </article>
-    </div>
+            {% for ingredient in userIngredients %}
+                <div class="my-ingredient-container">
+                    <div class="img-container"><img class="thumbnail ingredient-image" src="{{ asset(ingredient.getIngredient.getFoto) }}"/></div>
+                    <h3>{{ ingredient.getIngredient.name }}</h3>
+                    <p><strong>Kiekis: </strong><input id="input_{{ ingredient.id }}" type="text" class="input-text-mini" size="2" value="{{ ingredient.getQuantity }}"/> <strong>{{ ingredient.getIngredient.getMeasureUnit.getName }}.</strong></p>
+                    <p>
+                        <a href="javascript:updateIngredient({{ ingredient.id }})" class="btn">SAUGOTI</a>
+                        <a href="javascript:removeIngredient({{ ingredient.id }})" class="btn">PAŠALINTI</a>
+                    </p>
+                    <div class="clear"></div>
+                </div>
+            {% endfor %}
+        </article>
+        </div>
+    {% else %}
+        <article class="is-post is-post-excerpt">
+            <header>
+                <h3>Šiuo metu produktų neturite</h3>
+            </header>
+        </article>
+    {% endif %}
     {% macro input(name, value, type, size) %}
         <input type="{{ type|default('text') }}" name="{{ name }}" value="{{ value|e }}" size="{{ size|default(20) }}" />
     {% endmacro %}

@@ -21,7 +21,7 @@
         </p>
         <p>
             {% if is_granted("ROLE_USER") %}
-                {% if ingredientsNeeded|length > 0 %}
+                {% if ingredientsNeeded %}
                     <strong>Trūkstami ingredientai: </strong>
                     <br>
                     {% for ingredientN in ingredientsNeeded %}
@@ -53,9 +53,9 @@
         <div class="clear"></div>
     </article>
 
-    <artticle class="is-post is-post-excerpt">
+    <article class="is-post is-post-excerpt">
         <div class="fb-comments" data-href="{{app.request.uri}}" data-numposts="5" data-colorscheme="light"></div>
-    </artticle>
+    </article>
 
 {% endblock %}
 {% block script %}

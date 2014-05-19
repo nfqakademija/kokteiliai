@@ -7,35 +7,43 @@
         </header>
     </article>
 
-    <!-- Search -->
-    <section class="is-search">
+    {% if ingredientsNeeded %}
+        <section class="is-search">
+            <h3>Trūkstamų produktų sąrašas: </h3>
+            <p></p>
+            <ul class="ingredients-list">
+                {% for ingrNeeded in ingredientsNeeded %}
+                    <li onclick="addIngredientToUser({{ ingrNeeded.id }}, {{ ingrNeeded.quantity }})" ><p><strong>{{ ingrNeeded.name }}</strong><span>{{ ingrNeeded.quantity }} {{ ingrNeeded.measureUnit }}</p></span></li>
+                {% endfor %}
+            </ul>
+        </section>
+    {% elseif recipes %}
+        <section class="is-search">
+            <h3>Jūs turite visus reikiamus produktus </h3>
+        </section>
+    {% else %}
+        <section class="is-search">
+            <h3>Sąrašas tuščias </h3>
+        </section>
+    {% endif %}
 
-        <h3>Trūkstamų produktų sąrašas: </h3>
-        <p></p>
-        <ul class="ingredients-list">
-            {% for ingrNeeded in ingredientsNeeded %}
-                <li onclick="addIngredientToUser({{ ingrNeeded.id }}, {{ ingrNeeded.quantity }})" ><p><strong>{{ ingrNeeded.name }}</strong><span>{{ ingrNeeded.quantity }} {{ ingrNeeded.measureUnit }}</p></span></li>
-            {% endfor %}
-        </ul>
-    </section>
+    {% for recipe in recipes %}
+        <article class="is-post is-post-excerpt">
+            <header>
+                <span class="byline">{{ recipe.getRecipe().getTasteByStatus(recipe.getRecipe().RecipeTaste) }} / {{ recipe.getRecipe().getTypeByStatus(recipe.getRecipe().RecipeType) }} - {{ recipe.getRecipe().name }}</span>
+            </header>
 
-            {% for recipe in recipes %}
-                <article class="is-post is-post-excerpt">
-                    <header>
-                        <span class="byline">{{ recipe.getRecipe().getTasteByStatus(recipe.getRecipe().RecipeTaste) }} / {{ recipe.getRecipe().getTypeByStatus(recipe.getRecipe().RecipeType) }} - {{ recipe.getRecipe().name }}</span>
-                    </header>
-
-                    <a href="{{ path('cocktails_recipe_single', {'id': recipe.recipe.id }) }}" class="image image-full"><img src="{{ asset(recipe.getRecipe().getImageByStatus(recipe.getRecipe().image)) }}" alt=""/></a>
-                    <p>
-                        {#<strong>Ingredientai: </strong> {%  for ingredient in recipe.ingredients %} {{ ingredient.ingredient.name }} {{ ingredient.quantity }}{{ ingredient.ingredient.measureUnit.name }}. {% if not loop.last %},{% endif %} {% endfor %}#}
-                    </p>
-                    <p>
-                        <a href="javascript:removeRecipeFromUser({{ recipe.id }})" class="btn">PAŠALINTI</a>
-                        <a href="{{ path('cocktails_recipe_single', {'id': recipe.recipe.id }) }}" class="btn">PLAČIAU</a>
-                    </p>
-                </article>
-                <div class="clear"></div>
-            {% endfor %}
+            <a href="{{ path('cocktails_recipe_single', {'id': recipe.recipe.id }) }}" class="image image-full"><img src="{{ asset(recipe.getRecipe().getImageByStatus(recipe.getRecipe().image)) }}" alt=""/></a>
+            <p>
+                {#<strong>Ingredientai: </strong> {%  for ingredient in recipe.ingredients %} {{ ingredient.ingredient.name }} {{ ingredient.quantity }}{{ ingredient.ingredient.measureUnit.name }}. {% if not loop.last %},{% endif %} {% endfor %}#}
+            </p>
+            <p>
+                <a href="javascript:removeRecipeFromUser({{ recipe.id }})" class="btn">PAŠALINTI</a>
+                <a href="{{ path('cocktails_recipe_single', {'id': recipe.recipe.id }) }}" class="btn">PLAČIAU</a>
+            </p>
+        </article>
+        <div class="clear"></div>
+    {% endfor %}
 </div>
 {% endblock %}
 {% block script %}
