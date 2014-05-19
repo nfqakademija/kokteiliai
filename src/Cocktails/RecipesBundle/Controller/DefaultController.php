@@ -48,14 +48,21 @@ class DefaultController extends Controller
         return array('form' => $form->createView());
     }
 
-    public function recipeTableAction(Request $request)
+    public function recipeTableAction(Request $request, $ajax = false)
     {
         $sess = $request->getSession();
-        //$sess->set("vardas","test");
 
         $userIngredients =  "";
+        if(!$ajax){
+            $sess->remove("type");
+            $sess->remove("filterData");
+        }
 
-        $list = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:Recipe')->findAll();
+        if($sess->get("type") && $sess->get("filterData"))
+           $list = $this->getFilterData($sess->get("type"), $sess->get("filterData"));
+        else
+            $list = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:Recipe')->findAll();
+
         $tastes = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:RecipeTaste')->findAll();
         $types = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:RecipeType')->findAll();
         $fbCount = $this->getRecipesCount($list);
@@ -71,27 +78,24 @@ class DefaultController extends Controller
             10
         );
 
-        return $this->render('CocktailsRecipesBundle:List:recipeTable.html.twig', array('list' => $pag, 'tastes' => $tastes, 'types' => $types, 'fbCount' => $fbCount, 'ingredients' => $ingredient, 'userIngredients' => $userIngredients));
+        return $this->render('CocktailsRecipesBundle:List:recipeTable.html.twig', array('list' => $pag, 'tastes' => $tastes, 'types' => $types, 'fbCount' => $fbCount, 'ingredients' => $ingredient, 'userIngredients' => $userIngredients, 'sessionType' => $sess->get("type"), 'sessionFilterData' => explode(",",$sess->get("filterData"))));
     }
+
+
     public function updateDataAction(Request $request){
 
         $data = trim($request->get('data'));
         $type = trim($request->get('type'));
 
-
-        //$aa = $request->getSession();
-        //echo $aa->get("vardas");
-
-        $list = "";
-
-        if($type === "type" || $type === "taste"){
-            $list = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:Recipe')->getFilteredRecipes($data, $type);
+        if(isset($_GET['page']))
+           return $this->recipeTableAction($request, true);
+        else{
+            $sess = $request->getSession();
+            $sess->set("type", $type);
+            $sess->set("filterData", $data);
         }
-        elseif($type === "ingredients"){
-            $list = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:RecipesIngredients')->getFilterIngredients($data);
-        }elseif($type === "myIngredients"){
-            $list = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:RecipesIngredients')->getFilterIngredients($data);
-        }
+        $list = $this->getFilterData($type, $data);
+
         $fbCount = $this->getRecipesCount($list);
 
         $paginator  = $this->get('knp_paginator');
@@ -102,6 +106,19 @@ class DefaultController extends Controller
         );
 
         return $this->render('CocktailsRecipesBundle:List:recipeList.html.twig', array('list' => $list, 'fbCount' => $fbCount));
+    }
+    public function getFilterData($type, $data)
+    {
+        $list = "";
+        if($type === "type" || $type === "taste"){
+            $list = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:Recipe')->getFilteredRecipes($data, $type);
+        }
+        elseif($type === "ingredients"){
+            $list = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:RecipesIngredients')->getFilterIngredients($data);
+        }elseif($type === "myIngredients"){
+            $list = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:RecipesIngredients')->getFilterIngredients($data);
+        }
+        return $list;
     }
 
     /**

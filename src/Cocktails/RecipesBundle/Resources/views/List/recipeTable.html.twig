@@ -8,7 +8,13 @@
         <a class="filter-link" href="#" onclick="javascript:filter_with_ajax('type');">Filtruoti</a>
         <ul class="filter_checkbox">
             {% for type in types %}
-                <li><input class="type" type="checkbox" name="{{ type.id }}" id="type-{{ type.id }}" value="{{ type.name }}"/> <label for="type-{{ type.id }}">{{ type.name }}</label></li>
+                {% set check = "" %}
+                {% if sessionType == "type" %}
+                    {% if type.id in sessionFilterData %}
+                        {% set check = "checked" %}
+                    {% endif %}
+                {% endif %}
+                <li><input class="type" type="checkbox" name="{{ type.id }}" id="type-{{ type.id }}" value="{{ type.name }}" {{ check }}/> <label for="type-{{ type.id }}">{{ type.name }}</label></li>
             {% endfor %}
         </ul>
     </article>
@@ -19,7 +25,13 @@
         <a class="filter-link" href="#" onclick="javascript:filter_with_ajax('taste');">Filtruoti</a>
         <ul class="filter_checkbox">
             {% for taste in tastes %}
-                <li><input class="taste" type="checkbox" name="{{ taste.id }}" id="taste-{{ taste.id }}" value="{{ taste.name }}"/> <label for="taste-{{ taste.id }}">{{ taste.name }}</label></li>
+                {% set check = "" %}
+                {% if sessionType == "taste" %}
+                    {% if taste.id in sessionFilterData %}
+                        {% set check = "checked" %}
+                    {% endif %}
+                {% endif %}
+                <li><input class="taste" type="checkbox" name="{{ taste.id }}" id="taste-{{ taste.id }}" value="{{ taste.name }}" {{ check }}/> <label for="taste-{{ taste.id }}">{{ taste.name }}</label></li>
             {% endfor %}
         </ul>
     </article>
@@ -30,7 +42,13 @@
         <a class="filter-link" href="#" onclick="javascript:filter_with_ajax('ingredients');">filtruoti</a>
         <ul class="filter_checkbox">
             {% for ingredient in ingredients %}
-                <li><input class="ingredients" type="checkbox"  name="{{ ingredient.id }}"  id="ingredient-{{ ingredient.id }}" value="{{ ingredient.name }}"/> <label for="ingredient-{{ ingredient.id }}">{{ ingredient.name }}</label></li>
+                {% set check = "" %}
+                {% if sessionType == "ingredients" %}
+                    {% if ingredient.id in sessionFilterData %}
+                        {% set check = "checked" %}
+                    {% endif %}
+                {% endif %}
+                <li><input class="ingredients" type="checkbox"  name="{{ ingredient.id }}"  id="ingredient-{{ ingredient.id }}" value="{{ ingredient.name }}" {{ check }}/> <label for="ingredient-{{ ingredient.id }}">{{ ingredient.name }}</label></li>
             {% endfor %}
         </ul>
     </article>
@@ -41,7 +59,13 @@
         <a class="filter-link" href="#" onclick="javascript:filter_with_ajax('myIngredients');">filtruoti</a>
         <ul class="filter_checkbox">
             {% for userI in userIngredients %}
-                <li><input class="myIngredients" type="checkbox" name="{{ userI.id }}" id="myIngredient-{{ userI.id }}" value="{{ userI.name }}"/> <label for="myIngredient-{{ userI.id }}">{{ userI.name }}</label></li>
+                {% set check = "" %}
+                {% if sessionType == "myIngredients" %}
+                    {% if userI.id in sessionFilterData %}
+                        {% set check = "checked" %}
+                    {% endif %}
+                {% endif %}
+                <li><input class="myIngredients" type="checkbox" name="{{ userI.id }}" id="myIngredient-{{ userI.id }}" value="{{ userI.name }}" {{ check }}/> <label for="myIngredient-{{ userI.id }}">{{ userI.name }}</label></li>
             {% endfor %}
         </ul>
     </article>
