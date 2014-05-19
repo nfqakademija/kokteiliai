@@ -15,7 +15,7 @@
             </div>
             <a href="{{ path('cocktails_recipe_single', {'id': recipe.id }) }}" class="image image-full"><img src="{{ asset(recipe.getImageByStatus(recipe.image)) }}" alt=""/></a>
             <p>
-                <strong>Ingredientai: </strong> {%  for ingredient in recipe.ingredients %} {{ ingredient.ingredient.name }} {{ ingredient.quantity }}{{ ingredient.ingredient.measureUnit.name }}. {% if not loop.last %},{% endif %} {% endfor %}
+                <strong>Ingredientai: </strong> {%  for ingredient in recipe.ingredients %} {{ ingredient.ingredient.name }} {{ ingredient.quantity }}{{ ingredient.ingredient.measureUnit.name }}.{% if not loop.last %},  {% endif %} {% endfor %}
             </p>
             <p>
                 <strong>Gaminimo būdas: </strong>

@@ -48,7 +48,7 @@
                         {% set check = "checked" %}
                     {% endif %}
                 {% endif %}
-                <li><input class="ingredients" type="checkbox"  name="{{ ingredient.id }}"  id="ingredient-{{ ingredient.id }}" value="{{ ingredient.name }}" {{ check }}/> <label for="ingredient-{{ ingredient.id }}">{{ ingredient.name }}</label></li>
+                <li><input class="ingredients" type="checkbox"  name="{{ ingredient.id }}"  id="ingredient-{{ ingredient.id }}" value="{{ ingredient.name }}" {{ check }}/> <label for="ingredient-{{ ingredient.id }}"> {{ ingredient.name }}</label></li>
             {% endfor %}
         </ul>
     </article>
