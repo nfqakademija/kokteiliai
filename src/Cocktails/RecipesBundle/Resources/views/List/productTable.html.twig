@@ -3,7 +3,7 @@
     <section id="paieskos_rez" class="is-search">
         <h3>Įvesk ieškomą produktą: </h3>
         <form method="post" action="#">
-            <input oninput="searchIngr(this.value)" type="text" class="text" name="search" placeholder="Įveskite ieškomo ingredineto pavadinimą" />
+            <input id="paieska" type="text" class="text" name="search" placeholder="Įveskite ieškomo ingredineto pavadinimą" />
         </form>
         {% if ingredients %}
             <h3>Paieškos rezultatai: </h3>
@@ -30,6 +30,16 @@
 {% block script %}
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script>
+    var typingTimer;
+    var doneTypingInterval = 1000;
+
+    $('#paieska').keyup(function(){
+        clearTimeout(typingTimer);
+        if ($('#paieska').val) {
+            typingTimer = setTimeout('searchIngr(document.getElementById("paieska").value)', doneTypingInterval);
+        }
+    });
+
     function addIngredient(element){
         var ingredient = element.getAttribute('id');
         var quantity  = element.value;
