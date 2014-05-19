@@ -154,6 +154,7 @@
 		
 	#content
 	{
+        left: 120px;
 		box-shadow: 0 0 0.25em 0em rgba(0,0,0,0.25);
 	}
 
@@ -174,8 +175,6 @@
 		
 	#sidebar
 	{
-		position: absolute;
-		top: 0;
 		padding: 3em 1.35em 1em 1.15em;
 		width: 14em; /* = whatever you want */
 		background: #364050 url('images/bg1.png');
@@ -184,7 +183,7 @@
 
 		body.left-sidebar #sidebar
 		{
-			left: 0;
+
 		}
 	
 		body.right-sidebar #sidebar

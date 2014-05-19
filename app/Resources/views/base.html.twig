@@ -43,6 +43,13 @@
 <!-- Wrapper -->
 <div id="wrapper">
 
+    <!-- Sidebar -->
+    <div id="sidebar">
+
+        {% block head %}{% endblock %}
+
+    </div>
+
     <!-- Content -->
     <div id="content">
         <div id="content-inner">
@@ -52,16 +59,9 @@
         </div>
     </div>
 
-    <!-- Sidebar -->
-    <div id="sidebar">
-
-        {% block head %}{% endblock %}
-
-    </div>
-
 </div>
     {% block script %}{% endblock %}
-
+<div class="clear"></div>
 </body>
 </html>
 

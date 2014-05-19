@@ -2,7 +2,7 @@
 {% block ingredientTableBlock %}
     <section id="paieskos_rez" class="is-search">
         <h3>Įvesk ieškomą produktą: </h3>
-        <form method="post" action="#">
+        <form method="post" id="ingredient_search" onsubmit="return true">
             <input id="paieska" type="text" class="text" name="search" placeholder="Įveskite ieškomo ingredineto pavadinimą" />
         </form>
         {% if ingredients %}

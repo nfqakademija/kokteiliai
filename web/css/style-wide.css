@@ -149,7 +149,7 @@
 /*********************************************************************************/
 /* Content                                                                       */
 /*********************************************************************************/
-		
+
 	#content
 	{
 		padding: 3em 5em 8em 5em;
@@ -157,7 +157,8 @@
 
 		body.left-sidebar #content
 		{
-			margin-left: 21em; /* = sidebar width + 7 */
+            display: table-cell;
+            margin-left: 8em;
 		}
 		
 		body.right-sidebar #content
