@@ -167,7 +167,8 @@ class DefaultController extends Controller
         return $fbCount;
     }
 
-    public function checkIfAddedAction(Request $request){
+    public function checkIfAddedAction(Request $request)
+    {
         $id = $request->get('id');
         $recipe = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:Recipe')->find($id);
         $user = $this->getUser();
@@ -178,5 +179,22 @@ class DefaultController extends Controller
             return new Response('false');
         }
 
+    }
+
+    public function ajaxSaveVoteAction(Request $request)
+    {
+        $recipeId = (int)$request->get('id');
+        $voteValue = (int)$request->get('value');
+
+        $em = $this->getDoctrine()->getManager();
+        $recipe = $em->getRepository('CocktailsRecipesBundle:Recipe')->find($recipeId);
+        $totalVote = $recipe->getTotalVote();
+        $newVote = round(($recipe->getVote() * $totalVote  + $voteValue)/ ($totalVote + 1), 3);
+        $recipe->setVote($newVote);
+        $recipe->setTotalVote($totalVote + 1);
+        $em->flush();
+
+
+        return new Response();
     }
 }

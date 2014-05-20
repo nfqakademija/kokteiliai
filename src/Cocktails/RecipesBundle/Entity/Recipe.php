@@ -91,9 +91,22 @@ class Recipe
     private $recipeTaste;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="vote", type="decimal", precision=10, scale=3)
+     */
+        private $vote;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="total_vote", type="integer")
+     */
+    private $totalVote;
+    /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -116,7 +129,7 @@ class Recipe
     /**
      * Get name
      *
-     * @return string 
+     * @return string
      */
     public function getName()
     {
@@ -139,7 +152,7 @@ class Recipe
     /**
      * Get rank
      *
-     * @return integer 
+     * @return integer
      */
     public function getRank()
     {
@@ -155,15 +168,9 @@ class Recipe
         $this->rank += 1;
         return $this;
     }
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="vote", type="integer")
-     */
-    private $vote;
 
     /**
-     * @param int $vote
+     * @param string $vote
      */
     public function setVote($vote)
     {
@@ -171,11 +178,27 @@ class Recipe
     }
 
     /**
-     * @return int
+     * @return string
      */
     public function getVote()
     {
         return $this->vote;
+    }
+
+    /**
+     * @param int $totalVote
+     */
+    public function setTotalVote($totalVote)
+    {
+        $this->totalVote = $totalVote;
+    }
+
+    /**
+     * @return int
+     */
+    public function getTotalVote()
+    {
+        return $this->totalVote;
     }
 
 

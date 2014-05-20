@@ -69,3 +69,6 @@ cocktails_check_added:
 cocktails_ingredient_search:
   pattern: /ajaxSearch
   defaults: { _controller:  CocktailsRecipesBundle:Button:ingredientSearch}
+cocktails_save_vote:
+  pattern: /ajaxSaveVote
+  defaults: { _controller:  CocktailsRecipesBundle:Default:ajaxSaveVote}

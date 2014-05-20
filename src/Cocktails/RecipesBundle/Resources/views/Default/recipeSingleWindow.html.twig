@@ -39,8 +39,14 @@
         <p>
             <div class="fb-like" data-href="{{app.request.uri}}" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
         </p>
+            {% set enableVoting = 'true' %}
+            {% if is_granted("ROLE_USER") %}
+                {% set enableVoting = 'false' %}
+            {% endif %}
+            <div class="rateit bigstars" data-productid="{{ recipe.id }}" data-rateit-readonly="{{ enableVoting }}" data-rateit-value="{{ recipe.vote }} " data-rateit-resetable="false" data-rateit-step="1" data-rateit-starwidth="32" data-rateit-starheight="32" >
+            </div>
         {% if is_granted("ROLE_USER") %}
-            <p id="gaminti_button"> <a href="javascript:addRecipeToUser({{ recipe.id }})" class="btn">GAMINSIU</a></p>
+            <a id="gaminti_button" href="javascript:addRecipeToUser({{ recipe.id }})" class="btn">GAMINSIU</a>
             <script>
                 checkIfAdded({{ added }});
                 function checkIfAdded(added){
@@ -70,5 +76,16 @@
                 }
             })
         }
+        $('.rateit').bind('rated reset', function (e) {
+            var ri = $(this);
+            var value = ri.rateit('value');
+            var productID = ri.data('productid');
+            ri.rateit('readonly', true);
+            $.ajax({
+                url: "{{ path('cocktails_save_vote') }}",
+                data: { id: productID, value: value },
+                type: 'POST'
+            });
+        });
     </script>
 {% endblock %}
