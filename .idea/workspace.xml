@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0ef5fb2f-f404-4939-9135-4fd8e44152be" name="Default" comment="Merge commit '55eeea0'&#10;&#10;Conflicts:&#10;&#9;.idea/workspace.xml&#10;&#9;web/css/table.css&#10;">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/images/intro-foto.jpg" afterPath="$PROJECT_DIR$/web/images/intro-foto.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Cocktails/RecipesBundle/Admin/RecipeAdmin.php" afterPath="$PROJECT_DIR$/src/Cocktails/RecipesBundle/Admin/RecipeAdmin.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Cocktails/RecipesBundle/Resources/views/Default/menu.html.twig" afterPath="$PROJECT_DIR$/src/Cocktails/RecipesBundle/Resources/views/Default/menu.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="834ec045-a76a-4ade-b6db-b19435d708fb" name="Rejected commit: Default" comment="Merge commit '55eeea0'&#10;&#10;Conflicts:&#10;&#9;.idea/workspace.xml&#10;&#9;web/css/table.css&#10;" />
@@ -36,6 +37,15 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="RecipeAdmin.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Cocktails/RecipesBundle/Admin/RecipeAdmin.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="28" column="20" selection-start="1034" selection-end="1034" vertical-scroll-proportion="-2.1730769" vertical-offset="261" max-vertical-offset="1139">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="recipeList.html.twig" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Cocktails/RecipesBundle/Resources/views/List/recipeList.html.twig">
           <provider selected="true" editor-type-id="text-editor">
@@ -45,10 +55,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="menu.html.twig" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="menu.html.twig" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Cocktails/RecipesBundle/Resources/views/Default/menu.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="28" selection-start="2116" selection-end="2116" vertical-scroll-proportion="-16.384615" vertical-offset="50" max-vertical-offset="782">
+            <state line="6" column="186" selection-start="452" selection-end="452" vertical-scroll-proportion="0.2881356" vertical-offset="0" max-vertical-offset="782">
               <folding />
             </state>
           </provider>
@@ -63,10 +73,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="style.css" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="style.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1412" column="0" selection-start="37760" selection-end="37760" vertical-scroll-proportion="0.35114503" vertical-offset="23774" max-vertical-offset="24463">
+            <state line="1412" column="0" selection-start="37760" selection-end="37760" vertical-scroll-proportion="-8.846154" vertical-offset="23774" max-vertical-offset="24463">
               <folding />
             </state>
           </provider>
@@ -99,7 +109,6 @@
       <list>
         <option value="$PROJECT_DIR$/src/Cocktails/RecipesBundle/Admin/RecipeTasteAdmin.php" />
         <option value="$PROJECT_DIR$/src/Cocktails/RecipesBundle/Admin/RecipeTypeAdmin.php" />
-        <option value="$PROJECT_DIR$/src/Cocktails/RecipesBundle/Admin/RecipeAdmin.php" />
         <option value="$PROJECT_DIR$/src/Cocktails/RecipesBundle/Form/IngredientType.php" />
         <option value="$PROJECT_DIR$/vendor/doctrine/collections/lib/Doctrine/Common/Collections/ArrayCollection.php" />
         <option value="$PROJECT_DIR$/src/Cocktails/RecipesBundle/Resources/views/stylesheets.html.twig" />
@@ -144,10 +153,11 @@
         <option value="$PROJECT_DIR$/src/Cocktails/RecipesBundle/Resources/views/List/productTable.html.twig" />
         <option value="$PROJECT_DIR$/web/css/style-wide.css" />
         <option value="$PROJECT_DIR$/src/Cocktails/RecipesBundle/Resources/views/List/recipeTable.html.twig" />
-        <option value="$PROJECT_DIR$/src/Cocktails/RecipesBundle/Resources/views/Default/menu.html.twig" />
         <option value="$PROJECT_DIR$/src/Cocktails/RecipesBundle/Resources/views/List/recipeList.html.twig" />
         <option value="$PROJECT_DIR$/web/js/init.js" />
         <option value="$PROJECT_DIR$/web/css/style.css" />
+        <option value="$PROJECT_DIR$/src/Cocktails/RecipesBundle/Admin/RecipeAdmin.php" />
+        <option value="$PROJECT_DIR$/src/Cocktails/RecipesBundle/Resources/views/Default/menu.html.twig" />
       </list>
     </option>
   </component>
@@ -224,56 +234,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="kokteiliai" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="kokteiliai" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="kokteiliai" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="kokteiliai" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="kokteiliai" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="images" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="kokteiliai" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="kokteiliai" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -400,6 +360,32 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="kokteiliai" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="kokteiliai" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Cocktails" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RecipesBundle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Admin" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -569,15 +555,15 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.75555557" sideWeight="0.8882175" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4190341" sideWeight="0.5234139" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.41805556" sideWeight="0.5234139" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3284553" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32930514" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2381258" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2381258" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.7177814" sideWeight="0.11178248" order="3" side_tool="true" content_ui="tabs" />
@@ -655,11 +641,6 @@
     <entry file="file://$PROJECT_DIR$/src/Cocktails/RecipesBundle/Entity/RecipesIngredientsRepository.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="874" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Cocktails/RecipesBundle/Admin/RecipeAdmin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="53" selection-start="1286" selection-end="1286" vertical-scroll-proportion="-0.008982036" vertical-offset="431" max-vertical-offset="1122" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Form/AbstractType.php">
@@ -898,16 +879,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Cocktails/RecipesBundle/Resources/views/List/recipeTable.html.twig">
+    <entry file="file://$PROJECT_DIR$/web/js/init.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="36" selection-start="2003" selection-end="2031" vertical-scroll-proportion="-3.6923077" vertical-offset="522" max-vertical-offset="2346">
+        <state line="80" column="12" selection-start="1878" selection-end="1878" vertical-scroll-proportion="0.0" vertical-offset="1176" max-vertical-offset="2312">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Cocktails/RecipesBundle/Resources/views/Default/menu.html.twig">
+    <entry file="file://$PROJECT_DIR$/web/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="28" selection-start="2116" selection-end="2116" vertical-scroll-proportion="-16.384615" vertical-offset="50" max-vertical-offset="782">
+        <state line="1412" column="0" selection-start="37760" selection-end="37760" vertical-scroll-proportion="-8.846154" vertical-offset="23774" max-vertical-offset="24463">
           <folding />
         </state>
       </provider>
@@ -919,16 +900,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/init.js">
+    <entry file="file://$PROJECT_DIR$/src/Cocktails/RecipesBundle/Resources/views/List/recipeTable.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="80" column="12" selection-start="1878" selection-end="1878" vertical-scroll-proportion="0.0" vertical-offset="1176" max-vertical-offset="2312">
+        <state line="42" column="36" selection-start="2003" selection-end="2031" vertical-scroll-proportion="-3.6923077" vertical-offset="522" max-vertical-offset="2346">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/css/style.css">
+    <entry file="file://$PROJECT_DIR$/src/Cocktails/RecipesBundle/Admin/RecipeAdmin.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1412" column="0" selection-start="37760" selection-end="37760" vertical-scroll-proportion="0.35114503" vertical-offset="23774" max-vertical-offset="24463">
+        <state line="28" column="20" selection-start="1034" selection-end="1034" vertical-scroll-proportion="-2.1730769" vertical-offset="261" max-vertical-offset="1139">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Cocktails/RecipesBundle/Resources/views/Default/menu.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="186" selection-start="452" selection-end="452" vertical-scroll-proportion="0.2881356" vertical-offset="0" max-vertical-offset="782">
           <folding />
         </state>
       </provider>

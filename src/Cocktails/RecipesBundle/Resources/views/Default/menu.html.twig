@@ -4,7 +4,7 @@
     <nav id="nav" class="no-top-margin">
         <ul>
             <li class="{% if app.request.attributes.get('_route')=='cocktails_recipes_table' %}current_page_item{% endif %}"><a href="{{ path('cocktails_recipes_table') }}">Kokteiliai</a></li>
-            <li class="{% if app.request.attributes.get('_route')=='cocktails_recipes_about' %}current_page_item{% endif %}"><a href="{{ path('cocktails_recipes_about') }}">Apie svetainė</a></li>
+            <li class="{% if app.request.attributes.get('_route')=='cocktails_recipes_about' %}current_page_item{% endif %}"><a href="{{ path('cocktails_recipes_about') }}">Apie svetainę</a></li>
             {% if is_granted("ROLE_USER") %}
                 <li class="{% if app.request.attributes.get('_route')=='cocktails_my_products' %}current_page_item{% endif %}"><a href="{{ path('cocktails_my_products') }}">Mano produktai</a></li>
                 <li class="{% if app.request.attributes.get('_route')=='cocktails_my_recipes' %}current_page_item{% endif %}"><a href="{{ path('cocktails_my_recipes') }}">Mano kokteiliai</a></li>

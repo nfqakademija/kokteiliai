@@ -26,7 +26,7 @@ class RecipeAdmin extends Admin
             ->add('image', 'sonata_type_model', array('property' => 'name'))
             ->add('description', 'text', array('label' => 'Description'))
             ->add('rank', 'text', array('label' => 'Rank'))
-            ->add('cote', 'text', array('label' => 'Vote'))
+            ->add('vote', 'text', array('label' => 'Vote'))
             ->add('recipeType', 'sonata_type_model', array('property' => 'name'))
             ->add('recipeTaste', 'sonata_type_model', array('property' => 'name'))
             ->add('ingredients', 'collection', array(
