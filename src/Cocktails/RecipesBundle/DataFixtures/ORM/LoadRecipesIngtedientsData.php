@@ -56,6 +56,26 @@ class LoadRecipesIngtedientsData extends AbstractFixture implements OrderedFixtu
             array('recipe-8','ingredient-25', '250'),
             array('recipe-8','ingredient-15', '1000'),
             array('recipe-8','ingredient-7', '10'),
+
+            array('recipe-9','ingredient-26', '80'),
+            array('recipe-9','ingredient-27', '4'),
+            array('recipe-9','ingredient-10', '4'),
+            array('recipe-9','ingredient-5', '1'),
+
+            array('recipe-10','ingredient-31', '2'),
+            array('recipe-10','ingredient-28', '2'),
+            array('recipe-10','ingredient-32', '200'),
+            array('recipe-10','ingredient-10', '2'),
+
+            array('recipe-11','ingredient-29', '1000'),
+            array('recipe-11','ingredient-2', '1'),
+            array('recipe-11','ingredient-5', '1'),
+            array('recipe-11','ingredient-10', '4'),
+
+            array('recipe-12','ingredient-30', '50'),
+            array('recipe-12','ingredient-32', '200'),
+            array('recipe-12','ingredient-1', '1'),
+            array('recipe-12','ingredient-10', '5'),
         );
 
         foreach($recipesIngredients as $r_s){

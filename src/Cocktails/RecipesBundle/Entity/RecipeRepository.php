@@ -24,9 +24,10 @@ class RecipeRepository extends EntityRepository
                             SELECT r
                             FROM Cocktails\RecipesBundle\Entity\Recipe r
                             $where
+                            ORDER BY r.name ASC
                         "
         );
-        $recipes = $query->getResult();
-        return $recipes;
+        //$recipes = $query->getResult();
+        return $query;
     }
 }

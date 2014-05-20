@@ -58,14 +58,19 @@ class DefaultController extends Controller
             $sess->remove("filterData");
         }
 
-        if($sess->get("type") && $sess->get("filterData"))
+        if($sess->get("type") && $sess->get("filterData")){
            $list = $this->getFilterData($sess->get("type"), $sess->get("filterData"));
-        else
-            $list = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:Recipe')->findAll();
+            $listResult = $list->getResult();
+        }
+        else{
+            $em = $this->getDoctrine()->getManager();
+            $list = $em->createQuery("SELECT r FROM CocktailsRecipesBundle:Recipe r  ORDER BY r.name ASC");
+            $listResult = $list->getResult();
+        }
 
         $tastes = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:RecipeTaste')->findAll();
         $types = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:RecipeType')->findAll();
-        $fbCount = $this->getRecipesCount($list);
+        $fbCount = $this->getRecipesCount($listResult);
         $ingredient = $this->getDoctrine()->getRepository('CocktailsRecipesBundle:Ingredient')->findAll();
 
         if($this->getUser())
@@ -94,9 +99,10 @@ class DefaultController extends Controller
             $sess->set("type", $type);
             $sess->set("filterData", $data);
         }
-        $list = $this->getFilterData($type, $data);
 
-        $fbCount = $this->getRecipesCount($list);
+        $list = $this->getFilterData($type, $data);
+        $listResult = $list->getResult();
+        $fbCount = $this->getRecipesCount($listResult);
 
         $paginator  = $this->get('knp_paginator');
         $list = $paginator->paginate(
@@ -154,8 +160,9 @@ class DefaultController extends Controller
 
     public function getRecipesCount($recipes){
         $fbCount = array();
-        foreach($recipes as $recipe)
+        foreach($recipes as $recipe){
             $fbCount[] = $this->shinra_fb_count('http://kokteiliai.projektai.nfqakademija.lt/Recipe/'.$recipe->getId());
+        }
 
         return $fbCount;
     }

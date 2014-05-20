@@ -99,7 +99,7 @@
     <script>
         function filter_with_ajax(typeFilter)
         {
-            $("#recipe_row").html('<div style=\"text-align:center;\"><img src="{{ asset('files/images/load.gif') }}"></div>');
+            $("#recipe_row").html('<div style=\"text-align:center; width:100%;\"><img src="{{ asset('files/images/load.gif') }}"></div>');
 
             var ids = [];
             $('.'+typeFilter+':checked').each(function() {

@@ -155,6 +155,29 @@ class Recipe
         $this->rank += 1;
         return $this;
     }
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="vote", type="integer")
+     */
+    private $vote;
+
+    /**
+     * @param int $vote
+     */
+    public function setVote($vote)
+    {
+        $this->vote = $vote;
+    }
+
+    /**
+     * @return int
+     */
+    public function getVote()
+    {
+        return $this->vote;
+    }
+
 
     /**
      * Constructor

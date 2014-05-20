@@ -1,51 +1,59 @@
 {% block table %}
-    {% for recipe in list %}
+    {% if list|length > 0 %}
+        <div>Rikiuoti pagal:</div>
+        <div {% if list.isSorted('r.name') %} class="sorted"{% endif %}>{{ knp_pagination_sortable(list, 'Vardą', 'r.name') }}</div>
+        <div {% if list.isSorted('r.vote') %} class="sorted"{% endif %}>{{ knp_pagination_sortable(list, 'Populiariausius', 'r.vote') }}</div>
+        <div {% if list.isSorted('r.createDate') %} class="sorted"{% endif %}>{{ knp_pagination_sortable(list, 'Naujausius', 'r.createDate') }}</div>
+        {% for recipe in list %}
 
-        <article id="rec_list_elem" class="is-post is-post-excerpt">
-            <header>
-                <span class="byline">{{ recipe.getTasteByStatus(recipe.RecipeTaste) }} / {{ recipe.getTypeByStatus(recipe.RecipeType) }} - {{ recipe.name }}</span>
-            </header>
-            <div class="info">
-                <!--<span class="date"><span class="month"> </span> <span class="day">14</span></span>-->
-                <ul class="stats">
-                    <li><a href="#" class="fa fa-heart">{{ recipe.rank }}</a></li>
-                    {#<li><a href="#" class="fa fa-comment"><fb:comments-count href="{{ url('cocktails_recipes_homepage') }}Recipe{{ recipe.id }}"></fb:comments-count></a></li>#}
-                    <li><a href="#" class="fa fa-facebook">{{ fbCount[loop.index-1] }}</a></li>
-                </ul>
-            </div>
-            <a href="{{ path('cocktails_recipe_single', {'id': recipe.id }) }}" class="image image-full"><img src="{{ asset(recipe.getImageByStatus(recipe.image)) }}" alt=""/></a>
-            <p>
-                <strong>Ingredientai: </strong> {%  for ingredient in recipe.ingredients %} {{ ingredient.ingredient.name }} {{ ingredient.quantity }}{{ ingredient.ingredient.measureUnit.name }}.{% if not loop.last %},  {% endif %} {% endfor %}
-            </p>
-            <p>
-                <strong>Gaminimo būdas: </strong>
-                {{ recipe.description }}
-            </p>
-            <p>
-                <a href="{{ path('cocktails_recipe_single', {'id': recipe.id }) }}" class="btn">PLAČIAU</a>
-                {% if is_granted("ROLE_USER") %}
-                    <a id="gaminti_{{ recipe.id }}" href="javascript:addRecipeToUser({{ recipe.id }})" class="btn">GAMINSIU</a>
-                    <script>
-                            checkIfAdded({{ recipe.getId }});
-                        function checkIfAdded(id){
-                            $.ajax({
-                                type: "POST",
-                                url: "{{ path('cocktails_check_added') }}",
-                                data: {id: id},
-                                success: function(data){
-                                    if (data == 'true'){
-                                        $('#gaminti_'+id).hide();
+            <article id="rec_list_elem" class="is-post is-post-excerpt">
+                <header>
+                    <span class="byline">{{ recipe.getTasteByStatus(recipe.RecipeTaste) }} / {{ recipe.getTypeByStatus(recipe.RecipeType) }} - {{ recipe.name }}</span>
+                </header>
+                <div class="info">
+                    <!--<span class="date"><span class="month"> </span> <span class="day">14</span></span>-->
+                    <ul class="stats">
+                        <li><a href="#" class="fa fa-heart">{{ recipe.rank }}</a></li>
+                        {#<li><a href="#" class="fa fa-comment"><fb:comments-count href="{{ url('cocktails_recipes_homepage') }}Recipe{{ recipe.id }}"></fb:comments-count></a></li>#}
+                        <li><a href="#" class="fa fa-facebook">{{ fbCount[loop.index-1] }}</a></li>
+                    </ul>
+                </div>
+                <a href="{{ path('cocktails_recipe_single', {'id': recipe.id }) }}" class="image image-full"><img src="{{ asset(recipe.getImageByStatus(recipe.image)) }}" alt=""/></a>
+                <p>
+                    <strong>Ingredientai: </strong> {%  for ingredient in recipe.ingredients %} {{ ingredient.ingredient.name }} {{ ingredient.quantity }}{{ ingredient.ingredient.measureUnit.name }}.{% if not loop.last %},  {% endif %} {% endfor %}
+                </p>
+                <p>
+                    <strong>Gaminimo būdas: </strong>
+                    {{ recipe.description }}
+                </p>
+                <p>
+                    <a href="{{ path('cocktails_recipe_single', {'id': recipe.id }) }}" class="btn">PLAČIAU</a>
+                    {% if is_granted("ROLE_USER") %}
+                        <a id="gaminti_{{ recipe.id }}" href="javascript:addRecipeToUser({{ recipe.id }})" class="btn">GAMINSIU</a>
+                        <script>
+                                checkIfAdded({{ recipe.getId }});
+                            function checkIfAdded(id){
+                                $.ajax({
+                                    type: "POST",
+                                    url: "{{ path('cocktails_check_added') }}",
+                                    data: {id: id},
+                                    success: function(data){
+                                        if (data == 'true'){
+                                            $('#gaminti_'+id).hide();
+                                        }
+
                                     }
-
-                                }
-                            })
-                        }
-                    </script>
-                {% endif %}
-            </p>
-        </article>
-    {% endfor %}
-    <div class="navigation">
-        {{ knp_pagination_render(list) }}
-    </div>
+                                })
+                            }
+                        </script>
+                    {% endif %}
+                </p>
+            </article>
+        {% endfor %}
+        <div class="navigation">
+            {{ knp_pagination_render(list) }}
+        </div>
+    {% else %}
+        <div>Nerasta receptų!</div>
+    {% endif %}
 {% endblock %}

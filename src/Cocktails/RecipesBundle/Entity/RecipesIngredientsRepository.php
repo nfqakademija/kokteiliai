@@ -15,20 +15,23 @@ class RecipesIngredientsRepository extends EntityRepository
     public function getFilterIngredients($data)
     {
         $em = $this->getEntityManager();
-
+        $where = "";
+        if($data != "")
+            $where = "WHERE i.ingredient IN ($data)";
 
         $query = $em->createQuery(
             "
                             SELECT r
                             FROM Cocktails\RecipesBundle\Entity\Recipe r
                             INNER JOIN r.ingredients i
-                            WHERE i.ingredient IN ($data)
+                            $where
+                            ORDER BY r.name ASC
 
 
                         "
         );
-        $recipes = $query->getResult();
-        return $recipes;
+        //$recipes = $query->getResult();
+        return $query;
 
     }
 }

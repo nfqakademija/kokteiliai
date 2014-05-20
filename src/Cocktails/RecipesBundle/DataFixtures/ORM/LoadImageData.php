@@ -26,6 +26,10 @@ class LoadImageData  extends AbstractFixture implements OrderedFixtureInterface
             array('limonadas1-199x300.jpg', 'image-8', 'files/images/limonadas1-199x300.jpg.jpg'),
             array('2014-04-21_20-45_bananas1.jpeg', 'image-9', 'files/images/2014-04-21_20-45_bananas1.jpeg.jpeg'),
             array('2014-04-21_20-46_braske.jpg', 'image-10', 'files/images/2014-04-21_20-46_braske.jpg.jpeg'),
+            array('sveik_kok', 'image-11', 'files/images/sveik_kok.jpg'),
+            array('pieno_k', 'image-12', 'files/images/pieno_k.jpg'),
+            array('4977', 'image-13', 'files/images/4977.jpg'),
+            array('4968', 'image-14', 'files/images/4968.jpg'),
         );
 
         foreach($imageData as $data){

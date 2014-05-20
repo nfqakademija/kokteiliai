@@ -41,7 +41,13 @@ class LoadIngredientData extends AbstractFixture implements OrderedFixtureInterf
             array('grietinėlė', 'foto', 'measureUnit-2', 'ingredient-23', 'image-9'),
             array('braškės', '2014-04-21_20-46_braske.jpg.jpeg', 'measureUnit-3', 'ingredient-24', 'image-10'),
             array('cukraus sirupas', 'foto', 'measureUnit-2', 'ingredient-25', 'image-9'),
-            array('pienas', 'foto', 'measureUnit-2', 'ingredient-26', 'image-9'),
+            array('apelsinų sultys', 'foto', 'measureUnit-2', 'ingredient-26', 'image-9'),
+            array('grenadino sirupas', 'foto', 'measureUnit-5', 'ingredient-27', 'image-9'),
+            array('kakava', 'foto', 'measureUnit-5', 'ingredient-28', 'image-9'),
+            array('obuolių sultys', 'foto', 'measureUnit-2', 'ingredient-29', 'image-9'),
+            array('riešutų sviestas', 'foto', 'measureUnit-1', 'ingredient-30', 'image-9'),
+            array('šokoladas', 'foto', 'measureUnit-5', 'ingredient-31', 'image-9'),
+            array('pienas', 'foto', 'measureUnit-2', 'ingredient-32', 'image-9'),
         );
 
         foreach($ingredients as $ingredient){
