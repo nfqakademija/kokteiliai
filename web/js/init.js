@@ -77,7 +77,9 @@
 function showHideFilters(){
 
 	$('#filter-menu li a').on('click', function(){
-		window.scrollTo(0, 0);
+        if($(this).parent().hasClass('sort'))
+		    window.scrollTo(0, 0);
+
 		var filterId = $(this).data('link-type');
 		
 		$('.filter-container').hide();

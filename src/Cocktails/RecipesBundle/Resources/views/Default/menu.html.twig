@@ -24,6 +24,9 @@
             {% if is_granted("ROLE_USER") %}
                 <li>Pagal <a href="#" data-link-type="filter-my-ingredients"> mano produktus</a></li>
             {% endif %}
+            <li class="sort">Pagal <div {% if list.isSorted('r.vote') %} class="sorted"{% endif %}>{{ knp_pagination_sortable(list, 'Populiariausius', 'r.vote') }}</div></li>
+            <li class="sort">Pagal <div {% if list.isSorted('r.createDate') %} class="sorted"{% endif %}>{{ knp_pagination_sortable(list, 'Naujausius', 'r.createDate') }}</div></li>
+            <li class="sort">Pagal <div {% if list.isSorted('r.name') %} class="sorted"{% endif %}>{{ knp_pagination_sortable(list, 'Pavadinimą', 'r.name') }}</div></li>
         </ul>
     </section>
     {% endif %}

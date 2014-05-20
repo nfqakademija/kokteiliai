@@ -1394,6 +1394,7 @@ ul.ingredients-list li span{
 /**********************/
 /* filter */
 
+.sort-container,
 .filter-container{
 	display: none;
 	padding: 20px 20px;
@@ -1423,4 +1424,10 @@ input#paieska{
 
 section#paieskos_rez{
     margin-bottom: 0;
+}
+
+.sort a{
+}
+#filter-menu li div{
+    display: inline-block;
 }

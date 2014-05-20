@@ -1,10 +1,7 @@
 {% block table %}
     {% if list|length > 0 %}
-        <div>Rikiuoti pagal:</div>
-        <div {% if list.isSorted('r.name') %} class="sorted"{% endif %}>{{ knp_pagination_sortable(list, 'Vardą', 'r.name') }}</div>
-        <div {% if list.isSorted('r.vote') %} class="sorted"{% endif %}>{{ knp_pagination_sortable(list, 'Populiariausius', 'r.vote') }}</div>
-        <div {% if list.isSorted('r.createDate') %} class="sorted"{% endif %}>{{ knp_pagination_sortable(list, 'Naujausius', 'r.createDate') }}</div>
-        {% for recipe in list %}
+
+    {% for recipe in list %}
 
             <article id="rec_list_elem" class="is-post is-post-excerpt">
                 <header>
